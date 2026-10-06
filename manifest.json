@@ -1,0 +1,38 @@
+{
+  "id": "./",
+  "name": "Unterricht 7OS",
+  "short_name": "Unterricht 7OS",
+  "lang": "de",
+  "description": "Unterrichtsmaterial für Englisch und Deutsch, Klasse 7 OS",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#F5FAF9",
+  "theme_color": "#008E80",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

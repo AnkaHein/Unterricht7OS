@@ -1,0 +1,1789 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Unterricht 7OS</title>
+<meta name="theme-color" content="#008E80">
+<meta name="description" content="Unterrichtsmaterial für Englisch und Deutsch, Klasse 7 OS">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Unterricht 7OS">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" type="image/png" href="icons/favicon.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<style>
+:root{
+  --accent:#00967C;
+  --accent-dark:#01684f;
+  --accent-deep:#014538;
+  --accent-mid:#4fae95;
+  --accent-light:#d7f0ea;
+  --accent-pale:#eef8f4;
+  --neutral:#5c6b66;
+  --neutral-light:#e7ede9;
+  --bg:#f7faf8;
+  --card:#eef7f3;
+  --card2:#e4f0ec;
+  --ink:#1c2a26;
+  --ink-soft:#5f7871;
+  --good:#01684f;
+  --border:#cfe6dc;
+  --radius:14px;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*{box-sizing:border-box;}
+html{scroll-padding-top:env(safe-area-inset-top,0px);}
+body{
+  margin:0;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  min-height:100%;
+}
+header{
+  padding:22px 18px 14px;
+  text-align:center;
+  border-bottom:1px solid var(--border);
+}
+header .headicon{margin-bottom:6px;}
+header h1{
+  margin:0 0 4px;
+  font-size:1.5rem;
+  letter-spacing:-0.01em;
+  color:var(--accent-deep);
+}
+header p{
+  margin:0;
+  color:var(--ink-soft);
+  font-size:0.92rem;
+}
+nav.tabs{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+  padding:12px 14px;
+  border-bottom:1px solid var(--border);
+}
+.tab-row-break{flex-basis:100%; height:10px;}
+nav.tabs button{
+  flex:0 0 auto;
+  display:flex;
+  align-items:center;
+  gap:6px;
+  border:1px solid var(--border);
+  background:var(--card2);
+  color:var(--ink);
+  padding:8px 14px;
+  border-radius:999px;
+  font-size:0.85rem;
+  font-weight:600;
+  cursor:pointer;
+  white-space:nowrap;
+  transition:background .15s, color .15s;
+}
+nav.tabs button svg{stroke:var(--accent-dark); width:16px; height:16px; flex:0 0 auto;}
+nav.tabs button.active{
+  background:var(--accent);
+  border-color:var(--accent);
+  color:#fff;
+}
+nav.tabs button.active svg{stroke:#fff;}
+main{
+  max-width:760px;
+  margin:0 auto;
+  padding:20px 16px 60px;
+}
+section.panel{display:none;}
+section.panel.active{display:block; animation:fade .25s ease;}
+@keyframes fade{from{opacity:0; transform:translateY(4px);} to{opacity:1; transform:none;}}
+.panel-head{display:flex; align-items:center; gap:10px; margin-bottom:4px;}
+.panel-head svg{width:26px; height:26px; stroke:var(--accent); flex:0 0 auto;}
+.panel-head img{width:38px; height:38px; object-fit:contain; flex:0 0 auto;}
+h2.panel-title{
+  font-size:1.2rem;
+  margin:0;
+  color:var(--accent-deep);
+}
+p.panel-sub{
+  margin:6px 0 18px;
+  color:var(--ink-soft);
+  font-size:0.92rem;
+}
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:16px;
+  margin-bottom:14px;
+}
+
+/* ---- Formeltrainer ---- */
+.subtabs{display:flex; gap:8px; margin-bottom:16px;}
+.subtabs button{
+  flex:1;
+  padding:10px;
+  border-radius:10px;
+  border:1px solid var(--border);
+  background:var(--card2);
+  color:var(--ink);
+  font-weight:600;
+  font-size:0.88rem;
+  cursor:pointer;
+}
+.subtabs button.active{background:var(--accent-dark); border-color:var(--accent-dark); color:#fff;}
+.formula-hidden{display:none;}
+.step{margin-bottom:14px;}
+.step label.step-label{
+  display:block;
+  font-weight:700;
+  font-size:0.85rem;
+  color:var(--accent-dark);
+  margin-bottom:6px;
+}
+.step select, .step input[type=text]{
+  width:100%;
+  padding:10px;
+  border-radius:8px;
+  border:1px solid var(--border);
+  background:var(--bg);
+  color:var(--ink);
+  font-size:0.92rem;
+  margin-bottom:6px;
+}
+.preview{
+  background:var(--accent-light);
+  border:1px dashed var(--accent-mid);
+  border-radius:10px;
+  padding:14px;
+  font-size:0.98rem;
+  line-height:1.5;
+  min-height:60px;
+  color:var(--accent-deep);
+}
+.preview em{color:var(--ink-soft); font-style:italic;}
+button.reset{
+  margin-top:10px;
+  padding:9px 16px;
+  border-radius:8px;
+  border:none;
+  background:var(--accent);
+  color:#fff;
+  font-weight:600;
+  cursor:pointer;
+  font-size:0.85rem;
+}
+
+/* ---- Chat Simulator ---- */
+.phone{
+  background:var(--card2);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:12px;
+  margin-bottom:18px;
+}
+.phone-title{font-weight:700; font-size:0.9rem; margin-bottom:10px; color:var(--accent-dark);}
+.msg-row{display:flex; margin-bottom:8px;}
+.msg-row.mine{justify-content:flex-end;}
+.bubble{
+  max-width:80%;
+  padding:9px 12px;
+  border-radius:14px;
+  background:var(--bg);
+  border:1px solid var(--border);
+  font-size:0.85rem;
+  cursor:pointer;
+  position:relative;
+  line-height:1.4;
+}
+.msg-row.mine .bubble{background:var(--accent-light); border-color:var(--accent-mid);}
+.bubble .who{display:block; font-weight:700; font-size:0.75rem; margin-bottom:2px; color:var(--ink-soft);}
+.bubble.flagged{border-color:var(--neutral); border-style:dashed;}
+.bubble.flagged-good{border-color:var(--accent); border-width:2px;}
+.tag-reveal{
+  display:none;
+  margin-top:6px;
+  font-size:0.8rem;
+  border-radius:8px;
+  padding:8px 10px;
+}
+.tag-reveal.show{display:block;}
+.tag-reveal.bad{background:var(--neutral-light); color:var(--neutral);}
+.tag-reveal.good{background:var(--accent-pale); color:var(--accent-dark);}
+
+/* ---- Streitfragen Checker ---- */
+.sf-item{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:12px 14px;
+  margin-bottom:10px;
+}
+.sf-q{font-size:0.95rem; margin-bottom:8px;}
+.sf-btns{display:flex; gap:8px;}
+.sf-btns button{
+  flex:1;
+  padding:8px;
+  border-radius:8px;
+  border:1px solid var(--border);
+  background:var(--card2);
+  color:var(--ink);
+  font-weight:700;
+  font-size:0.88rem;
+  cursor:pointer;
+}
+.sf-btns button.correct-good{background:var(--accent); color:#fff; border-color:var(--accent); font-weight:800;}
+.sf-btns button.correct-bad{background:var(--accent-dark); color:#fff; border-color:var(--accent-dark); font-weight:800;}
+.sf-explain{
+  display:none;
+  margin-top:8px;
+  font-size:0.85rem;
+  color:var(--ink-soft);
+  border-top:1px dashed var(--border);
+  padding-top:8px;
+}
+.sf-explain.show{display:block;}
+
+/* ---- Sortierspiel ---- */
+.pool{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:16px;}
+.chip{
+  background:var(--card2);
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:8px 12px;
+  font-size:0.82rem;
+  cursor:pointer;
+  transition:transform .1s;
+}
+.chip:active{transform:scale(0.97);}
+.chip.picked{outline:2px solid var(--accent);}
+.bins{display:flex; gap:10px;}
+.bin{
+  flex:1;
+  min-height:180px;
+  border:2px dashed var(--border);
+  border-radius:12px;
+  padding:10px;
+}
+.bin h3{margin:0 0 8px; font-size:0.9rem; display:flex; align-items:center; gap:6px;}
+.bin h3 svg{width:16px; height:16px;}
+.bin.do{border-color:var(--accent);}
+.bin.do h3 svg{stroke:var(--accent);}
+.bin.dont{border-color:var(--neutral);}
+.bin.t1{border-color:var(--accent);}
+.bin.t1 h3 svg{stroke:var(--accent);}
+.bin.t2{border-color:var(--accent-dark);}
+.bin.t2 h3 svg{stroke:var(--accent-dark);}
+.bin.dont h3 svg{stroke:var(--neutral);}
+.bin .chip{width:100%; margin-bottom:6px; cursor:default;}
+.bin .chip.right{background:var(--accent-pale); border-color:var(--accent);}
+.bin .chip.wrong{background:var(--neutral-light); border-color:var(--neutral);}
+.score{margin-top:14px; font-size:0.85rem; color:var(--ink-soft); text-align:center;}
+
+/* ---- Selbstcheck ---- */
+.check-item{
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:12px 14px;
+  margin-bottom:8px;
+  cursor:pointer;
+}
+.check-item input{margin-top:3px; width:18px; height:18px; accent-color:var(--accent);}
+.check-item span{font-size:0.92rem;}
+
+/* ---- Selbstcheck 3-stufig ---- */
+.check3-item{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:12px 14px;
+  margin-bottom:10px;
+}
+.check3-text{font-size:0.9rem; margin-bottom:9px; line-height:1.4;}
+.check3-btns{display:flex; gap:6px;}
+.check3-btns button{
+  flex:1;
+  padding:8px 4px;
+  border-radius:8px;
+  border:1px solid var(--border);
+  background:var(--card2);
+  font-size:0.76rem;
+  font-weight:600;
+  cursor:pointer;
+  color:var(--ink-soft);
+}
+.check3-btns button.sel-ja{background:var(--accent); border-color:var(--accent); color:#fff;}
+.check3-btns button.sel-bisschen{background:var(--accent-mid); border-color:var(--accent-mid); color:#fff;}
+.check3-btns button.sel-nein{background:var(--neutral); border-color:var(--neutral); color:#fff;}
+.check3-reflect{margin-top:16px;}
+.check3-reflect label{display:block; font-size:0.85rem; font-weight:600; color:var(--accent-dark); margin-bottom:6px;}
+.check3-reflect textarea{
+  width:100%; min-height:70px; padding:10px; border-radius:8px;
+  border:1px solid var(--border); background:var(--bg); color:var(--ink);
+  font-size:0.9rem; font-family:inherit; resize:vertical; margin-bottom:14px;
+}
+
+/* ---- Beispielthemen ---- */
+.theme-item{
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:12px 14px;
+  margin-bottom:10px;
+}
+.theme-num{
+  flex:0 0 auto;
+  width:26px; height:26px;
+  border-radius:50%;
+  background:var(--accent);
+  color:#fff;
+  font-size:0.8rem;
+  font-weight:700;
+  display:flex; align-items:center; justify-content:center;
+}
+.theme-text{font-size:0.92rem; line-height:1.4; padding-top:3px;}
+
+/* ---- Hilfe beim Schreiben (Plan-Poster) ---- */
+.plan-hero{
+  width:100%;
+  border-radius:12px;
+  margin-bottom:18px;
+  display:block;
+}
+.planstep-item{
+  display:flex;
+  align-items:flex-start;
+  gap:12px;
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:12px 14px;
+  margin-bottom:10px;
+}
+.planstep-num{
+  flex:0 0 auto;
+  width:30px; height:30px;
+  border-radius:50%;
+  background:var(--accent);
+  color:#fff;
+  font-size:0.9rem;
+  font-weight:700;
+  display:flex; align-items:center; justify-content:center;
+}
+.planstep-body h4{margin:0 0 3px; font-size:0.95rem; color:var(--accent-deep);}
+.planstep-body p{margin:0; font-size:0.86rem; color:var(--ink-soft); line-height:1.4;}
+.progressbar{
+  height:8px;
+  border-radius:5px;
+  background:var(--border);
+  overflow:hidden;
+  margin:14px 0 6px;
+}
+.progressbar-fill{height:100%; background:var(--accent); width:0%; transition:width .2s;}
+.progress-label{font-size:0.8rem; color:var(--ink-soft); text-align:center;}
+
+/* ---- Startseite / Inhaltsverzeichnis ---- */
+.start-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+@media (max-width:420px){ .start-grid{grid-template-columns:1fr;} }
+.start-card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:18px 14px;
+  text-align:center;
+  cursor:pointer;
+  transition:transform .12s, border-color .12s;
+}
+.start-card:active{transform:scale(0.97);}
+.start-card:hover{border-color:var(--accent-mid);}
+.start-card .icon-slot{
+  width:56px;
+  height:56px;
+  margin:0 auto 10px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.start-card .icon-slot svg{width:100%; height:100%; stroke:var(--accent-dark);}
+.start-card .icon-slot img{width:100%; height:100%; object-fit:contain;}
+.start-card h3{margin:0 0 4px; font-size:0.95rem; color:var(--accent-deep);}
+.start-card p{margin:0; font-size:0.78rem; color:var(--ink-soft); line-height:1.35;}
+.back-link{
+  display:inline-flex;
+  align-items:center;
+  gap:5px;
+  font-size:0.8rem;
+  color:var(--ink-soft);
+  background:none;
+  border:none;
+  cursor:pointer;
+  padding:0 0 14px;
+}
+.back-link svg{width:14px; height:14px; stroke:var(--ink-soft);}
+
+/* ---- Schritt für Schritt ---- */
+.step-progress{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:16px;
+}
+.step-progress .bar{flex:1; height:8px; border-radius:5px; background:var(--border); overflow:hidden;}
+.step-progress .bar-fill{height:100%; background:var(--accent); transition:width .2s;}
+.step-progress .label{font-size:0.78rem; color:var(--ink-soft); white-space:nowrap;}
+.step-card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:18px 16px;
+  margin-bottom:16px;
+  min-height:120px;
+}
+.step-card h3{margin:0 0 10px; font-size:1.05rem; color:var(--accent-deep);}
+.step-card .body-text{font-size:0.95rem; line-height:1.55;}
+.step-card ul.rule-list{margin:0; padding-left:20px;}
+.step-card ul.rule-list li{margin-bottom:6px; font-size:0.92rem;}
+.step-card .reflect-q{margin-bottom:10px; font-size:0.9rem; color:var(--ink-soft);}
+.step-card textarea{
+  width:100%;
+  min-height:90px;
+  padding:10px;
+  border-radius:8px;
+  border:1px solid var(--border);
+  background:var(--bg);
+  color:var(--ink);
+  font-size:0.92rem;
+  font-family:inherit;
+  resize:vertical;
+  margin-top:6px;
+}
+.step-card .starters{
+  display:flex; flex-wrap:wrap; gap:6px; margin:8px 0;
+}
+.step-card .starters span{
+  background:var(--card2);
+  border:1px solid var(--border);
+  border-radius:8px;
+  padding:5px 9px;
+  font-size:0.78rem;
+  color:var(--ink-soft);
+}
+.help-btn{
+  display:inline-flex; align-items:center; gap:5px;
+  margin-top:10px;
+  padding:7px 12px;
+  border-radius:8px;
+  border:1px solid var(--accent-mid);
+  background:var(--accent-pale);
+  color:var(--accent-dark);
+  font-weight:600;
+  font-size:0.8rem;
+  cursor:pointer;
+}
+.help-btn svg{width:14px; height:14px; stroke:var(--accent-dark);}
+.help-box{
+  display:none;
+  margin-top:10px;
+  background:var(--accent-light);
+  border-radius:8px;
+  padding:10px 12px;
+  font-size:0.85rem;
+  line-height:1.5;
+}
+.help-box.show{display:block;}
+.help-box .ex{font-style:italic; color:var(--accent-deep); margin-top:6px;}
+.checklist-step label{
+  display:flex; align-items:center; gap:8px;
+  font-size:0.9rem; margin-bottom:8px; cursor:pointer;
+}
+.checklist-step input{width:17px; height:17px; accent-color:var(--accent);}
+.step-nav{display:flex; gap:10px;}
+.postit-wrap{display:flex; justify-content:center; margin:18px 0 22px;}
+.postit{
+  position:relative;
+  width:min(300px, 85%);
+  aspect-ratio:1/1;
+  background:url('img/legacy/postit.webp') center/contain no-repeat;
+  padding:22% 22% 24% 14%;
+  box-sizing:border-box;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  gap:18px;
+}
+.postit .ka-item + .ka-item{padding-top:14px; border-top:1px solid rgba(1,69,56,0.18);}
+.postit .ka-date{display:block; font-weight:800; font-size:1.02rem; color:#014538; letter-spacing:0.2px;}
+.postit .ka-topic{display:block; font-size:0.92rem; color:#1c2a26; margin-top:3px;}
+.ka-btn{
+  display:block;
+  width:100%;
+  padding:13px;
+  border-radius:10px;
+  border:1px solid var(--accent);
+  background:var(--accent);
+  color:#fff;
+  font-weight:700;
+  font-size:0.95rem;
+  cursor:pointer;
+  font-family:inherit;
+}
+.ka-btn:hover{opacity:0.92;}
+.step-nav button{
+  flex:1;
+  padding:11px;
+  border-radius:10px;
+  border:1px solid var(--border);
+  background:var(--card2);
+  font-weight:600;
+  font-size:0.88rem;
+  cursor:pointer;
+}
+.step-nav button.primary{background:var(--accent); border-color:var(--accent); color:#fff;}
+.step-nav button:disabled{opacity:0.4; cursor:default;}
+.worksheet-summary{
+  background:var(--accent-pale);
+  border:1px dashed var(--accent-mid);
+  border-radius:10px;
+  padding:14px;
+  font-size:0.92rem;
+  line-height:1.6;
+  margin-bottom:8px;
+}
+.worksheet-summary .ws-label{font-weight:700; color:var(--accent-dark); font-size:0.78rem; display:block; margin:10px 0 2px;}
+.worksheet-summary .ws-label:first-child{margin-top:0;}
+
+/* ---- Konnektoren-Übung ---- */
+.conn-item{
+  background:var(--card2);
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:12px 14px;
+  margin-bottom:10px;
+}
+.conn-sentence{font-size:0.92rem; margin-bottom:8px; line-height:1.5;}
+.conn-gap{
+  display:inline-block;
+  min-width:36px;
+  border-bottom:2px solid var(--accent-mid);
+  text-align:center;
+  color:var(--ink-soft);
+}
+.conn-options{display:flex; gap:8px; flex-wrap:wrap;}
+.conn-options button{
+  padding:7px 12px;
+  border-radius:8px;
+  border:1px solid var(--border);
+  background:var(--bg);
+  color:var(--ink);
+  font-weight:700;
+  font-size:0.88rem;
+  cursor:pointer;
+}
+.conn-options button.correct{background:var(--accent); border-color:var(--accent); color:#fff; font-weight:800;}
+.conn-options button.wrong{background:var(--accent-dark); border-color:var(--accent-dark); color:#fff; font-weight:800;}
+
+/* ---- Kommasetzungs-Übung ---- */
+.comma-item{
+  background:var(--card2);
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:12px 14px;
+  margin-bottom:10px;
+}
+.comma-sentence{font-size:0.94rem; line-height:2;}
+.comma-gap{
+  display:inline-block;
+  width:22px;
+  height:22px;
+  line-height:20px;
+  border-radius:50%;
+  border:1px solid var(--accent-mid);
+  background:var(--bg);
+  color:var(--accent-mid);
+  font-size:0.75rem;
+  cursor:pointer;
+  margin:0 2px;
+}
+.comma-gap.correct{background:var(--accent); border-color:var(--accent); color:#fff; font-weight:700;}
+.comma-gap.wrong{background:var(--neutral-light); border-color:var(--neutral); color:var(--neutral);}
+
+/* ---- Deko-Bilder ---- */
+.header-floral{
+  position:absolute;
+  top:-6px;
+  right:-6px;
+  width:100px;
+  height:auto;
+  opacity:0.9;
+  pointer-events:none;
+}
+header{position:relative; overflow:visible;}
+.corner-floral{
+  position:absolute;
+  width:85px;
+  height:auto;
+  opacity:0.85;
+  pointer-events:none;
+  z-index:0;
+}
+.corner-floral.bl{bottom:-10px; left:-10px;}
+#start{position:relative;}
+.flourish-center{
+  display:block;
+  width:110px;
+  height:auto;
+  margin:14px auto 4px;
+  opacity:0.9;
+}
+.step-image{
+  display:block;
+  max-width:100%;
+  width:auto;
+  max-height:220px;
+  margin:10px auto 14px;
+  border-radius:8px;
+}
+
+/* ================= Aquarell-Design (Schulfarbe #008E80) ================= */
+:root{
+  --accent:#008E80; --accent-dark:#00695F; --accent-deep:#00443E; --accent-mid:#4DB3A8;
+  --accent-light:#CFEBE7; --accent-pale:#EDF7F5; --neutral:#5a706b; --neutral-light:#e3eeeb;
+  --bg:#F5FAF9; --card:#EDF7F5; --card2:#E2F1EE; --ink:#1B2B28; --ink-soft:#587873; --border:#C5E3DE;
+  --good:#00695F; --radius:18px;
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+}
+html{background:var(--bg);}
+body{
+  background:
+    radial-gradient(520px 380px at 0% 0%, rgba(0,142,128,.16), transparent 70%),
+    radial-gradient(480px 420px at 100% 38%, rgba(77,179,168,.16), transparent 70%),
+    radial-gradient(560px 420px at 0% 100%, rgba(0,142,128,.14), transparent 70%),
+    var(--bg);
+  background-attachment:fixed;
+  -webkit-tap-highlight-color:transparent;
+}
+h1,h2.panel-title,.start-card h3,.tile h3,.section-label{font-family:var(--serif);}
+
+/* ---- Kopf ---- */
+header.site-head{
+  position:relative; overflow:hidden; cursor:pointer; text-align:center;
+  padding:calc(26px + env(safe-area-inset-top,0px)) 18px 20px; border-bottom:none;
+  background:
+    radial-gradient(300px 150px at 12% 20%, rgba(0,142,128,.30), transparent 70%),
+    radial-gradient(320px 170px at 90% 80%, rgba(77,179,168,.32), transparent 70%),
+    linear-gradient(180deg,#e3f3f0,rgba(245,250,249,0));
+}
+header.site-head::after{ /* weicher Aquarell-Auslauf */
+  content:""; position:absolute; left:0; right:0; bottom:0; height:18px;
+  background:linear-gradient(180deg,transparent,var(--bg)); pointer-events:none;
+}
+.head-img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; mix-blend-mode:multiply; pointer-events:none;}
+.head-inner{position:relative; z-index:1;}
+.head-bloom{width:46px; height:46px; color:var(--accent); display:block; margin:0 auto 4px;}
+header.site-head h1{font-size:1.95rem; font-weight:600; letter-spacing:.01em; color:var(--accent-deep); margin:0;}
+header.site-head p{margin:4px 0 0; font-size:.95rem; color:var(--accent-dark); letter-spacing:.14em; text-transform:uppercase;}
+header.site-head:focus-visible, .tile:focus-visible{outline:3px solid var(--accent-mid); outline-offset:3px;}
+
+main{padding-top:10px;}
+p.panel-sub.center{text-align:center; font-size:1rem; margin-bottom:14px;}
+h2.panel-title{font-size:1.45rem; font-weight:600; line-height:1.2;}
+.section-label{margin:26px 0 10px; font-size:1.05rem; color:var(--accent-dark); font-weight:600;
+  display:flex; align-items:center; gap:10px;}
+.section-label::after{content:""; flex:1; height:1px; background:linear-gradient(90deg,var(--border),transparent);}
+
+/* ---- Kacheln ---- */
+.tile-grid{display:grid; gap:14px;}
+.tile-grid.two{grid-template-columns:1fr 1fr;}
+.tile-grid.one{grid-template-columns:1fr;}
+.tile{
+  position:relative; cursor:pointer; user-select:none;
+  background:linear-gradient(160deg,#ffffff 0%,#f1f9f7 100%);
+  border:1px solid var(--border); border-radius:22px; padding:12px 12px 16px;
+  box-shadow:0 1px 0 #fff inset, 0 6px 18px -8px rgba(0,100,90,.35);
+  transition:transform .15s, box-shadow .15s, border-color .15s;
+  overflow:hidden;
+}
+.tile::before{ /* Aquarell-Hauch in der Ecke */
+  content:""; position:absolute; right:-40px; top:-40px; width:140px; height:140px; border-radius:50%;
+  background:radial-gradient(circle,rgba(0,142,128,.16),transparent 70%); pointer-events:none;
+}
+.tile:hover{border-color:var(--accent-mid); box-shadow:0 10px 24px -10px rgba(0,100,90,.45);}
+.tile:active{transform:scale(.975);}
+.tile-art{position:relative; width:100%; aspect-ratio:1/1; display:grid; place-items:center;}
+.tile-art .fb{width:62%; height:62%; color:var(--accent);}
+.tile:nth-child(2n) .tile-art .fb{color:var(--accent-dark);}
+.tile-art img{position:absolute; inset:0; width:100%; height:100%; object-fit:contain; background:#fff; mix-blend-mode:multiply; border-radius:14px;}
+.tile-art.ok .fb{visibility:hidden;}
+.tile h3{margin:10px 0 2px; font-size:1.15rem; font-weight:600; color:var(--accent-deep); text-align:center; line-height:1.2;}
+.tile p{margin:0; font-size:.82rem; color:var(--ink-soft); text-align:center; line-height:1.35;}
+.tile.big h3{font-size:1.4rem;}
+.tile.wide{display:grid; grid-template-columns:104px 1fr; align-items:center; gap:14px; padding:10px 16px 10px 10px;}
+.tile.wide .tile-art{width:104px;}
+.tile.wide .tile-text h3{text-align:left; margin:0 0 3px; font-size:1.08rem;}
+.tile.wide .tile-text p{text-align:left;}
+.tile.wide.small{grid-template-columns:72px 1fr;} .tile.wide.small .tile-art{width:72px;}
+.tile.wide.small .tile-text h3{font-size:.98rem;}
+.badge{position:absolute; top:12px; right:12px; background:var(--accent-light); color:var(--accent-dark); font-size:.7rem; font-weight:700;
+  padding:3px 9px; border-radius:999px; letter-spacing:.04em; text-transform:uppercase;}
+
+/* ---- Karten & Hinweise ---- */
+.note-card{background:linear-gradient(160deg,#fff,var(--accent-pale)); border:1px dashed var(--accent-mid); border-radius:var(--radius);
+  padding:18px; color:var(--accent-dark); text-align:center; line-height:1.5;}
+.card,.step-card{border-radius:18px; background:linear-gradient(160deg,#fff,#f3faf8);}
+.back-link{border-radius:999px;}
+.toast{position:fixed; left:50%; bottom:calc(24px + env(safe-area-inset-bottom,0px)); transform:translate(-50%,20px); opacity:0; pointer-events:none;
+  background:var(--accent-deep); color:#fff; padding:11px 18px; border-radius:999px; font-size:.9rem; transition:.25s; max-width:90vw; text-align:center; z-index:50;}
+.toast.show{opacity:1; transform:translate(-50%,0);}
+.ka-btn.small{width:auto; display:inline-block; padding:9px 18px; margin-top:8px;}
+.install-box{margin-top:26px; padding:14px 16px; border-radius:16px; background:rgba(255,255,255,.7); border:1px solid var(--border);
+  text-align:center; font-size:.9rem; color:var(--ink-soft); line-height:1.5;}
+.install-box p{margin:0;}
+
+/* ---- Bild-Slots mit Text-Alternative ---- */
+.art-slot img{display:block; width:100%; height:auto; border-radius:16px; box-shadow:0 8px 24px -12px rgba(0,100,90,.45); background:#fff;}
+.art-slot.ok .fb{display:none;}
+
+/* ---- Zeitstrahl (Alternative, solange kein Bild da ist) ---- */
+.timeline{list-style:none; margin:0; padding:0; position:relative;}
+.timeline::before{content:""; position:absolute; left:76px; top:10px; bottom:10px; width:3px; border-radius:3px;
+  background:linear-gradient(180deg,var(--accent-mid),var(--accent),var(--accent-mid)); opacity:.55;}
+.timeline li{display:grid; grid-template-columns:62px 1fr; gap:36px; align-items:start; padding:10px 0; position:relative;}
+.timeline li::before{content:""; position:absolute; left:70px; top:19px; width:15px; height:15px; border-radius:50%; background:#fff; border:3px solid var(--accent);}
+.tl-date{display:flex; flex-direction:column; text-align:right; line-height:1.15;}
+.tl-date b{font-family:var(--serif); font-size:1.08rem; color:var(--accent-deep);}
+.tl-date i{font-style:normal; font-size:.75rem; color:var(--ink-soft);}
+.tl-what{background:linear-gradient(160deg,#fff,#f1f9f7); border:1px solid var(--border); border-radius:14px; padding:10px 14px; font-size:.95rem; line-height:1.4; color:var(--ink);}
+.tl-what small{display:block; margin-top:3px; color:var(--ink-soft); font-size:.8rem;}
+.timeline li.off .tl-what{background:var(--neutral-light); color:var(--neutral);}
+.timeline li.off::before{border-color:var(--neutral);}
+.timeline li.ka .tl-what{background:var(--accent); border-color:var(--accent); color:#fff; font-weight:700;}
+.timeline li.ka .tl-what small{color:#e6f6f3; font-weight:400;}
+.timeline li.ka::before{background:var(--accent-deep); border-color:var(--accent-deep);}
+
+/* ---- Alte Tool-Kacheln im neuen Look ---- */
+.start-grid{gap:12px;}
+.start-card{border-radius:20px; background:linear-gradient(160deg,#fff,#f1f9f7); box-shadow:0 6px 16px -10px rgba(0,100,90,.4);}
+.start-card h3{font-weight:600;}
+@media (max-width:360px){ .tile.wide{grid-template-columns:84px 1fr;} .tile.wide .tile-art{width:84px;} }
+@media (min-width:720px){ .tile-grid.one{grid-template-columns:1fr 1fr;} }
+@media (prefers-reduced-motion:reduce){ *{transition:none !important; animation:none !important;} }
+
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <radialGradient id="pg" cx="50%" cy="85%" r="85%"><stop offset="0" stop-color="#008E80" stop-opacity=".95"/><stop offset="1" stop-color="#4DB3A8" stop-opacity=".30"/></radialGradient>
+    <g id="blossom">
+      <g fill="url(#pg)" stroke="#00695F" stroke-opacity=".45" stroke-width=".8">
+        <ellipse cx="50" cy="26" rx="12" ry="19"/>
+        <ellipse cx="50" cy="26" rx="12" ry="19" transform="rotate(60 50 50)"/>
+        <ellipse cx="50" cy="26" rx="12" ry="19" transform="rotate(120 50 50)"/>
+        <ellipse cx="50" cy="26" rx="12" ry="19" transform="rotate(180 50 50)"/>
+        <ellipse cx="50" cy="26" rx="12" ry="19" transform="rotate(240 50 50)"/>
+        <ellipse cx="50" cy="26" rx="12" ry="19" transform="rotate(300 50 50)"/>
+      </g>
+      <circle cx="50" cy="50" r="7.5" fill="#fbfbef"/>
+      <circle cx="50" cy="50" r="3.6" fill="#00695F"/>
+    </g>
+  </defs>
+</svg>
+
+<header class="site-head" data-goto="start" role="button" tabindex="0" aria-label="Zur Startseite">
+  <img class="head-img" src="img/header-bluetenrand.png" alt="" onerror="this.remove()">
+  <div class="head-inner">
+    <svg class="head-bloom" viewBox="0 0 100 100" aria-hidden="true"><use href="#blossom"/></svg>
+    <h1>Unterricht 7OS</h1>
+    <p>Englisch &amp; Deutsch</p>
+  </div>
+</header>
+
+<main>
+<section class="panel active" id="start">
+  <p class="panel-sub center">Wähle dein Fach.</p>
+  <div class="tile-grid two">
+    <div class="tile big" role="button" tabindex="0" data-goto="englisch"><div class="tile-art"><svg class="fb" viewBox="0 0 100 100" aria-hidden="true"><use href="#blossom"/></svg><img src="img/kachel-englisch.png" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.remove()"></div><div class="tile-text"><h3>Englisch</h3><p>English</p></div></div>
+    <div class="tile big" role="button" tabindex="0" data-goto="deutsch"><div class="tile-art"><svg class="fb" viewBox="0 0 100 100" aria-hidden="true"><use href="#blossom"/></svg><img src="img/kachel-deutsch.png" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.remove()"></div><div class="tile-text"><h3>Deutsch</h3><p>Deutsch</p></div></div>
+  </div>
+  <div class="install-box" id="installBox" hidden>
+    <p id="installText"></p>
+    <button class="ka-btn small" id="installBtn" hidden>Als App installieren</button>
+  </div>
+</section>
+<section class="panel" id="englisch">
+  <button class="back-link" data-goto="start"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Startseite</button>
+  <div class="panel-head"><h2 class="panel-title">Englisch</h2></div>
+  <p class="panel-sub">Hier entstehen die Inhalte für Englisch.</p>
+  <div class="note-card">Die Englischseite wird gerade erarbeitet. Schau bald wieder vorbei!</div>
+</section>
+<section class="panel" id="deutsch">
+  <button class="back-link" data-goto="start"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Startseite</button>
+  <div class="panel-head"><h2 class="panel-title">Deutsch</h2></div>
+  <p class="panel-sub">Was steht in den nächsten Wochen an?</p>
+  <div class="tile-grid one">
+    <div class="tile wide" role="button" tabindex="0" data-goto="ablauf"><div class="tile-art"><svg class="fb" viewBox="0 0 100 100" aria-hidden="true"><use href="#blossom"/></svg><img src="img/kachel-ablauf.png" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.remove()"></div><div class="tile-text"><h3>Ablauf der nächsten Schulwochen</h3><p>Termine vom 28.10. bis 02.12.2026</p></div></div>
+    <div class="tile wide" role="button" tabindex="0" data-goto="ballade"><div class="tile-art"><svg class="fb" viewBox="0 0 100 100" aria-hidden="true"><use href="#blossom"/></svg><img src="img/kachel-ballade.png" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.remove()"></div><div class="tile-text"><h3>Balladenvortrag am 28.10.2026</h3><p>Bewertungsbogen</p></div></div>
+    <div class="tile wide" role="button" tabindex="0" data-goto="zeichensetzung"><div class="tile-art"><svg class="fb" viewBox="0 0 100 100" aria-hidden="true"><use href="#blossom"/></svg><img src="img/kachel-zeichensetzung.png" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.remove()"></div><div class="tile-text"><h3>Zeichensetzung (ab dem 04.11.2026)</h3><p>Erklärungen und Übungen für die Klassenarbeit</p></div></div>
+  </div>
+  <h3 class="section-label">Weitere Inhalte</h3>
+  <div class="tile-grid one">
+    <div class="tile wide small" role="button" tabindex="0" data-goto="klartext"><div class="tile-art"><svg class="fb" viewBox="0 0 100 100" aria-hidden="true"><use href="#blossom"/></svg><img src="img/kachel-klartext.png" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.remove()"></div><div class="tile-text"><h3>Klartext statt Krawall</h3><p>Übungstools zu Meinung, Gegenargument &amp; fairer Diskussion</p></div></div>
+    <div class="tile wide small" role="button" tabindex="0" data-goto="klassenarbeiten"><div class="tile-art"><svg class="fb" viewBox="0 0 100 100" aria-hidden="true"><use href="#blossom"/></svg><img src="img/kachel-klassenarbeiten.png" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.remove()"></div><div class="tile-text"><h3>Klassenarbeiten und komplexe Leistung</h3><p>Termine und Themen im Überblick</p></div></div>
+  </div>
+</section>
+<section class="panel" id="ablauf">
+  <button class="back-link" data-goto="deutsch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Deutsch</button>
+  <div class="panel-head"><h2 class="panel-title">Ablauf der nächsten Schulwochen</h2></div>
+  <p class="panel-sub">28.10.2026 bis 02.12.2026</p>
+  <div class="art-slot" id="ablauf-slot">
+    <img src="img/ablauf-uebersicht.png" alt="Übersicht der Termine vom 28.10. bis 02.12.2026: 28.10. Balladenvortrag; 04.11. Wörtliche Rede, Aufzählungen, Datumsangaben in Brief und Einladung; 11.11. zweigliedrige Sätze; 18.11. Buß- und Bettag, keine Schule; 25.11. zweigliedrige Sätze; 02.12. Klassenarbeit (Inhalte aus den Unterrichtsstunden 04.11., 11.11. und 25.11.)" onload="this.parentNode.classList.add('ok')" onerror="this.remove()">
+    <ol class="timeline fb"><li class=""><span class="tl-date"><b>28.10.</b><i>Mi</i></span><span class="tl-what">Balladenvortrag</span></li><li class=""><span class="tl-date"><b>04.11.</b><i>Mi</i></span><span class="tl-what">Wörtliche Rede, Aufzählungen, Datumsangaben in Brief und Einladung</span></li><li class=""><span class="tl-date"><b>11.11.</b><i>Mi</i></span><span class="tl-what">Zweigliedrige Sätze</span></li><li class="off"><span class="tl-date"><b>18.11.</b><i>Mi</i></span><span class="tl-what">Buß- und Bettag – keine Schule</span></li><li class=""><span class="tl-date"><b>25.11.</b><i>Mi</i></span><span class="tl-what">Zweigliedrige Sätze</span></li><li class="ka"><span class="tl-date"><b>02.12.</b><i>Mi</i></span><span class="tl-what">Klassenarbeit<small>(Inhalte aus den Unterrichtsstunden 04.11., 11.11. und 25.11.)</small></span></li></ol>
+  </div>
+</section>
+<section class="panel" id="ballade">
+  <button class="back-link" data-goto="deutsch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Deutsch</button>
+  <div class="panel-head"><h2 class="panel-title">Balladenvortrag am 28.10.2026</h2></div>
+  <p class="panel-sub">So wird dein Vortrag bewertet.</p>
+  <div class="art-slot" id="bogen-slot">
+    <img src="img/bewertungsbogen.png" alt="Bewertungsbogen für den Balladenvortrag" onload="this.parentNode.classList.add('ok')" onerror="this.remove()">
+    <div class="note-card fb">Der Bewertungsbogen wird noch eingestellt.</div>
+  </div>
+</section>
+<section class="panel" id="zeichensetzung">
+  <button class="back-link" data-goto="deutsch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Deutsch</button>
+  <div class="panel-head"><h2 class="panel-title">Zeichensetzung</h2></div>
+  <p class="panel-sub">Unterricht ab dem 04.11.2026 · Klassenarbeit am 02.12.2026<br>(Inhalte aus den Unterrichtsstunden 04.11., 11.11. und 25.11.)</p>
+  <div class="tile-grid two">
+    <div class="tile " role="button" tabindex="0" data-soon="1"><div class="tile-art"><svg class="fb" viewBox="0 0 100 100" aria-hidden="true"><use href="#blossom"/></svg><img src="img/kachel-erklaerungen.png" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.remove()"></div><div class="tile-text"><h3>Erklärungen</h3><p>zu den Inhalten der Klassenarbeit</p></div><span class="badge">folgt</span></div>
+    <div class="tile " role="button" tabindex="0" data-soon="1"><div class="tile-art"><svg class="fb" viewBox="0 0 100 100" aria-hidden="true"><use href="#blossom"/></svg><img src="img/kachel-uebungen.png" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.remove()"></div><div class="tile-text"><h3>Übungen</h3><p>für die Klassenarbeit</p></div><span class="badge">folgt</span></div>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</section>
+<section class="panel" id="klartext">
+  <button class="back-link" data-goto="deutsch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Deutsch</button>
+  <div class="panel-head"><h2 class="panel-title">Klartext statt Krawall</h2></div>
+  <p class="panel-sub">Übungstools zu Meinung, Gegenargument &amp; fairer Diskussion</p>
+  <div class="start-grid">
+    <div class="start-card" data-goto="formel">
+      <div class="icon-slot" id="icon-slot-formel"><img src="img/legacy/formel.webp" alt=""></div>
+      <h3>Formeltrainer</h3>
+      <p>Meinungs- &amp; Gegenargument-Formel bauen</p>
+    </div>
+    <div class="start-card" data-goto="chat">
+      <div class="icon-slot" id="icon-slot-chat"><img src="img/legacy/chat.webp" alt=""></div>
+      <h3>Chat-Simulator</h3>
+      <p>Klassenchats analysieren</p>
+    </div>
+    <div class="start-card" data-goto="streit">
+      <div class="icon-slot" id="icon-slot-streit"><img src="img/legacy/streit.webp" alt=""></div>
+      <h3>Streitfragen-Checker</h3>
+      <p>Gut oder schwach? Neue Beispiele</p>
+    </div>
+    <div class="start-card" data-goto="sort">
+      <div class="icon-slot" id="icon-slot-sort"><img src="img/legacy/sort.webp" alt=""></div>
+      <h3>Do's &amp; Don'ts</h3>
+      <p>Aussagen sortieren</p>
+    </div>
+    <div class="start-card" data-goto="check" style="grid-column:1 / -1;">
+      <div class="icon-slot" id="icon-slot-check"><img src="img/legacy/check.webp" alt=""></div>
+      <h3>Selbstcheck</h3>
+      <p>Eigene Mini-Erörterung prüfen</p>
+    </div>
+    <div class="start-card" data-goto="planhilfe" style="grid-column:1 / -1;">
+      <div class="icon-slot" id="icon-slot-planhilfe"><img src="img/legacy/planhilfe.webp" alt=""></div>
+      <h3>Hilfe beim Schreiben einer Mini-Erörterung</h3>
+      <p>Der Schreibplan in 6 Schritten, übersichtlich als Poster</p>
+    </div>
+    <div class="start-card" data-goto="aufgaben" style="grid-column:1 / -1;">
+      <div class="icon-slot" id="icon-slot-aufgaben"><img src="img/legacy/aufgaben.webp" alt=""></div>
+      <h3>Deine Aufgaben</h3>
+      <p>Übersicht deiner Aufgaben für diese Stunde</p>
+    </div>
+    <div class="start-card" data-goto="schritt" style="grid-column:1 / -1;">
+      <div class="icon-slot" id="icon-slot-schritt"><img src="img/legacy/schritt.webp" alt=""></div>
+      <h3>Schritt für Schritt: Vom Gedanken zum Text</h3>
+      <p>Hilfen &amp; Beispiele zur Streitfrage „Sollte die Schule später beginnen?“ – die Antworten kommen aufs Arbeitsblatt</p>
+    </div>
+    <div class="start-card" data-goto="weitere" style="grid-column:1 / -1;">
+      <div class="icon-slot" id="icon-slot-weitere"><img src="img/legacy/weitere.webp" alt=""></div>
+      <h3>Weitere Mini-Erörterung schreiben</h3>
+      <p>Ein eigenes Thema wählen und selbstständig üben</p>
+    </div>
+    <div class="start-card" data-goto="themen" style="grid-column:1 / -1;">
+      <div class="icon-slot" id="icon-slot-themen"><img src="img/legacy/themen.webp" alt=""></div>
+      <h3>Beispielthemen</h3>
+      <p>10 weitere Streitfragen für eine Mini-Erörterung</p>
+    </div>
+    <div class="start-card" data-goto="zuordnen" style="grid-column:1 / -1;">
+      <div class="icon-slot" id="icon-slot-zuordnen"><img src="img/legacy/zuordnen.webp" alt=""></div>
+      <h3>Themen zuordnen</h3>
+      <p>Textteile den beiden Mini-Erörterungen zuordnen</p>
+    </div>
+    <div class="start-card" data-goto="klassenarbeiten" style="grid-column:1 / -1;">
+      <div class="icon-slot" id="icon-slot-klassenarbeiten"><img src="img/legacy/postit.webp" alt=""></div>
+      <h3>Klassenarbeiten</h3>
+      <p>Termine und Themen im Überblick</p>
+    </div>
+  </div>
+
+</section>
+
+<!-- ================= FORMELTRAINER ================= -->
+<section class="panel" id="formel">
+  <button class="back-link" data-goto="klartext"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Klartext statt Krawall</button>
+  <div class="panel-head">
+    <img src="img/legacy/formel.webp" alt="">
+    <h2 class="panel-title">Formeltrainer</h2>
+  </div>
+  <p class="panel-sub">Baut Satz für Satz euer Statement – wählt einen Anfang und ergänzt ihn.</p>
+
+  <div class="subtabs">
+    <button class="active" data-formula="meinung">Meinungsformel</button>
+    <button data-formula="gegen">Gegenargument-Formel</button>
+  </div>
+
+  <div class="card" id="meinung-formula">
+    <div id="meinung-steps"></div>
+    <div class="preview" id="meinung-preview"><em>Euer Statement erscheint hier …</em></div>
+    <button class="reset" onclick="resetFormula('meinung')">Neu starten</button>
+  </div>
+
+  <div class="card formula-hidden" id="gegen-formula">
+    <div id="gegen-steps"></div>
+    <div class="preview" id="gegen-preview"><em>Euer Statement erscheint hier …</em></div>
+    <button class="reset" onclick="resetFormula('gegen')">Neu starten</button>
+  </div>
+</section>
+
+<!-- ================= CHAT SIMULATOR ================= -->
+<section class="panel" id="chat">
+  <button class="back-link" data-goto="klartext"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Klartext statt Krawall</button>
+  <div class="panel-head">
+    <img src="img/legacy/chat.webp" alt="">
+    <h2 class="panel-title">Chat-Simulator</h2>
+  </div>
+  <p class="panel-sub">Tippt auf eine Nachricht: Was läuft hier gut oder schlecht?</p>
+  <div id="chat-container"></div>
+</section>
+
+<!-- ================= STREITFRAGEN CHECKER ================= -->
+<section class="panel" id="streit">
+  <button class="back-link" data-goto="klartext"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Klartext statt Krawall</button>
+  <div class="panel-head">
+    <img src="img/legacy/streit.webp" alt="">
+    <h2 class="panel-title">Streitfragen-Checker</h2>
+  </div>
+  <p class="panel-sub">Neue Beispiele – gut oder schwache Streitfrage? Tippen und Begründung lesen.</p>
+  <div id="sf-container"></div>
+</section>
+
+<!-- ================= SORTIERSPIEL ================= -->
+<section class="panel" id="sort">
+  <button class="back-link" data-goto="klartext"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Klartext statt Krawall</button>
+  <div class="panel-head">
+    <img src="img/legacy/sort.webp" alt="">
+    <h2 class="panel-title">Do's &amp; Don'ts sortieren</h2>
+  </div>
+  <p class="panel-sub">Tippt eine Karte an, dann auf „Do" oder „Don't".</p>
+  <div class="pool" id="sort-pool"></div>
+  <div class="bins">
+    <div class="bin do"><h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Do</h3><div id="bin-do"></div></div>
+    <div class="bin dont"><h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>Don't</h3><div id="bin-dont"></div></div>
+  </div>
+  <div class="score" id="sort-score"></div>
+</section>
+
+<!-- ================= SELBSTCHECK ================= -->
+<section class="panel" id="check">
+  <button class="back-link" data-goto="klartext"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Klartext statt Krawall</button>
+  <div class="panel-head">
+    <img src="img/legacy/check.webp" alt="">
+    <h2 class="panel-title">Selbstcheck</h2>
+  </div>
+  <p class="panel-sub">Prüft eure eigene Mini-Erörterung: Ist alles drin, was einen guten Text ausmacht?</p>
+  <div id="check-container"></div>
+  <div class="progressbar"><div class="progressbar-fill" id="check-fill"></div></div>
+  <div class="progress-label" id="check-label">0 von 0 erledigt</div>
+  <div class="check3-reflect">
+    <label>Das ist mir besonders gut gelungen:</label>
+    <textarea placeholder="…"></textarea>
+    <label>Das könnte ich noch verbessern:</label>
+    <textarea placeholder="…"></textarea>
+  </div>
+</section>
+
+<!-- ================= SCHRITT FÜR SCHRITT ================= -->
+<section class="panel" id="schritt">
+  <button class="back-link" data-goto="klartext"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Klartext statt Krawall</button>
+  <div class="panel-head">
+    <img src="img/legacy/schritt.webp" alt="">
+    <h2 class="panel-title">Vom Gedanken zum Text</h2>
+  </div>
+  <p class="panel-sub">Hilfen &amp; Beispiele zur Streitfrage „Sollte die Schule später beginnen?“ – eure Antworten schreibt ihr auf euer Arbeitsblatt.</p>
+
+  <div class="step-progress">
+    <div class="bar"><div class="bar-fill" id="rs-bar-fill"></div></div>
+    <div class="label" id="rs-step-label">Schritt 1 von 1</div>
+  </div>
+
+  <div class="step-card" id="rs-step-content"></div>
+
+  <div class="step-nav">
+    <button id="rs-prev">Zurück</button>
+    <button id="rs-next" class="primary">Weiter</button>
+  </div>
+</section>
+
+<!-- ================= BEISPIELTHEMEN ================= -->
+<section class="panel" id="themen">
+  <button class="back-link" data-goto="klartext"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Klartext statt Krawall</button>
+  <div class="panel-head">
+    <img src="img/legacy/themen.webp" alt="">
+    <h2 class="panel-title">Beispielthemen</h2>
+  </div>
+  <p class="panel-sub">Weitere Streitfragen für eine eigene Mini-Erörterung.</p>
+  <div id="themen-container"></div>
+</section>
+
+<!-- ================= HILFE BEIM SCHREIBEN (PLAN-POSTER) ================= -->
+<section class="panel" id="planhilfe">
+  <button class="back-link" data-goto="klartext"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Klartext statt Krawall</button>
+  <div class="panel-head">
+    <img src="img/legacy/planhilfe.webp" alt="" style="width:26px;height:26px;object-fit:contain;">
+    <h2 class="panel-title">Hilfe beim Schreiben einer Mini-Erörterung</h2>
+  </div>
+  <p class="panel-sub">Euer Weg zur fertigen Mini-Erörterung – in 6 Stationen.</p>
+  <img class="plan-hero" src="img/legacy/plan-hero.webp" alt="Schreibplan in 6 Schritten">
+  <div id="planhilfe-container"></div>
+</section>
+
+<!-- ================= WEITERE MINI-ERÖRTERUNG ================= -->
+<section class="panel" id="weitere">
+  <button class="back-link" data-goto="klartext"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Klartext statt Krawall</button>
+  <div class="panel-head">
+    <img src="img/legacy/weitere.webp" alt="" style="width:26px;height:26px;object-fit:contain;">
+    <h2 class="panel-title">Weitere Mini-Erörterung schreiben</h2>
+  </div>
+  <p class="panel-sub">Übt selbstständig mit einem eigenen Thema.</p>
+  <div class="step-card">
+    <ol style="margin:0; padding-left:1.3em; line-height:1.7;">
+      <li>Holt euch das Arbeitsblatt von Frau Hein mit den zwei Beispiel-Mini-Erörterungen und seht es euch genau an.</li>
+      <li>Sucht euch bei den Beispielthemen ein Thema aus. Es darf nicht Thema 2 oder Thema 8 sein, denn diese befinden sich bereits auf dem Arbeitsblatt der Beispiel-Mini-Erörterungen.</li>
+      <li>Schreibe eine weitere Mini-Erörterung zu deinem ausgewählten Thema. Nimm ein Blatt Papier (liniert), schreibe deinen Namen auf und mache Folgendes:
+        <ul style="margin:8px 0 0; padding-left:1.2em; line-height:1.7;">
+          <li>Schreibe deine Streitfrage auf.</li>
+          <li>Schreibe deine Position auf.</li>
+          <li>Verfasse einen kleinen Argumentationsplan (siehe der vorherige Argumentationsplan).</li>
+          <li>Schreibe eine Mini-Erörterung mit Einleitung, Hauptteil und Schluss. (Achte darauf, die einzelnen Abschnitte gut sichtbar voneinander zu trennen – das bedeutet nicht, einen Strich zu ziehen, sondern entweder eine neue Zeile zu beginnen oder, wenn du die letzte Zeile fast voll geschrieben hast, eine Zeile frei zu lassen.)</li>
+        </ul>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ================= DEINE AUFGABEN ================= -->
+<section class="panel" id="aufgaben">
+  <button class="back-link" data-goto="klartext"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Klartext statt Krawall</button>
+  <div class="panel-head">
+    <img src="img/legacy/aufgaben.webp" alt="" style="width:26px;height:26px;object-fit:contain;">
+    <h2 class="panel-title">Deine Aufgaben</h2>
+  </div>
+  <p class="panel-sub">Stand: 23.09.2026</p>
+  <div class="step-card">
+    <h3 style="margin:0 0 8px;">Deine Aufgaben am 23.09.2026</h3>
+    <ol style="margin:0; padding-left:1.3em; line-height:1.7;">
+      <li>Arbeite dich durch das Kapitel „Schritt für Schritt". Du solltest mindestens das Arbeitsblatt mit den Pro- und Kontra-Argumenten und den Argumentationsplan ausgefüllt haben.</li>
+    </ol>
+  </div>
+  <div class="step-card" style="margin-top:16px;">
+    <h3 style="margin:0 0 8px;">Deine Aufgaben am 30.09.2026</h3>
+    <ol style="margin:0; padding-left:1.3em; line-height:1.7;">
+      <li>Arbeite dich weiter durch das Kapitel „Schritt für Schritt". Du solltest am Ende eine vollständige Mini-Erörterung geschrieben und sie bei Frau Hein abgegeben haben.</li>
+    </ol>
+  </div>
+  <div class="step-card" style="margin-top:16px;">
+    <h3 style="margin:0 0 8px;">Deine Aufgaben am 07.10.2026</h3>
+    <ol style="margin:0; padding-left:1.3em; line-height:1.7;">
+      <li>Bearbeite die Aufgaben unter „Weitere Mini-Erörterung". Du musst am Ende alle drei Aufgaben dieses Abschnitts fertig haben und Frau Hein dein Geschriebenes abgeben.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ================= THEMEN ZUORDNEN ================= -->
+<section class="panel" id="zuordnen">
+  <button class="back-link" data-goto="klartext"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Klartext statt Krawall</button>
+  <div class="panel-head">
+    <img src="img/legacy/zuordnen.webp" alt="">
+    <h2 class="panel-title">Themen zuordnen</h2>
+  </div>
+  <p class="panel-sub">Tippt einen Textteil an, dann auf das passende Thema.</p>
+  <div class="pool" id="zu-pool"></div>
+  <div class="bins">
+    <div class="bin t1"><h3>Thema 1<br><span style="font-weight:400; font-size:0.72rem;">Mehr Wahlfächer?</span></h3><div id="bin-t1"></div></div>
+    <div class="bin t2"><h3>Thema 2<br><span style="font-weight:400; font-size:0.72rem;">E-Scooter unter 16?</span></h3><div id="bin-t2"></div></div>
+  </div>
+  <div class="score" id="zu-score"></div>
+</section>
+
+<!-- ================= KLASSENARBEITEN ================= -->
+<section class="panel" id="klassenarbeiten">
+  <button class="back-link" data-goto="deutsch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Deutsch</button>
+  <div class="panel-head">
+    <img src="img/legacy/postit.webp" alt="" style="width:26px;height:26px;object-fit:contain;">
+    <h2 class="panel-title">Klassenarbeiten und komplexe Leistung</h2>
+  </div>
+  <p class="panel-sub">Termine und Themen im Überblick.</p>
+  <div class="step-card">
+    <h3 style="margin:0 0 8px;">Komplexe Leistung</h3>
+    <p class="body-text">In SOUL wird zum Thema Balladen eine komplexe Leistung stattfinden. Die Abgabe der schriftlichen Leistungen ist am 30.10.2026. Wann die mündliche Leistung erfolgt, wird noch bekannt gegeben.</p>
+  </div>
+  <div class="postit-wrap">
+    <div class="postit">
+      <div class="ka-item"><span class="ka-date">02.12.2026</span><span class="ka-topic">Zeichensetzung</span></div>
+      <div class="ka-item"><span class="ka-date">12.05.2027</span><span class="ka-topic">Inhaltsangabe</span></div>
+    </div>
+  </div>
+  <button class="ka-btn" onclick="toggleKAUebung()">Übungen für die erste Klassenarbeit</button>
+  <div id="ka-uebung-box" style="display:none; margin-top:16px;">
+    <div class="step-card">
+      <p class="body-text">Die Übungen werden noch eingestellt. Grundlage der Klassenarbeiten sind immer die Aspekte aus dem Unterricht.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<script>
+/* ---------- Tab Navigation ---------- */
+function toggleKAUebung(){
+  const box = document.getElementById('ka-uebung-box');
+  if(box) box.style.display = (box.style.display === 'none' ? 'block' : 'none');
+}
+
+const PANELS = [...document.querySelectorAll('section.panel')].map(p => p.id);
+function goToPanel(id, push){
+  if(!PANELS.includes(id)) id = 'start';
+  document.querySelectorAll('section.panel').forEach(p => p.classList.toggle('active', p.id === id));
+  document.body.dataset.panel = id;
+  window.scrollTo(0, 0);
+  if(push !== false){ try{ history.pushState({p:id}, '', '#' + id); }catch(e){} }
+}
+let toastTimer;
+function showSoon(el){
+  const t = document.getElementById('toast'); if(!t) return;
+  t.textContent = '„' + el.querySelector('h3').textContent + '“ wird noch eingestellt.';
+  t.classList.add('show'); clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove('show'), 2600);
+}
+document.addEventListener('click', e => {
+  const s = e.target.closest('[data-soon]'); if(s){ showSoon(s); return; }
+  const g = e.target.closest('[data-goto]'); if(g) goToPanel(g.dataset.goto);
+});
+document.addEventListener('keydown', e => {
+  if((e.key === 'Enter' || e.key === ' ') && e.target.matches('[role=button]')){ e.preventDefault(); e.target.click(); }
+});
+window.addEventListener('popstate', () => goToPanel(location.hash.slice(1) || 'start', false));
+goToPanel(location.hash.slice(1) || 'start', false);
+
+/* ================= FORMELTRAINER ================= */
+document.querySelectorAll('.subtabs button').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.subtabs button').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('meinung-formula').classList.toggle('formula-hidden', btn.dataset.formula!=='meinung');
+    document.getElementById('gegen-formula').classList.toggle('formula-hidden', btn.dataset.formula!=='gegen');
+  });
+});
+
+const formulas = {
+  meinung:[
+    {label:"1. Klare Meinung", starters:["Ich bin dafür, dass","Ich bin dagegen, dass","Ich finde, dass"]},
+    {label:"2. Begründung", starters:["… weil","… denn","Ein Grund dafür ist, dass"]},
+    {label:"3. Beispiel", starters:["Zum Beispiel","Ein Beispiel dafür ist, dass"]},
+    {label:"4. Einschränkung", starters:["Allerdings sollte","Trotzdem gilt, dass","Das funktioniert aber nur, wenn"]},
+    {label:"5. Schlussfolgerung", starters:["Deshalb","Aus diesem Grund","Insgesamt finde ich, dass"]}
+  ],
+  gegen:[
+    {label:"1. Eigene Position + Begründung", starters:["Ich bin der Meinung, dass","Ich finde, dass"]},
+    {label:"2. Gegenargument einbauen", starters:["Manche sagen aber, dass","Andere finden, dass","Ein Gegenargument ist, dass","Gegen meine Meinung spricht, dass"]},
+    {label:"3. Gegenargument fair aufnehmen", starters:["Das stimmt teilweise, weil","Das kann ich verstehen, denn","Daran ist richtig, dass","Dieser Einwand ist wichtig, weil"]},
+    {label:"4. Eigene Meinung weiter vertreten", starters:["Trotzdem finde ich, dass","Dennoch bin ich der Meinung, dass","Allerdings gilt das nur, wenn","Deshalb sollte man unterscheiden zwischen"]},
+    {label:"5. Schluss formulieren", starters:["Deshalb komme ich zu dem Schluss, dass","Aus diesem Grund sollte","Insgesamt finde ich, dass","Für mich bedeutet das, dass"]}
+  ]
+};
+
+function buildFormula(key){
+  const container = document.getElementById(key+'-steps');
+  container.innerHTML='';
+  formulas[key].forEach((step,i)=>{
+    const div=document.createElement('div');
+    div.className='step';
+    const optId=key+'-opt-'+i, txtId=key+'-txt-'+i;
+    div.innerHTML=`
+      <label class="step-label">${step.label}</label>
+      <select id="${optId}" onchange="updatePreview('${key}')">
+        ${step.starters.map(s=>`<option value="${s}">${s} …</option>`).join('')}
+      </select>
+      <input type="text" id="${txtId}" placeholder="… hier ergänzen" oninput="updatePreview('${key}')">
+    `;
+    container.appendChild(div);
+  });
+  updatePreview(key);
+}
+
+function updatePreview(key){
+  let parts=[];
+  formulas[key].forEach((step,i)=>{
+    const opt=document.getElementById(key+'-opt-'+i).value;
+    const txt=document.getElementById(key+'-txt-'+i).value.trim();
+    if(txt) parts.push(opt+' '+txt);
+  });
+  const preview=document.getElementById(key+'-preview');
+  if(parts.length===0){
+    preview.innerHTML='<em>Euer Statement erscheint hier …</em>';
+  } else {
+    preview.textContent = parts.join(' ') + '.';
+  }
+}
+
+function resetFormula(key){
+  formulas[key].forEach((step,i)=>{
+    document.getElementById(key+'-txt-'+i).value='';
+    document.getElementById(key+'-opt-'+i).selectedIndex=0;
+  });
+  updatePreview(key);
+}
+
+buildFormula('meinung');
+buildFormula('gegen');
+
+/* ================= CHAT SIMULATOR ================= */
+const chats = [
+{
+  title:"Chat 1 – Sollte die Klasse ihre Sitzordnung selbst bestimmen dürfen?",
+  msgs:[
+    {who:"Lea", text:"Ich finde, wir sollten selbst entscheiden dürfen, wo wir sitzen.", mine:false},
+    {who:"Tom", text:"DAS IST DOCH KOMPLETT UNNÖTIG!!! WARUM REDEN WIR ÜBERHAUPT DARÜBER???", mine:true, flag:"bad", explain:"Großbuchstaben wirken wie Schreien – unsachlich, keine Begründung."},
+    {who:"Mia", text:"Ich glaube, wenn jeder neben seinen Freunden sitzt, wird's laut …", mine:false},
+    {who:"Tom", text:"Mia hat sowieso nie eine gute Meinung. Ignoriert das einfach.", mine:true, flag:"bad", explain:"Persönlicher Angriff – Person statt Meinung wird angegriffen."},
+    {who:"Jan", text:"Lea, antworte doch mal sofort, warum antwortest du nicht??", mine:false, flag:"bad", explain:"Druck auf sofortige Antwort – bei digitalen Diskussionen unfair."}
+  ]
+},
+{
+  title:"Chat 2 – Sollten Hausaufgaben abgeschafft werden?",
+  msgs:[
+    {who:"Sara", text:"Ich bin dagegen, weil man ohne Hausaufgaben viel vergisst.", mine:false},
+    {who:"Ben", text:"😂😂😂🔥🔥🔥 lol wer liest das überhaupt", mine:true, flag:"bad", explain:"Macht sich über den Beitrag lustig, nimmt ihn nicht ernst."},
+    {who:"Nina", text:"Können wir bitte beim Thema bleiben?", mine:false},
+    {who:"Ben", text:"Screenshot davon geht direkt in die andere Klassengruppe 📷", mine:true, flag:"bad", explain:"Teilt private Nachrichten ohne zu fragen weiter."},
+    {who:"Sara", text:"Das wollte ich aber nicht öffentlich teilen …", mine:false}
+  ]
+},
+{
+  title:"Chat 3 – Darf KI bei Hausaufgaben helfen?",
+  msgs:[
+    {who:"Elif", text:"Ich finde, KI sollte nur zur Erklärung genutzt werden, nicht zum Abschreiben.", mine:false},
+    {who:"Kevin", text:"Falsch. Nächstes Thema.", mine:true, flag:"bad", explain:"Blockt ohne Begründung ab, despektierlich."},
+    {who:"Elif", text:"Magst du erklären, warum du anderer Meinung bist?", mine:false},
+    {who:"Kevin", text:"Muss ich nicht. Alle in der Klasse sehen das eh so wie ich.", mine:true, flag:"bad", explain:"Verweigert Begründung, beruft sich auf Mehrheit statt Argument."},
+    {who:"Paul", text:"Stimmt gar nicht, ich seh das wie Elif, aber wird ja eh keiner gefragt hier…", mine:false, flag:"bad", explain:"Fühlt sich nicht gehört – zeigt, dass Rederecht nicht fair verteilt ist."}
+  ]
+},
+{
+  title:"Chat 4 – Sollte die Schule später beginnen? (Positivbeispiel)",
+  msgs:[
+    {who:"Hannah", text:"Ich bin dafür, weil viele morgens noch total müde sind.", mine:false},
+    {who:"Finn", text:"Ich verstehe deinen Punkt, aber dann würde der Unterricht später enden. Wie siehst du das?", mine:true, flag:"good", explain:"Nimmt das Argument fair auf und stellt eine Rückfrage."},
+    {who:"Hannah", text:"Guter Einwand! Vielleicht könnte man nur 30 Minuten später starten.", mine:false, flag:"good", explain:"Würdigt das Gegenargument, sucht einen Kompromiss."},
+    {who:"Finn", text:"Das klingt fair. Was denken die anderen dazu?", mine:true, flag:"good", explain:"Bezieht andere aktiv mit ein."}
+  ]
+}
+];
+
+const chatContainer = document.getElementById('chat-container');
+chats.forEach((chat, ci)=>{
+  const phone=document.createElement('div');
+  phone.className='phone';
+  let html = `<div class="phone-title">${chat.title}</div>`;
+  chat.msgs.forEach((m,mi)=>{
+    const flagged = m.flag ? (m.flag==='good'?'flagged-good':'flagged') : '';
+    html += `
+    <div class="msg-row ${m.mine?'mine':''}">
+      <div class="bubble ${flagged}" ${m.explain?`onclick="toggleTag('${ci}-${mi}')"`:''}>
+        <span class="who">${m.who}</span>${m.text}
+        ${m.explain?`<div class="tag-reveal ${m.flag==='good'?'good':'bad'}" id="tag-${ci}-${mi}">${m.flag==='good'?'✅ ':'⚠️ '}${m.explain}</div>`:''}
+      </div>
+    </div>`;
+  });
+  phone.innerHTML=html;
+  chatContainer.appendChild(phone);
+});
+
+function toggleTag(id){
+  document.getElementById('tag-'+id).classList.toggle('show');
+}
+
+/* ================= STREITFRAGEN CHECKER ================= */
+const sfItems = [
+  {q:"Sollten Smartwatches im Unterricht erlaubt sein?", good:true, why:"Gute Streitfrage: klar als Frage formuliert, kontrovers, konkretes Thema."},
+  {q:"Handys sind eigentlich ganz praktisch.", good:false, why:"Schwach: keine Frage, keine klare Position zum Diskutieren – eher eine Feststellung. Besser: „Sollten Handys im Unterricht erlaubt sein?“"},
+  {q:"Sollte die Mensa nur noch vegetarisches Essen anbieten?", good:true, why:"Gute Streitfrage: konkret, es gibt zwei vertretbare Positionen."},
+  {q:"Was denkst du über unsere Schulmensa?", good:false, why:"Schwach: offene Frage ohne klare Ja/Nein-Position, zu allgemein. Besser: „Sollte die Mensa vegetarisches Essen anbieten?“"},
+  {q:"Sollte es ein Mindestalter von 16 Jahren für Social Media geben?", good:true, why:"Gute Streitfrage: eindeutig, konkret, kontrovers diskutierbar."},
+  {q:"Ist Social Media schlecht für Jugendliche?", good:false, why:"Schwach: zu allgemein formuliert, „schlecht“ ist nicht klar definiert. Besser mit konkreter Maßnahme fragen, z. B. Mindestalter."},
+  {q:"Sollte man für Gruppenarbeit eine gemeinsame Note statt Einzelnoten bekommen?", good:true, why:"Gute Streitfrage: konkret, klare Position möglich, kontrovers."},
+  {q:"Warum gibt es überhaupt Noten?", good:false, why:"Schwach: Warum-Frage, keine Streitfrage – lässt sich nicht mit dafür/dagegen beantworten."}
+];
+
+const sfContainer = document.getElementById('sf-container');
+sfItems.forEach((item,i)=>{
+  const div=document.createElement('div');
+  div.className='sf-item';
+  div.innerHTML=`
+    <div class="sf-q">${i+1}. „${item.q}“</div>
+    <div class="sf-btns">
+      <button onclick="sfCheck(${i}, true, this)">gut</button>
+      <button onclick="sfCheck(${i}, false, this)">schwach</button>
+    </div>
+    <div class="sf-explain" id="sf-explain-${i}">${item.why}</div>
+  `;
+  sfContainer.appendChild(div);
+});
+
+function sfCheck(i, guess, btn){
+  const item=sfItems[i];
+  const row=btn.parentElement;
+  row.querySelectorAll('button').forEach(b=>b.classList.remove('correct-good','correct-bad'));
+  if(guess===item.good){
+    btn.classList.add(item.good?'correct-good':'correct-bad');
+  } else {
+    row.querySelectorAll('button').forEach(b=>{
+      if((b.textContent==='gut')===item.good) b.classList.add(item.good?'correct-good':'correct-bad');
+    });
+  }
+  document.getElementById('sf-explain-'+i).classList.add('show');
+}
+
+/* ================= SORTIERSPIEL ================= */
+const sortItems = [
+  {text:"Ich lasse andere ausreden.", cat:"do"},
+  {text:"Ich falle anderen ins Wort.", cat:"dont"},
+  {text:"Ich schreibe in Großbuchstaben, wenn ich wütend bin.", cat:"dont"},
+  {text:"Ich begründe meine Meinung mit einem Beispiel.", cat:"do"},
+  {text:"Ich unterhalte mich nebenbei mit meinem Sitznachbarn.", cat:"dont"},
+  {text:"Ich frage nach, wenn ich etwas nicht verstehe.", cat:"do"},
+  {text:"Ich lache jemanden aus, wenn er etwas Falsches sagt.", cat:"dont"},
+  {text:"Ich sage sachlich, wenn ich anderer Meinung bin.", cat:"do"},
+  {text:"Ich teile private Nachrichten ohne zu fragen weiter.", cat:"dont"},
+  {text:"Ich höre wirklich zu, auch wenn ich anderer Meinung bin.", cat:"do"},
+  {text:"Ich unterstelle anderen schlechte Absichten.", cat:"dont"},
+  {text:"Ich lasse auch leisere Personen zu Wort kommen.", cat:"do"},
+  {text:"Ich erwarte, dass alle sofort antworten.", cat:"dont"},
+  {text:"Ich bleibe beim Thema der Diskussion.", cat:"do"}
+];
+const sortOrder = [0,2,5,1,7,3,9,4,11,6,13,8,10,12];
+
+let sortState = sortOrder.map(i=>({...sortItems[i], placed:false}));
+let selectedChip = null;
+let correctCount = 0, attempts = 0;
+
+function renderPool(){
+  const pool = document.getElementById('sort-pool');
+  pool.innerHTML='';
+  sortState.forEach((item,i)=>{
+    if(item.placed) return;
+    const chip=document.createElement('div');
+    chip.className='chip';
+    chip.textContent=item.text;
+    chip.onclick=()=>{
+      document.querySelectorAll('#sort-pool .chip').forEach(c=>c.classList.remove('picked'));
+      chip.classList.add('picked');
+      selectedChip = i;
+    };
+    pool.appendChild(chip);
+  });
+  updateScore();
+}
+
+function placeInBin(binCat){
+  if(selectedChip===null) return;
+  const item = sortState[selectedChip];
+  const bin = document.getElementById(binCat==='do'?'bin-do':'bin-dont');
+  const chip=document.createElement('div');
+  chip.className='chip '+(item.cat===binCat?'right':'wrong');
+  chip.textContent = item.text + (item.cat===binCat ? ' ✓' : ' ✗ (gehört zu ' + (item.cat==='do'?"Do":"Don't") + ')');
+  bin.appendChild(chip);
+  item.placed = true;
+  attempts++;
+  if(item.cat===binCat) correctCount++;
+  selectedChip = null;
+  renderPool();
+}
+
+document.querySelector('.bin.do').addEventListener('click',()=>placeInBin('do'));
+document.querySelector('.bin.dont').addEventListener('click',()=>placeInBin('dont'));
+
+function updateScore(){
+  const remaining = sortState.filter(i=>!i.placed).length;
+  document.getElementById('sort-score').textContent =
+    remaining===0
+    ? `Fertig! ${correctCount} von ${attempts} richtig sortiert.`
+    : `${correctCount} richtig von ${attempts} Versuchen · noch ${remaining} Karten übrig`;
+}
+
+renderPool();
+
+/* ================= SELBSTCHECK ================= */
+const checkItems = [
+  "Meine Erörterung ist in Einleitung, Hauptteil und Schluss gegliedert – durch Absätze sichtbar geteilt.",
+  "Meine Einleitung führt zur Streitfrage hin.",
+  "Meine Position ist klar erkennbar.",
+  "Ich nenne mindestens zwei begründete Argumente.",
+  "Ich nenne ein Gegenargument und entkräfte es.",
+  "Mein Text hat einen Schluss mit Fazit.",
+  "Ich nutze Formulierungen aus dem Sprachspeicher.",
+  "Ich habe auf die Rechtschreibung geachtet.",
+  "Ich habe auf Grammatik und Satzbau geachtet."
+];
+
+const checkContainer = document.getElementById('check-container');
+const checkState = {};
+checkItems.forEach((text,i)=>{
+  const div=document.createElement('div');
+  div.className='check3-item';
+  div.innerHTML=`
+    <div class="check3-text">${i+1}. ${text}</div>
+    <div class="check3-btns">
+      <button onclick="setCheck(${i},'ja',this)">Ja</button>
+      <button onclick="setCheck(${i},'bisschen',this)">Ein bisschen</button>
+      <button onclick="setCheck(${i},'nein',this)">Noch nicht</button>
+    </div>`;
+  checkContainer.appendChild(div);
+});
+
+function setCheck(i, val, btn){
+  checkState[i] = val;
+  const row = btn.parentElement;
+  row.querySelectorAll('button').forEach(b=>b.classList.remove('sel-ja','sel-bisschen','sel-nein'));
+  btn.classList.add('sel-'+val);
+  updateCheck();
+}
+
+function updateCheck(){
+  const answered = Object.keys(checkState).length;
+  const total = checkItems.length;
+  const pct = Math.round((answered/total)*100);
+  document.getElementById('check-fill').style.width = pct+'%';
+  document.getElementById('check-label').textContent = `${answered} von ${total} erledigt`;
+}
+updateCheck();
+
+/* ================= SCHRITT FÜR SCHRITT (Vom Gedanken zum Text – reine Hilfe) ================= */
+const rsSteps = [
+  {type:'info', title:'Leitfrage', body:'Wie werden aus einer Streitfrage überzeugende Argumente – und wie mache ich daraus einen zusammenhängenden Text?'},
+  {type:'info', title:'Kennt ihr das?', body:'Morgens müde, gestresst auf dem Schulweg, im Unterricht kaum wach …', image:'img/legacy/schritt-kennt.webp'},
+  {type:'info', title:'Eure Streitfrage heute', body:'„Sollte die Schule später beginnen?“ Euren Argumentationsplan füllt ihr auf eurem Arbeitsblatt aus – zu jedem Schritt bekommt ihr hier eine Hilfe und ein Beispiel zum Thema „Sollten Schüler bei der Gestaltung des Stundenplans mitbestimmen dürfen?“.<br><br>Füllt zunächst eure Pro-Kontra-Tabelle aus. Schreibt eure Streitfrage (die oben steht) auf die Linie. Sammelt dann drei Pro- und drei Kontra-Argumente. Fallen euch keine drei Argumente ein, sprecht zunächst mit euren Mitschülerinnen und Mitschülern. Findet ihr dann immer noch keine drei Argumente für Pro oder drei Argumente für Kontra, sucht online und findet Möglichkeiten.'},
+  {type:'info', title:'Position wählen', body:'Holt euch das Arbeitsblatt „Mein Argumentationsplan“ und schreibt eure Streitfrage noch einmal oben auf. Überlegt euch dann, welche Position ihr einnehmt, und schreibt sie klar auf.',
+    example:'„Ich bin dafür, dass Schüler bei der Gestaltung des Stundenplans mitbestimmen dürfen.“'},
+  {type:'info', title:'Argument 1: Behauptung – Begründung – Beispiel', body:'Baut euer erstes Argument in drei Schritten auf.',
+    example:'Behauptung: Mitbestimmung sorgt für mehr Konzentration im Unterricht.\nBegründung: Schüler fühlen sich ernst genommen und sind motivierter.\nBeispiel: Wenn anstrengende Fächer nicht direkt nach der Pause liegen, können sich viele besser konzentrieren.'},
+  {type:'info', title:'Argument 2: Behauptung – Begründung – Beispiel', body:'Baut euer zweites Argument genauso auf.', note:'Das stärkste Argument steht zuletzt!',
+    example:'Behauptung: Schüler kennen ihren eigenen Alltag am besten.\nBegründung: Sie wissen selbst, wann sie sich gut konzentrieren können.\nBeispiel: Manche Klassen wünschen sich Sport lieber am Nachmittag als in der ersten Stunde.'},
+  {type:'info', title:'4. Ein mögliches Gegenargument formulieren', body:'Was könnte jemand mit der Gegenposition sagen?',
+    example:'„Manche sagen, dass die Schule den Stundenplan schon gut plant und Mitbestimmung zu kompliziert wäre.“'},
+  {type:'info', title:'5. Das Gegenargument entkräften', body:'Nehmt den Einwand ernst – und zeigt trotzdem, warum eure Position gilt.',
+    example:'„Das stimmt nur teilweise, weil kleine Anpassungen, zum Beispiel bei einzelnen Randstunden, trotzdem oft möglich sind.“'},
+  {type:'info', title:'6. Ein Fazit ziehen', body:'Fasst eure Position abschließend zusammen.',
+    example:'„Zusammenfassend lässt sich sagen, dass eine Mitbestimmung beim Stundenplan den Schulalltag für viele verbessern könnte.“'},
+  {type:'info', title:'Blitzlicht', body:'Schreibt auf eurem Arbeitsblatt: „Wie sicher fühle ich mich beim Aufstellen meines Argumentationsplans?“'},
+  {type:'info', title:'Teil 2 – Vom Plan zum Text', body:'Jetzt macht ihr aus eurem Plan einen zusammenhängenden Text. Klicke dich vorher durch die nächsten Übungen.'},
+  {type:'compare', title:'Zwei Texte im Vergleich'},
+  {type:'connectors', title:'Übung: Sätze richtig verbinden'},
+  {type:'commas', title:'Übung: Kommasetzung'},
+  {type:'reference', title:'Sprachspeicher für schriftliches Argumentieren', image:'img/legacy/sprachspeicher.webp'},
+  {type:'info', title:'Schwache Texte verbessern', body:'Holt euch das Arbeitsblatt „Schwache Texte verbessern“. Darauf steht ein Ausgangstext, der nur aus aneinandergereihten Sätzen besteht. Überarbeitet ihn mit Hilfe des Sprachspeichers, sodass er sich flüssig lesen lässt. Schreibt euren überarbeiteten Text auf das Arbeitsblatt.'},
+  {type:'info', title:'Euren Text schreiben', body:'Verbindet eure Stichpunkte des Argumentationsplans nun mit dem Sprachspeicher zu einem zusammenhängenden Text. Holt euch dafür das Arbeitsblatt „Vom Plan zum Text“ und schreibt euren Text darauf. Wenn ihr fertig seid, schreibt euren Namen auf das Blatt und gebt es bei Frau Hein ab.', image:'img/legacy/schritt-text.webp'},
+  {type:'info', title:'Blitzlicht', body:'„Welche Formulierung aus dem Sprachspeicher war für mich heute am hilfreichsten?“'},
+  {type:'info', title:'Geschafft!', body:'Euer vollständiger Text steht jetzt auf dem Arbeitsblatt bereit.', flourish:true}
+];
+
+let rsIndex = 0;
+
+const sprachspeicher = [
+  {label:'Position einleiten', text:'Ich bin der Meinung, dass …'},
+  {label:'Erstes Argument', text:'Ein erstes Argument ist, dass …'},
+  {label:'Weiteres Argument', text:'Ein weiteres Argument ist, dass …'},
+  {label:'Stärkstes Argument', text:'Besonders wichtig ist, dass …'},
+  {label:'Gegenargument einleiten', text:'Manche sagen, dass …'},
+  {label:'Gegenargument entkräften', text:'Das stimmt nur teilweise, weil …'},
+  {label:'Fazit / Zusammenfassung', text:'Zusammenfassend lässt sich sagen, dass …'}
+];
+
+const connectorItems = [
+  {before:'Ich bin für einen späteren Schulbeginn,', after:'ich morgens oft sehr müde bin.', options:['weil','und','trotzdem'], correct:'weil'},
+  {before:'Manche Lehrer sind dagegen,', after:'ich finde die Idee trotzdem gut.', options:['aber','weil','deshalb'], correct:'aber'},
+  {before:'Der Unterricht beginnt früh,', after:'viele Schüler noch nicht richtig wach sind.', options:['obwohl','und','deshalb'], correct:'obwohl'},
+  {before:'Ich bin oft müde,', after:'komme ich trotzdem pünktlich zur Schule.', options:['dennoch','weil','obwohl'], correct:'dennoch'},
+  {before:'Das Thema betrifft uns alle,', after:'sollten wir gemeinsam diskutieren.', options:['deshalb','aber','obwohl'], correct:'deshalb'},
+  {before:'Wir schreiben unsere Argumente auf', after:'vergleichen sie anschließend.', options:['und','weil','trotzdem'], correct:'und'}
+];
+
+const commaItems = [
+  {tokens:['Ich','finde','dass','Handys','in','den','Pausen','erlaubt','sein','sollten'], gaps:[2,4,7], correct:2},
+  {tokens:['Viele','Schüler','wollen','ihr','Handy','nutzen','weil','sie','mit','Freunden','schreiben','möchten'], gaps:[6,8,10], correct:6},
+  {tokens:['Wenn','alle','ihr','Handy','benutzen','wird','es','in','der','Pause','sehr','laut'], gaps:[5,7,9], correct:5},
+  {tokens:['Handys','können','ablenken','obwohl','sie','auch','nützlich','sein','können'], gaps:[3,5,7], correct:3},
+  {tokens:['Ich','bin','dafür','dass','wir','eine','klare','Regel','brauchen'], gaps:[3,5,7], correct:3}
+];
+
+function rsRender(){
+  const step = rsSteps[rsIndex];
+  const content = document.getElementById('rs-step-content');
+  document.getElementById('rs-step-label').textContent = `Schritt ${rsIndex+1} von ${rsSteps.length}`;
+  document.getElementById('rs-bar-fill').style.width = ((rsIndex+1)/rsSteps.length*100)+'%';
+  document.getElementById('rs-prev').disabled = rsIndex===0;
+  document.getElementById('rs-next').disabled = rsIndex===rsSteps.length-1;
+  document.getElementById('rs-next').textContent = rsIndex===rsSteps.length-1 ? 'Fertig' : 'Weiter';
+
+  let html = `<h3>${step.title}</h3>`;
+
+  if(step.type==='info'){
+    html += `<div class="body-text">${step.body}</div>`;
+    if(step.image) html += `<img class="step-image" src="${step.image}" alt="">`;
+    if(step.flourish) html += `<img class="flourish-center" src="img/legacy/flourish.webp" alt="">`;
+    if(step.note) html += `<div style="font-size:0.82rem; color:var(--accent-dark); font-weight:600; margin-top:8px;">${step.note}</div>`;
+    if(step.example){
+      html += `<div class="help-box show" style="margin-top:12px;"><span style="font-weight:700; display:block; margin-bottom:4px;">Beispiel:</span>${step.example.replace(/\n/g,'<br>')}</div>`;
+    }
+  }
+  else if(step.type==='compare'){
+    html += `
+      <div style="font-size:0.78rem; font-weight:700; color:var(--accent-dark); margin-bottom:4px;">Text A – nur aneinandergereihte Sätze</div>
+      <div class="body-text" style="margin-bottom:14px;">Die Schule sollte später beginnen. Jugendliche haben einen späteren Schlafrhythmus. Ausgeschlafene Schüler können sich besser konzentrieren.</div>
+      <div style="font-size:0.78rem; font-weight:700; color:var(--accent-dark); margin-bottom:4px;">Text B – verbunden mit dem Sprachspeicher</div>
+      <div class="body-text">Ich bin der Meinung, dass die Schule später beginnen sollte. Ein weiterer Grund ist, dass Jugendliche laut Schlafforschung einen späteren biologischen Rhythmus haben. Der wichtigste Grund ist jedoch, dass ausgeschlafene Schülerinnen und Schüler sich besser konzentrieren können.</div>
+      <div style="margin-top:12px; font-size:0.88rem; color:var(--accent-dark); font-weight:600;">→ Text A beinhaltet nur aneinandergereihte Sätze. Text B klingt schöner. Das gelingt durch eine schöne Satzstruktur und mittels Konnektoren, die Sätze miteinander verbinden.</div>`;
+  }
+  else if(step.type==='reference'){
+    if(step.image) html += `<img class="step-image" src="${step.image}" alt="">`;
+    html += `<div class="body-text" style="margin-bottom:10px;">Diese Bausteine helfen euch, eure Stichpunkte zu einem Text zu verbinden:</div>`;
+    html += sprachspeicher.map(s=>`<div style="margin-bottom:8px;"><span style="font-size:0.78rem; font-weight:700; color:var(--accent-dark); display:block;">${s.label}</span><span style="font-size:0.9rem;">${s.text}</span></div>`).join('');
+  }
+  else if(step.type==='connectors'){
+    html += `<div class="body-text" style="margin-bottom:10px;">Welches Wort passt am besten in die Lücke?</div>`;
+    html += connectorItems.map((it,i)=>`
+      <div class="conn-item" id="conn-${i}">
+        <div class="conn-sentence">${it.before} <span class="conn-gap">___</span> ${it.after}</div>
+        <div class="conn-options">
+          ${it.options.map(o=>`<button onclick="rsCheckConnector(${i},'${o}',this)">${o}</button>`).join('')}
+        </div>
+      </div>`).join('');
+  }
+  else if(step.type==='commas'){
+    html += `<div class="body-text" style="margin-bottom:10px;">Tippt auf die Stelle, an der ein Komma stehen muss.</div>`;
+    html += commaItems.map((it,i)=>{
+      let parts = '';
+      it.tokens.forEach((tok,ti)=>{
+        if(it.gaps.includes(ti)){
+          parts += `<button class="comma-gap" id="comma-${i}-${ti}" onclick="rsCheckComma(${i},${ti},this)">˅</button> `;
+        }
+        parts += tok + ' ';
+      });
+      return `<div class="comma-item" id="comma-item-${i}"><div class="comma-sentence">${parts.trim()}</div></div>`;
+    }).join('');
+  }
+
+  content.innerHTML = html;
+  window.scrollTo({top:0, behavior:'instant'});
+}
+
+function rsCheckConnector(i, chosen, btn){
+  const it = connectorItems[i];
+  const item = document.getElementById('conn-'+i);
+  item.querySelectorAll('button').forEach(b=>{
+    b.classList.remove('correct','wrong');
+    if(b.textContent===it.correct) {} // reset handled below
+  });
+  if(chosen===it.correct){
+    btn.classList.add('correct');
+  } else {
+    btn.classList.add('wrong');
+    item.querySelectorAll('button').forEach(b=>{ if(b.textContent===it.correct) b.classList.add('correct'); });
+  }
+}
+
+function rsCheckComma(i, tokenIndex, btn){
+  const it = commaItems[i];
+  const item = document.getElementById('comma-item-'+i);
+  item.querySelectorAll('.comma-gap').forEach(g=>g.classList.remove('correct','wrong'));
+  if(tokenIndex===it.correct){
+    btn.classList.add('correct'); btn.textContent=',';
+  } else {
+    btn.classList.add('wrong');
+    const correctBtn = document.getElementById(`comma-${i}-${it.correct}`);
+    if(correctBtn){ correctBtn.classList.add('correct'); correctBtn.textContent=','; }
+  }
+}
+
+document.getElementById('rs-prev').addEventListener('click',()=>{
+  if(rsIndex>0){ rsIndex--; rsRender(); }
+});
+document.getElementById('rs-next').addEventListener('click',()=>{
+  if(rsIndex<rsSteps.length-1){ rsIndex++; rsRender(); }
+});
+
+rsRender();
+
+/* ================= BEISPIELTHEMEN ================= */
+const themenListe = [
+  "Sollten Schulnoten durch ausführliches schriftliches Feedback ersetzt werden?",
+  "Sollte es an unserer Schule mehr Wahlfächer geben?",
+  "Sollten Schülerinnen und Schüler bei der Gestaltung des Stundenplans mitbestimmen dürfen?",
+  "Sollte täglich eine Sportstunde auf dem Stundenplan stehen?",
+  "Sollten Klassenfahrten für alle Klassen verpflichtend sein?",
+  "Sollte es an unserer Schule öfter Projekttage statt normalem Unterricht geben?",
+  "Sollte Taschengeld an die Mithilfe im Haushalt gekoppelt sein?",
+  "Sollten Jugendliche unter 16 Jahren E-Scooter fahren dürfen?",
+  "Sollte der Umgang mit Influencern und Werbung ein eigenes Schulfach werden?",
+  "Sollten Jugendliche schon ab 16 Jahren bei Bundestagswahlen wählen dürfen?"
+];
+
+const themenContainer = document.getElementById('themen-container');
+themenListe.forEach((text,i)=>{
+  const div=document.createElement('div');
+  div.className='theme-item';
+  div.innerHTML=`<div class="theme-num">${i+1}</div><div class="theme-text">${text}</div>`;
+  themenContainer.appendChild(div);
+});
+
+/* ================= HILFE BEIM SCHREIBEN (PLAN-POSTER) ================= */
+const planSteps = [
+  {title:'Streitfrage verstehen', text:'Lies die Streitfrage genau durch. Worum geht es? Was wird gefragt?'},
+  {title:'Pro & Kontra sammeln', text:'Sammle Argumente dafür und dagegen, bevor du dich festlegst.'},
+  {title:'Position wählen', text:'Entscheide dich für eine Seite und formuliere sie klar.'},
+  {title:'Argument aufbauen', text:'Baue jedes Argument aus Behauptung, Begründung und Beispiel auf. Das stärkste Argument steht zuletzt.'},
+  {title:'Gegenargument & Entkräftung', text:'Nenne einen möglichen Einwand und zeige fair, warum deine Position trotzdem gilt.'},
+  {title:'Fazit schreiben', text:'Fasse deine Position noch einmal zusammen und runde den Text ab.'}
+];
+
+const planhilfeContainer = document.getElementById('planhilfe-container');
+planSteps.forEach((step,i)=>{
+  const div=document.createElement('div');
+  div.className='planstep-item';
+  div.innerHTML=`<div class="planstep-num">${i+1}</div><div class="planstep-body"><h4>${step.title}</h4><p>${step.text}</p></div>`;
+  planhilfeContainer.appendChild(div);
+});
+
+/* ================= THEMEN ZUORDNEN ================= */
+const zuItems = [
+  {text:'Viele Schülerinnen und Schüler wünschen sich mehr Möglichkeiten, eigene Interessen im Unterricht zu verfolgen.', topic:'t1'},
+  {text:'In vielen Städten sieht man immer mehr Jugendliche auf E-Scootern unterwegs.', topic:'t2'},
+  {text:'Wer noch keine Fahrpraxis im Straßenverkehr hat, kann in gefährlichen Situationen schneller die Kontrolle verlieren.', topic:'t2'},
+  {text:'Wer zum Beispiel gerne programmiert oder Theater spielt, könnte in einem passenden Wahlfach viel mehr lernen.', topic:'t1'},
+  {text:'Jüngere Jugendliche können Gefahren im Straßenverkehr oft schwerer einschätzen.', topic:'t2'},
+  {text:'Wenn Schülerinnen und Schüler selbst wählen dürfen, woran sie arbeiten, sind sie oft engagierter bei der Sache.', topic:'t1'},
+  {text:'Bei Unfällen mit E-Scootern kann es schnell zu schweren Verletzungen kommen, da kaum Schutz vorhanden ist.', topic:'t2'},
+  {text:'Mehr Wahlfächer können auf spätere Berufe vorbereiten.', topic:'t1'},
+  {text:'E-Scooter sind eine praktische und umweltfreundliche Art, kurze Strecken zurückzulegen.', topic:'t2'},
+  {text:'Mehr Wahlfächer kosten auch mehr Personal und Räume.', topic:'t1'},
+  {text:'Deshalb sollten Jugendliche unter 16 Jahren keine E-Scooter fahren dürfen.', topic:'t2'},
+  {text:'Deshalb sollte unsere Schule das Angebot an Wahlfächern erweitern.', topic:'t1'},
+  {text:'Ich bin der Meinung, dass mehr Wahlfächer sinnvoll wären.', topic:'t1'},
+  {text:'Ich bin der Meinung, dass das nicht erlaubt sein sollte.', topic:'t2'}
+];
+const zuOrder = [0,2,5,1,7,4,9,3,11,6,13,8,10,12];
+
+let zuState = zuOrder.map(i=>({...zuItems[i], placed:false}));
+let zuSelected = null;
+let zuCorrect = 0, zuAttempts = 0;
+
+function zuRenderPool(){
+  const pool = document.getElementById('zu-pool');
+  pool.innerHTML='';
+  zuState.forEach((item,i)=>{
+    if(item.placed) return;
+    const chip=document.createElement('div');
+    chip.className='chip';
+    chip.textContent=item.text;
+    chip.onclick=()=>{
+      document.querySelectorAll('#zu-pool .chip').forEach(c=>c.classList.remove('picked'));
+      chip.classList.add('picked');
+      zuSelected = i;
+    };
+    pool.appendChild(chip);
+  });
+  zuUpdateScore();
+}
+
+function zuPlaceInBin(topic){
+  if(zuSelected===null) return;
+  const item = zuState[zuSelected];
+  const bin = document.getElementById(topic==='t1'?'bin-t1':'bin-t2');
+  const chip=document.createElement('div');
+  chip.className='chip '+(item.topic===topic?'right':'wrong');
+  chip.textContent = item.text + (item.topic===topic ? ' ✓' : ' ✗ (gehört zu ' + (item.topic==='t1'?'Thema 1':'Thema 2') + ')');
+  bin.appendChild(chip);
+  item.placed = true;
+  zuAttempts++;
+  if(item.topic===topic) zuCorrect++;
+  zuSelected = null;
+  zuRenderPool();
+}
+
+document.querySelector('.bin.t1').addEventListener('click',()=>zuPlaceInBin('t1'));
+document.querySelector('.bin.t2').addEventListener('click',()=>zuPlaceInBin('t2'));
+
+function zuUpdateScore(){
+  const remaining = zuState.filter(i=>!i.placed).length;
+  document.getElementById('zu-score').textContent =
+    remaining===0
+    ? `Fertig! ${zuCorrect} von ${zuAttempts} richtig zugeordnet.`
+    : `${zuCorrect} richtig von ${zuAttempts} Versuchen · noch ${remaining} Teile übrig`;
+}
+
+zuRenderPool();
+
+/* ================= PWA ================= */
+if('serviceWorker' in navigator){
+  window.addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
+}
+(function(){
+  const standalone = window.matchMedia('(display-mode: standalone)').matches || navigator.standalone;
+  if(standalone) return;
+  const box = document.getElementById('installBox'), txt = document.getElementById('installText'), btn = document.getElementById('installBtn');
+  const ua = navigator.userAgent;
+  const isIOS = /iPad|iPhone|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  let deferred;
+  window.addEventListener('beforeinstallprompt', e => {
+    e.preventDefault(); deferred = e;
+    txt.textContent = 'Du kannst diese Seite wie eine App auf deinem Gerät speichern.';
+    btn.hidden = false; box.hidden = false;
+  });
+  btn.addEventListener('click', async () => {
+    if(!deferred) return; deferred.prompt(); await deferred.userChoice; deferred = null; box.hidden = true;
+  });
+  if(isIOS){
+    txt.innerHTML = 'Als App speichern: unten auf <b>Teilen</b> tippen und dann auf <b>„Zum Home-Bildschirm“</b>.';
+    box.hidden = false;
+  }
+})();
+</script>
+</body>
+</html>
