@@ -871,10 +871,44 @@ h2.panel-title{font-size:1.45rem; font-weight:600; line-height:1.2;}
   <div class="panel-head"><h2 class="panel-title">Zeichensetzung</h2></div>
   <p class="panel-sub">Unterricht ab dem 04.11.2026 · Klassenarbeit am 02.12.2026<br>(Inhalte aus den Unterrichtsstunden 04.11., 11.11. und 25.11.)</p>
   <div class="tile-grid two">
-    <div class="tile " role="button" tabindex="0" data-soon="1"><div class="tile-art"><svg class="fb" viewBox="0 0 100 100" aria-hidden="true"><use href="#blossom"/></svg><img src="img/kachel-erklaerungen.png" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.remove()"></div><div class="tile-text"><h3>Erklärungen</h3><p>zu den Inhalten der Klassenarbeit</p></div><span class="badge">folgt</span></div>
+    <div class="tile " role="button" tabindex="0" data-goto="erklaerungen"><div class="tile-art"><svg class="fb" viewBox="0 0 100 100" aria-hidden="true"><use href="#blossom"/></svg><img src="img/kachel-erklaerungen.png" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.remove()"></div><div class="tile-text"><h3>Erklärungen</h3><p>zu den Inhalten der Klassenarbeit</p></div></div>
     <div class="tile " role="button" tabindex="0" data-soon="1"><div class="tile-art"><svg class="fb" viewBox="0 0 100 100" aria-hidden="true"><use href="#blossom"/></svg><img src="img/kachel-uebungen.png" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.remove()"></div><div class="tile-text"><h3>Übungen</h3><p>für die Klassenarbeit</p></div><span class="badge">folgt</span></div>
   </div>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</section>
+<section class="panel" id="erklaerungen">
+  <button class="back-link" data-goto="zeichensetzung"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Zeichensetzung</button>
+  <div class="panel-head"><h2 class="panel-title">Erklärungen</h2></div>
+  <p class="panel-sub">Tippe auf ein Thema.</p>
+  <div class="tile-grid one">
+    <div class="tile wide small" role="button" tabindex="0" data-goto="erk-rede"><div class="tile-art"><svg class="fb" viewBox="0 0 100 100" aria-hidden="true"><use href="#blossom"/></svg><img src="img/kachel-woertliche-rede.png" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.remove()"></div><div class="tile-text"><h3>Wörtliche Rede</h3><p>Anführungszeichen, Doppelpunkt und Komma</p></div></div>
+    <div class="tile wide small" role="button" tabindex="0" data-goto="erk-aufz"><div class="tile-art"><svg class="fb" viewBox="0 0 100 100" aria-hidden="true"><use href="#blossom"/></svg><img src="img/kachel-aufzaehlungen.png" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.remove()"></div><div class="tile-text"><h3>Aufzählungen</h3><p>Wann steht ein Komma?</p></div></div>
+    <div class="tile wide small" role="button" tabindex="0" data-goto="erk-datum"><div class="tile-art"><svg class="fb" viewBox="0 0 100 100" aria-hidden="true"><use href="#blossom"/></svg><img src="img/kachel-datumsangaben.png" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.remove()"></div><div class="tile-text"><h3>Datumsangaben in Brief und Einladung</h3><p>Kommas bei Ort, Datum und Wochentag</p></div></div>
+  </div>
+</section>
+<section class="panel" id="erk-rede">
+  <button class="back-link" data-goto="erklaerungen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Erklärungen</button>
+  <div class="panel-head"><h2 class="panel-title">Wörtliche Rede</h2></div>
+  <div class="art-slot">
+    <img src="img/erklaerung-woertliche-rede.png" alt="Erklärplakat zur wörtlichen Rede: Begleitsatz vorn, hinten, mittendrin und bei Fragen" onload="this.parentNode.classList.add('ok')" onerror="this.remove()">
+    <div class="note-card fb">Diese Erklärung wird noch eingestellt.</div>
+  </div>
+</section>
+<section class="panel" id="erk-aufz">
+  <button class="back-link" data-goto="erklaerungen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Erklärungen</button>
+  <div class="panel-head"><h2 class="panel-title">Aufzählungen</h2></div>
+  <div class="art-slot">
+    <img src="img/erklaerung-aufzaehlungen.png" alt="Erklärplakat zu Aufzählungen: Komma zwischen gleichen Wörtern, kein Komma vor und oder, Komma vor aber und sondern" onload="this.parentNode.classList.add('ok')" onerror="this.remove()">
+    <div class="note-card fb">Diese Erklärung wird noch eingestellt.</div>
+  </div>
+</section>
+<section class="panel" id="erk-datum">
+  <button class="back-link" data-goto="erklaerungen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Erklärungen</button>
+  <div class="panel-head"><h2 class="panel-title">Datumsangaben in Brief und Einladung</h2></div>
+  <div class="art-slot">
+    <img src="img/erklaerung-datumsangaben.png" alt="Erklärplakat zu Datumsangaben im Briefkopf und im Satz" onload="this.parentNode.classList.add('ok')" onerror="this.remove()">
+    <div class="note-card fb">Diese Erklärung wird noch eingestellt.</div>
+  </div>
 </section>
 <section class="panel" id="klartext">
   <button class="back-link" data-goto="deutsch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Deutsch</button>

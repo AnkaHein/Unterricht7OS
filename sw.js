@@ -1,7 +1,7 @@
 /* Service Worker – Unterricht 7OS
    Seiten: erst Netz, dann Zwischenspeicher (Änderungen auf GitHub erscheinen sofort, sobald man online ist).
    Bilder & Co.: aus dem Zwischenspeicher, im Hintergrund aktualisiert. Offline funktioniert alles, was schon einmal geladen wurde. */
-const CACHE = 'unterricht7os-v1';
+const CACHE = 'unterricht7os-v2';
 const CORE = [
   "./",
   "index.html",
@@ -22,6 +22,12 @@ const CORE = [
   "img/header-bluetenrand.png",
   "img/ablauf-uebersicht.png",
   "img/bewertungsbogen.png",
+  "img/erklaerung-woertliche-rede.png",
+  "img/erklaerung-aufzaehlungen.png",
+  "img/erklaerung-datumsangaben.png",
+  "img/kachel-woertliche-rede.png",
+  "img/kachel-aufzaehlungen.png",
+  "img/kachel-datumsangaben.png",
   "img/legacy/aufgaben.webp",
   "img/legacy/chat.webp",
   "img/legacy/check.webp",
