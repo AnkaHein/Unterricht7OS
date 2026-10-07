@@ -1,7 +1,7 @@
 /* Service Worker – Unterricht 7OS
    Seiten: erst Netz, dann Zwischenspeicher (Änderungen auf GitHub erscheinen sofort, sobald man online ist).
    Bilder & Co.: aus dem Zwischenspeicher, im Hintergrund aktualisiert. Offline funktioniert alles, was schon einmal geladen wurde. */
-const CACHE = 'unterricht7os-v5';
+const CACHE = 'unterricht7os-v6';
 const CORE = [
   "./",
   "index.html",

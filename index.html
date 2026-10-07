@@ -784,6 +784,29 @@ h2.panel-title{font-size:1.45rem; font-weight:600; line-height:1.2;}
 @media (min-width:720px){ .tile-grid.one{grid-template-columns:1fr 1fr;} }
 @media (prefers-reduced-motion:reduce){ *{transition:none !important; animation:none !important;} }
 
+
+/* ---- Übungs-Quiz ---- */
+.tile-art.glyph{display:grid;place-items:center;background:linear-gradient(160deg,#fff,var(--accent-light));border-radius:14px;color:var(--accent-dark);font-family:var(--serif);font-weight:600;font-size:1.45rem;letter-spacing:.04em;}
+.quiz{margin-top:6px;}
+.q-prog{display:flex;align-items:center;gap:10px;font-size:.85rem;color:var(--ink-soft);margin-bottom:12px;}
+.q-bar{flex:1;height:8px;border-radius:99px;background:var(--accent-light);overflow:hidden;}
+.q-bar i{display:block;height:100%;background:linear-gradient(90deg,var(--accent-mid),var(--accent));border-radius:99px;transition:width .3s;}
+.q-opts{display:grid;gap:10px;}
+.q-opt{font:inherit;font-family:var(--serif);font-size:1.12rem;line-height:1.45;text-align:left;width:100%;padding:14px 16px;border-radius:16px;
+  border:1.5px solid var(--border);background:linear-gradient(160deg,#fff,#f1f9f7);color:var(--ink);cursor:pointer;transition:transform .12s,border-color .12s,background .12s;}
+.q-opt:active{transform:scale(.985);}
+.q-opt:hover{border-color:var(--accent-mid);}
+.q-opt:disabled{cursor:default;}
+.q-opt.right{border-color:var(--accent);background:#d6f0ea;}
+.q-opt.wrong{border-color:#c0584c;background:#fbe4e0;}
+.q-opt.dim{opacity:.55;}
+.q-fb{margin-top:14px;padding:14px 16px;border-radius:16px;background:#fff;border:1px solid var(--border);line-height:1.5;color:var(--ink);}
+.q-fb b{display:block;margin-bottom:4px;font-family:var(--serif);font-size:1.05rem;}
+.q-fb.ok b{color:var(--accent-dark);} .q-fb.no b{color:#a8433a;}
+.q-next{margin-top:14px;}
+.q-end{text-align:center;padding:26px 16px;border-radius:20px;background:linear-gradient(160deg,#fff,var(--accent-pale));border:1px solid var(--border);}
+.q-end h3{font-family:var(--serif);font-size:1.5rem;margin:0 0 6px;color:var(--accent-deep);}
+.q-end p{margin:0 0 14px;color:var(--ink-soft);}
 </style>
 </head>
 <body>
@@ -872,7 +895,7 @@ h2.panel-title{font-size:1.45rem; font-weight:600; line-height:1.2;}
   <p class="panel-sub">Unterricht ab dem 04.11.2026 · Klassenarbeit am 02.12.2026<br>(Inhalte aus den Unterrichtsstunden 04.11., 11.11. und 25.11.)</p>
   <div class="tile-grid two">
     <div class="tile " role="button" tabindex="0" data-goto="erklaerungen"><div class="tile-art"><svg class="fb" viewBox="0 0 100 100" aria-hidden="true"><use href="#blossom"/></svg><img src="img/kachel-erklaerungen.png" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.remove()"></div><div class="tile-text"><h3>Erklärungen</h3><p>zu den Inhalten der Klassenarbeit</p></div></div>
-    <div class="tile " role="button" tabindex="0" data-soon="1"><div class="tile-art"><svg class="fb" viewBox="0 0 100 100" aria-hidden="true"><use href="#blossom"/></svg><img src="img/kachel-uebungen.png" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.remove()"></div><div class="tile-text"><h3>Übungen</h3><p>für die Klassenarbeit</p></div><span class="badge">folgt</span></div>
+    <div class="tile " role="button" tabindex="0" data-goto="uebungen"><div class="tile-art"><svg class="fb" viewBox="0 0 100 100" aria-hidden="true"><use href="#blossom"/></svg><img src="img/kachel-uebungen.png" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.remove()"></div><div class="tile-text"><h3>Übungen</h3><p>mit neuen Sätzen üben</p></div></div>
   </div>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 </section>
@@ -884,6 +907,7 @@ h2.panel-title{font-size:1.45rem; font-weight:600; line-height:1.2;}
     <div class="tile wide small" role="button" tabindex="0" data-goto="erk-rede"><div class="tile-art"><svg class="fb" viewBox="0 0 100 100" aria-hidden="true"><use href="#blossom"/></svg><img src="img/kachel-woertliche-rede.png" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.remove()"></div><div class="tile-text"><h3>Wörtliche Rede</h3><p>Anführungszeichen, Doppelpunkt und Komma</p></div></div>
     <div class="tile wide small" role="button" tabindex="0" data-goto="erk-aufz"><div class="tile-art"><svg class="fb" viewBox="0 0 100 100" aria-hidden="true"><use href="#blossom"/></svg><img src="img/kachel-aufzaehlungen.png" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.remove()"></div><div class="tile-text"><h3>Aufzählungen</h3><p>Wann steht ein Komma?</p></div></div>
     <div class="tile wide small" role="button" tabindex="0" data-goto="erk-datum"><div class="tile-art"><svg class="fb" viewBox="0 0 100 100" aria-hidden="true"><use href="#blossom"/></svg><img src="img/kachel-datumsangaben.png" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.remove()"></div><div class="tile-text"><h3>Datumsangaben in Brief und Einladung</h3><p>Kommas bei Ort, Datum und Wochentag</p></div></div>
+    <div class="tile wide small" role="button" tabindex="0" data-goto="erk-saetze"><div class="tile-art"><svg class="fb" viewBox="0 0 100 100" aria-hidden="true"><use href="#blossom"/></svg><img src="img/kachel-zweigliedrige-saetze.png" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.remove()"></div><div class="tile-text"><h3>Zweigliedrige Sätze</h3><p>Komma bei zwei Hauptsätzen und vor dem Nebensatz</p></div></div>
   </div>
 </section>
 <section class="panel" id="erk-rede">
@@ -909,6 +933,49 @@ h2.panel-title{font-size:1.45rem; font-weight:600; line-height:1.2;}
     <img src="img/erklaerung-datumsangaben.png" alt="Erklärplakat zu Datumsangaben im Briefkopf und im Satz" onload="this.parentNode.classList.add('ok')" onerror="this.remove()">
     <div class="note-card fb">Diese Erklärung wird noch eingestellt.</div>
   </div>
+</section>
+<section class="panel" id="erk-saetze">
+  <button class="back-link" data-goto="erklaerungen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Erklärungen</button>
+  <div class="panel-head"><h2 class="panel-title">Zweigliedrige Sätze</h2></div>
+  <div class="art-slot">
+    <img src="img/erklaerung-zweigliedrige-saetze.png" alt="Erklärplakat zu zweigliedrigen Sätzen: Komma zwischen zwei Hauptsätzen und vor dem Nebensatz" onload="this.parentNode.classList.add('ok')" onerror="this.remove()">
+    <div class="note-card fb">Diese Erklärung wird noch eingestellt.</div>
+  </div>
+</section>
+<section class="panel" id="uebungen">
+  <button class="back-link" data-goto="zeichensetzung"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Zeichensetzung</button>
+  <div class="panel-head"><h2 class="panel-title">Übungen</h2></div>
+  <p class="panel-sub">Übe mit neuen Sätzen. Tippe auf ein Thema.</p>
+  <div class="tile-grid one">
+    <div class="tile wide small" role="button" tabindex="0" data-goto="ueb-rede"><div class="tile-art glyph"><span>„ “</span></div><div class="tile-text"><h3>Wörtliche Rede</h3><p>10 Sätze: Anführungszeichen, Doppelpunkt, Komma</p></div></div>
+    <div class="tile wide small" role="button" tabindex="0" data-goto="ueb-aufz"><div class="tile-art glyph"><span>, , ,</span></div><div class="tile-text"><h3>Aufzählungen</h3><p>10 Sätze: Wann steht ein Komma?</p></div></div>
+    <div class="tile wide small" role="button" tabindex="0" data-goto="ueb-datum"><div class="tile-art glyph"><span>11.11.</span></div><div class="tile-text"><h3>Datumsangaben in Brief und Einladung</h3><p>9 Sätze: Kommas bei Ort, Datum und Wochentag</p></div></div>
+    <div class="tile wide small" role="button" tabindex="0" data-goto="ueb-saetze"><div class="tile-art glyph"><span>… , …</span></div><div class="tile-text"><h3>Zweigliedrige Sätze</h3><p>10 Sätze: Komma vor weil, dass, denn, aber …</p></div></div>
+  </div>
+</section>
+<section class="panel" id="ueb-rede">
+  <button class="back-link" data-goto="uebungen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Übungen</button>
+  <div class="panel-head"><h2 class="panel-title">Wörtliche Rede</h2></div>
+  <p class="panel-sub">Welcher Satz ist richtig geschrieben?</p>
+  <div class="quiz" data-set="rede"></div>
+</section>
+<section class="panel" id="ueb-aufz">
+  <button class="back-link" data-goto="uebungen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Übungen</button>
+  <div class="panel-head"><h2 class="panel-title">Aufzählungen</h2></div>
+  <p class="panel-sub">Welcher Satz hat die Kommas an den richtigen Stellen?</p>
+  <div class="quiz" data-set="aufz"></div>
+</section>
+<section class="panel" id="ueb-datum">
+  <button class="back-link" data-goto="uebungen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Übungen</button>
+  <div class="panel-head"><h2 class="panel-title">Datumsangaben in Brief und Einladung</h2></div>
+  <p class="panel-sub">Welche Schreibweise stimmt?</p>
+  <div class="quiz" data-set="datum"></div>
+</section>
+<section class="panel" id="ueb-saetze">
+  <button class="back-link" data-goto="uebungen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Übungen</button>
+  <div class="panel-head"><h2 class="panel-title">Zweigliedrige Sätze</h2></div>
+  <p class="panel-sub">Wo steht das Komma richtig?</p>
+  <div class="quiz" data-set="saetze"></div>
 </section>
 <section class="panel" id="klartext">
   <button class="back-link" data-goto="deutsch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Deutsch</button>
@@ -1818,6 +1885,41 @@ if('serviceWorker' in navigator){
     box.hidden = false;
   }
 })();
+
+/* ================= ÜBUNGEN (Quiz) ================= */
+const QDATA = {"rede": [["Tom sagt: „Ich habe Hunger.“", ["Tom sagt „Ich habe Hunger“.", "Tom sagt, „Ich habe Hunger.“", "Tom sagt: „Ich habe Hunger“."], "Nach „sagt“ steht ein Doppelpunkt. Der Punkt steht vor dem letzten Anführungszeichen."], ["„Wir gehen ins Kino“, ruft Lena.", ["„Wir gehen ins Kino.“, ruft Lena.", "„Wir gehen ins Kino,“ ruft Lena.", "„Wir gehen ins Kino“ ruft Lena."], "Steht der Begleitsatz hinten, folgt nach dem letzten Anführungszeichen ein Komma. Davor steht kein Punkt."], ["„Hast du meinen Stift?“, fragt Paul.", ["„Hast du meinen Stift“?, fragt Paul.", "„Hast du meinen Stift?“ fragt Paul.", "„Hast du meinen Stift,“ fragt Paul."], "Das Fragezeichen bleibt, und danach steht trotzdem ein Komma."], ["„Heute“, sagt der Lehrer, „schreiben wir einen Test.“", ["„Heute“ sagt der Lehrer „schreiben wir einen Test.“", "„Heute, sagt der Lehrer, schreiben wir einen Test.“", "„Heute“, sagt der Lehrer: „schreiben wir einen Test.“"], "Der Begleitsatz in der Mitte steht zwischen zwei Kommas."], ["Die Oma ruft: „Das Essen ist fertig!“", ["Die Oma ruft „Das Essen ist fertig“!", "Die Oma ruft: „Das Essen ist fertig“!", "Die Oma ruft, „Das Essen ist fertig!“"], "Nach „ruft“ steht ein Doppelpunkt. Das Ausrufezeichen steht vor dem letzten Anführungszeichen."], ["„Es regnet in Strömen“, stellt Jonas fest.", ["„Es regnet in Strömen.“, stellt Jonas fest.", "„Es regnet in Strömen“ stellt Jonas fest.", "„Es regnet in Strömen,“ stellt Jonas fest."], "Begleitsatz hinten: Komma nach dem Anführungszeichen, kein Punkt davor."], ["Sara fragt: „Kommst du morgen?“", ["Sara fragt: „Kommst du morgen“?", "Sara fragt, „Kommst du morgen?“", "Sara fragt „Kommst du morgen?“"], "Nach „fragt“ steht ein Doppelpunkt. Das Fragezeichen gehört in die Anführungszeichen."], ["„Lauf schneller!“, schreit der Trainer.", ["„Lauf schneller“!, schreit der Trainer.", "„Lauf schneller!“ schreit der Trainer.", "„Lauf schneller!“. schreit der Trainer."], "Auch nach einem Ausrufezeichen steht hinter dem Anführungszeichen ein Komma."], ["„Morgen“, verspricht Mama, „gehen wir ins Schwimmbad.“", ["„Morgen“ verspricht Mama „gehen wir ins Schwimmbad.“", "„Morgen, verspricht Mama, gehen wir ins Schwimmbad.“", "„Morgen“, verspricht Mama: „gehen wir ins Schwimmbad.“"], "Der Begleitsatz steckt mittendrin und wird von zwei Kommas eingeschlossen."], ["Der Busfahrer sagt: „Bitte hinten einsteigen.“", ["Der Busfahrer sagt „Bitte hinten einsteigen“.", "Der Busfahrer sagt, „Bitte hinten einsteigen.“", "Der Busfahrer sagt: „Bitte hinten einsteigen“."], "Begleitsatz vorn: Doppelpunkt, und der Punkt steht vor dem letzten Anführungszeichen."]], "aufz": [["Im Rucksack sind Heft, Stift, Lineal und Schere.", ["Im Rucksack sind Heft Stift Lineal und Schere.", "Im Rucksack sind Heft, Stift, Lineal, und Schere.", "Im Rucksack sind Heft, Stift Lineal und Schere."], "Zwischen den Wörtern steht ein Komma. Vor „und“ steht keins."], ["Zum Frühstück gibt es Brot, Käse oder Marmelade.", ["Zum Frühstück gibt es Brot, Käse, oder Marmelade.", "Zum Frühstück gibt es Brot Käse oder Marmelade.", "Zum Frühstück gibt es Brot, Käse oder, Marmelade."], "Auch vor „oder“ steht kein Komma."], ["Es war ein kalter, windiger Tag.", ["Es war ein kalter windiger Tag.", "Es war ein, kalter windiger Tag.", "Es war ein kalter, windiger, Tag."], "Zwischen zwei beschreibenden Wörtern steht ein Komma, aber nicht vor dem Namenwort „Tag“."], ["Er ist schnell, aber unkonzentriert.", ["Er ist schnell aber unkonzentriert.", "Er ist schnell aber, unkonzentriert.", "Er ist schnell, aber, unkonzentriert."], "Vor „aber“ steht immer ein Komma."], ["Wir brauchen Äpfel, Birnen, Bananen und Trauben.", ["Wir brauchen Äpfel Birnen Bananen und Trauben.", "Wir brauchen Äpfel, Birnen, Bananen, und Trauben.", "Wir brauchen Äpfel, Birnen Bananen, und Trauben."], "Komma zwischen den Wörtern, kein Komma vor „und“."], ["Sie kauft Milch, Eier, Mehl und Zucker.", ["Sie kauft Milch Eier Mehl und Zucker.", "Sie kauft Milch, Eier, Mehl, und Zucker.", "Sie kauft Milch, Eier Mehl und, Zucker."], "Gleiche Dinge werden durch Kommas getrennt, vor „und“ aber nicht."], ["Der alte, freundliche Hausmeister hilft uns.", ["Der alte freundliche Hausmeister hilft uns.", "Der, alte freundliche Hausmeister hilft uns.", "Der alte, freundliche, Hausmeister hilft uns."], "Zwischen „alte“ und „freundliche“ steht ein Komma."], ["Er wollte nicht lesen, sondern spielen.", ["Er wollte nicht lesen sondern spielen.", "Er wollte nicht, lesen sondern spielen.", "Er wollte nicht lesen, sondern, spielen."], "Vor „sondern“ steht immer ein Komma."], ["Anna, Ben, Clara und Tim sitzen in der ersten Reihe.", ["Anna Ben Clara und Tim sitzen in der ersten Reihe.", "Anna, Ben, Clara, und Tim sitzen in der ersten Reihe.", "Anna, Ben Clara, und Tim sitzen in der ersten Reihe."], "Auch Namen werden durch Kommas getrennt. Vor „und“ steht keins."], ["Ich mag Hunde, Katzen und Pferde.", ["Ich mag Hunde Katzen und Pferde.", "Ich mag Hunde, Katzen, und Pferde.", "Ich mag Hunde, Katzen und, Pferde."], "Komma zwischen den Wörtern, aber nicht vor „und“."]], "datum": [["Bad Düben, 04.11.2026", ["Bad Düben 04.11.2026", "Bad Düben, 04.11.2026.", "Bad Düben. 04.11.2026"], "Nach dem Ort steht ein Komma. Hinter dem Datum steht kein Punkt."], ["Leipzig, 12.11.2026", ["Leipzig 12.11.2026", "Leipzig, 12.11.2026.", "Leipzig. 12.11.2026"], "Im Briefkopf: Ort, Komma, Datum – ohne Punkt am Ende."], ["Am Mittwoch, dem 11.11.2026, treffen wir uns in der Aula.", ["Am Mittwoch dem 11.11.2026 treffen wir uns in der Aula.", "Am Mittwoch, dem 11.11.2026 treffen wir uns in der Aula.", "Am Mittwoch dem 11.11.2026, treffen wir uns in der Aula."], "Das Datum steht mitten im Satz zwischen zwei Kommas."], ["Wir laden dich am Samstag, dem 5. Dezember 2026, herzlich ein.", ["Wir laden dich am Samstag dem 5. Dezember 2026 herzlich ein.", "Wir laden dich am Samstag, dem 5. Dezember 2026 herzlich ein.", "Wir laden dich am Samstag dem 5. Dezember 2026, herzlich ein."], "Nach dem Wochentag steht ein Komma, und nach dem Datum steht wieder eins."], ["Das Fest beginnt am Freitag, dem 20. November 2026, um 15 Uhr.", ["Das Fest beginnt am Freitag dem 20. November 2026 um 15 Uhr.", "Das Fest beginnt am Freitag, dem 20. November 2026 um 15 Uhr.", "Das Fest beginnt am Freitag dem 20. November 2026, um 15 Uhr."], "Komma nach dem Wochentag und Komma nach dem Datum."], ["Die Klassenarbeit schreiben wir am Mittwoch, dem 2. Dezember 2026, in der dritten Stunde.", ["Die Klassenarbeit schreiben wir am Mittwoch dem 2. Dezember 2026 in der dritten Stunde.", "Die Klassenarbeit schreiben wir am Mittwoch, dem 2. Dezember 2026 in der dritten Stunde.", "Die Klassenarbeit schreiben wir am Mittwoch dem 2. Dezember 2026, in der dritten Stunde."], "Das Datum mit Wochentag wird in Kommas eingeschlossen."], ["Am Montag, dem 9. November, fällt der Unterricht aus.", ["Am Montag dem 9. November fällt der Unterricht aus.", "Am Montag, dem 9. November fällt der Unterricht aus.", "Am Montag dem 9. November, fällt der Unterricht aus."], "Zwei Kommas: eins nach dem Wochentag, eins nach dem Datum."], ["Der Elternabend findet am Dienstag, dem 17. November 2026, in der Aula statt.", ["Der Elternabend findet am Dienstag dem 17. November 2026 in der Aula statt.", "Der Elternabend findet am Dienstag, dem 17. November 2026 in der Aula statt.", "Der Elternabend findet am Dienstag dem 17. November 2026, in der Aula statt."], "Das Datum steht zwischen zwei Kommas."], ["Eilenburg, 25.11.2026", ["Eilenburg 25.11.2026", "Eilenburg, 25.11.2026.", "Eilenburg. 25.11.2026"], "Nach dem Ort ein Komma, hinter dem Datum kein Punkt."]], "saetze": [["Ich lerne viel, denn die Klassenarbeit rückt näher.", ["Ich lerne viel denn die Klassenarbeit rückt näher.", "Ich lerne viel denn, die Klassenarbeit rückt näher.", "Ich lerne viel, denn, die Klassenarbeit rückt näher."], "Zwei Hauptsätze werden durch ein Komma getrennt. Das Komma steht vor „denn“."], ["Wir bleiben zu Hause, weil es regnet.", ["Wir bleiben zu Hause weil es regnet.", "Wir bleiben zu Hause weil, es regnet.", "Wir bleiben zu Hause, weil, es regnet."], "Vor „weil“ beginnt ein Nebensatz, davor steht ein Komma."], ["Wenn die Sonne scheint, gehen wir schwimmen.", ["Wenn die Sonne scheint gehen wir schwimmen.", "Wenn, die Sonne scheint gehen wir schwimmen.", "Wenn die Sonne scheint, gehen, wir schwimmen."], "Steht der Nebensatz vorn, folgt nach ihm ein Komma."], ["Tim weiß, dass er üben muss.", ["Tim weiß dass er üben muss.", "Tim weiß dass, er üben muss.", "Tim, weiß dass er üben muss."], "Vor „dass“ steht immer ein Komma."], ["Ich möchte mitkommen, doch ich habe keine Zeit.", ["Ich möchte mitkommen doch ich habe keine Zeit.", "Ich möchte mitkommen doch, ich habe keine Zeit.", "Ich möchte, mitkommen doch ich habe keine Zeit."], "Zwei Hauptsätze, getrennt durch ein Komma vor „doch“."], ["Wir spielen draußen, obwohl es kalt ist.", ["Wir spielen draußen obwohl es kalt ist.", "Wir spielen draußen obwohl, es kalt ist.", "Wir spielen, draußen obwohl es kalt ist."], "Das Komma steht direkt vor dem Nebensatz mit „obwohl“."], ["Als ich nach Hause kam, war das Essen fertig.", ["Als ich nach Hause kam war das Essen fertig.", "Als, ich nach Hause kam war das Essen fertig.", "Als ich nach Hause kam, war, das Essen fertig."], "Der Nebensatz mit „als“ steht vorn, danach folgt ein Komma."], ["Es ist spät, aber ich bin noch nicht müde.", ["Es ist spät aber ich bin noch nicht müde.", "Es ist spät aber, ich bin noch nicht müde.", "Es ist spät, aber, ich bin noch nicht müde."], "Vor „aber“ steht ein Komma, wenn zwei Hauptsätze verbunden werden."], ["Weil er krank ist, fehlt Jonas heute.", ["Weil er krank ist fehlt Jonas heute.", "Weil, er krank ist fehlt Jonas heute.", "Weil er krank ist, fehlt, Jonas heute."], "Nebensatz vorn, danach ein Komma."], ["Sie ruft Mia an, damit sie sich treffen.", ["Sie ruft Mia an damit sie sich treffen.", "Sie ruft Mia an damit, sie sich treffen.", "Sie ruft, Mia an damit sie sich treffen."], "Vor „damit“ beginnt der Nebensatz, davor steht ein Komma."]]};
+function shuffle(a){ a=a.slice(); for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; }
+function initQuiz(box){
+  const set = box.dataset.set; const items = QDATA[set];
+  let order, idx, score;
+  const esc = t => t.replace(/&/g,'&amp;').replace(/</g,'&lt;');
+  function start(){ order = shuffle(items.map((_,i)=>i)); idx = 0; score = 0; show(); }
+  function show(){
+    if(idx >= order.length){ end(); return; }
+    const it = items[order[idx]];
+    let opts = it[1].map(t => ({t, ok:false})); opts.push({t:it[0], ok:true});
+    opts = shuffle(opts);
+    box.innerHTML = '<div class="q-prog"><span>Aufgabe '+(idx+1)+' von '+order.length+'</span><div class="q-bar"><i style="width:'+(idx/order.length*100)+'%"></i></div></div>'
+      + '<div class="q-opts">' + opts.map((o,i)=>'<button class="q-opt" data-i="'+i+'">'+esc(o.t)+'</button>').join('') + '</div><div class="q-slot"></div>';
+    box.querySelectorAll('.q-opt').forEach(b => b.addEventListener('click', () => answer(b, opts, it)));
+  }
+  function answer(btn, opts, it){
+    const o = opts[+btn.dataset.i];
+    box.querySelectorAll('.q-opt').forEach((b,i) => { b.disabled = true; if(opts[i].ok) b.classList.add('right'); else if(b===btn) b.classList.add('wrong'); else b.classList.add('dim'); });
+    if(o.ok) score++;
+    const last = idx === order.length-1;
+    box.querySelector('.q-slot').innerHTML = '<div class="q-fb '+(o.ok?'ok':'no')+'"><b>'+(o.ok?'Richtig!':'Nicht ganz.')+'</b>'+esc(it[2])+'</div>'
+      + '<button class="ka-btn q-next">'+(last?'Ergebnis ansehen':'Weiter')+'</button>';
+    box.querySelector('.q-next').addEventListener('click', () => { idx++; show(); window.scrollTo(0,0); });
+  }
+  function end(){
+    const n = order.length; let msg = score===n ? 'Perfekt! Alles richtig.' : score>=n*0.7 ? 'Stark! Das sitzt schon gut.' : 'Schau dir die Erklärung noch einmal an und versuche es nochmal.';
+    box.innerHTML = '<div class="q-end"><h3>'+score+' von '+n+' richtig</h3><p>'+msg+'</p><button class="ka-btn small q-again">Nochmal üben</button></div>';
+    box.querySelector('.q-again').addEventListener('click', start);
+  }
+  start();
+}
+document.querySelectorAll('.quiz').forEach(initQuiz);
 </script>
 </body>
 </html>
