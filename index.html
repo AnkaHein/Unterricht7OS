@@ -807,6 +807,23 @@ h2.panel-title{font-size:1.45rem; font-weight:600; line-height:1.2;}
 .q-end{text-align:center;padding:26px 16px;border-radius:20px;background:linear-gradient(160deg,#fff,var(--accent-pale));border:1px solid var(--border);}
 .q-end h3{font-family:var(--serif);font-size:1.5rem;margin:0 0 6px;color:var(--accent-deep);}
 .q-end p{margin:0 0 14px;color:var(--ink-soft);}
+
+/* ---- Teile erkennen ---- */
+.teil{margin-bottom:12px;padding:14px;border-radius:18px;background:linear-gradient(160deg,#fff,#f1f9f7);border:1.5px solid var(--border);}
+.teil h4{margin:0 0 8px;font-family:var(--serif);font-size:.95rem;color:var(--accent-dark);font-weight:600;}
+.t-words{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px;}
+.t-w{font:inherit;font-family:var(--serif);font-size:1.15rem;padding:6px 10px;border-radius:12px;border:1.5px solid var(--border);background:#fff;color:var(--ink);cursor:pointer;}
+.t-w.sel{background:var(--accent-light);border-color:var(--accent);}
+.t-w.good{background:#d6f0ea;border-color:var(--accent);}
+.t-w.bad{background:#fbe4e0;border-color:#c0584c;}
+.t-w.show{box-shadow:0 0 0 3px var(--accent-mid);}
+.t-type{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+.t-t{font:inherit;font-size:.95rem;font-weight:600;padding:10px;border-radius:12px;border:1.5px solid var(--border);background:#fff;color:var(--accent-deep);cursor:pointer;}
+.t-t.sel{background:var(--accent);border-color:var(--accent);color:#fff;}
+.t-t.good{background:#d6f0ea;border-color:var(--accent);color:var(--accent-deep);}
+.t-t.bad{background:#fbe4e0;border-color:#c0584c;color:#7a2d26;}
+.t-hint{font-size:.85rem;color:var(--ink-soft);margin:0 0 10px;}
+.t-check:disabled{opacity:.5;}
 </style>
 </head>
 <body>
@@ -951,6 +968,7 @@ h2.panel-title{font-size:1.45rem; font-weight:600; line-height:1.2;}
     <div class="tile wide small" role="button" tabindex="0" data-goto="ueb-aufz"><div class="tile-art glyph"><span>, , ,</span></div><div class="tile-text"><h3>Aufzählungen</h3><p>10 Sätze: Wann steht ein Komma?</p></div></div>
     <div class="tile wide small" role="button" tabindex="0" data-goto="ueb-datum"><div class="tile-art glyph"><span>11.11.</span></div><div class="tile-text"><h3>Datumsangaben in Brief und Einladung</h3><p>9 Sätze: Kommas bei Ort, Datum und Wochentag</p></div></div>
     <div class="tile wide small" role="button" tabindex="0" data-goto="ueb-saetze"><div class="tile-art glyph"><span>… , …</span></div><div class="tile-text"><h3>Zweigliedrige Sätze</h3><p>10 Sätze: Komma vor weil, dass, denn, aber …</p></div></div>
+    <div class="tile wide small" role="button" tabindex="0" data-goto="ueb-teile"><div class="tile-art glyph"><span>H | N</span></div><div class="tile-text"><h3>Haupt- oder Nebensatz?</h3><p>10 Sätze: Verb markieren und Teile bestimmen</p></div></div>
   </div>
 </section>
 <section class="panel" id="ueb-rede">
@@ -976,6 +994,12 @@ h2.panel-title{font-size:1.45rem; font-weight:600; line-height:1.2;}
   <div class="panel-head"><h2 class="panel-title">Zweigliedrige Sätze</h2></div>
   <p class="panel-sub">Wo steht das Komma richtig?</p>
   <div class="quiz" data-set="saetze"></div>
+</section>
+<section class="panel" id="ueb-teile">
+  <button class="back-link" data-goto="uebungen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Übungen</button>
+  <div class="panel-head"><h2 class="panel-title">Haupt- oder Nebensatz?</h2></div>
+  <p class="panel-sub">Tippe in jedem Teil das Verb an und entscheide: Hauptsatz oder Nebensatz?</p>
+  <div class="teile" id="teile-box"></div>
 </section>
 <section class="panel" id="klartext">
   <button class="back-link" data-goto="deutsch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Deutsch</button>
@@ -1920,6 +1944,63 @@ function initQuiz(box){
   start();
 }
 document.querySelectorAll('.quiz').forEach(initQuiz);
+
+/* ================= HAUPT- ODER NEBENSATZ ================= */
+const TDATA = [[[["Ich", "lerne", "viel,"], 1, "H"], [["denn", "die", "Arbeit", "rückt", "näher."], 3, "H"]], [[["Wir", "bleiben", "zu", "Hause,"], 1, "H"], [["weil", "es", "regnet."], 2, "N"]], [[["Wenn", "die", "Sonne", "scheint,"], 3, "N"], [["gehen", "wir", "schwimmen."], 0, "H"]], [[["Tim", "sagt,"], 1, "H"], [["dass", "er", "Hunger", "hat."], 3, "N"]], [[["Es", "ist", "spät,"], 1, "H"], [["aber", "ich", "bin", "noch", "nicht", "müde."], 2, "H"]], [[["Als", "ich", "nach", "Hause", "kam,"], 4, "N"], [["war", "das", "Essen", "fertig."], 0, "H"]], [[["Mia", "singt", "im", "Chor,"], 1, "H"], [["obwohl", "sie", "krank", "ist."], 3, "N"]], [[["Weil", "er", "krank", "ist,"], 3, "N"], [["fehlt", "Jonas", "heute."], 0, "H"]], [[["Anna", "freut", "sich,"], 1, "H"], [["denn", "morgen", "beginnen", "die", "Ferien."], 2, "H"]], [[["Du", "bekommst", "ein", "Eis,"], 1, "H"], [["wenn", "du", "fertig", "bist."], 3, "N"]]];
+(function(){
+  const box = document.getElementById('teile-box'); if(!box) return;
+  let order, idx, score;
+  const esc = t => t.replace(/&/g,'&amp;').replace(/</g,'&lt;');
+  function start(){ order = shuffle(TDATA.map((_,i)=>i)); idx=0; score=0; show(); }
+  function show(){
+    if(idx>=order.length){ end(); return; }
+    const sat = TDATA[order[idx]]; const pick = [null,null], typ = [null,null];
+    let html = '<div class="q-prog"><span>Satz '+(idx+1)+' von '+order.length+'</span><div class="q-bar"><i style="width:'+(idx/order.length*100)+'%"></i></div></div>';
+    sat.forEach((tl,ti)=>{
+      html += '<div class="teil" data-t="'+ti+'"><h4>Teil '+(ti+1)+'</h4><div class="t-words">'
+        + tl[0].map((w,wi)=>'<button class="t-w" data-w="'+wi+'">'+esc(w)+'</button>').join('')
+        + '</div><div class="t-type"><button class="t-t" data-k="H">Hauptsatz</button><button class="t-t" data-k="N">Nebensatz</button></div></div>';
+    });
+    html += '<button class="ka-btn t-check" disabled>Prüfen</button><div class="t-slot"></div>';
+    box.innerHTML = html;
+    const check = box.querySelector('.t-check');
+    const refresh = () => { check.disabled = !(pick[0]!==null && pick[1]!==null && typ[0] && typ[1]); };
+    box.querySelectorAll('.teil').forEach(card=>{
+      const ti = +card.dataset.t;
+      card.querySelectorAll('.t-w').forEach(b=>b.addEventListener('click',()=>{
+        if(check.dataset.done) return;
+        card.querySelectorAll('.t-w').forEach(x=>x.classList.remove('sel')); b.classList.add('sel'); pick[ti]=+b.dataset.w; refresh(); }));
+      card.querySelectorAll('.t-t').forEach(b=>b.addEventListener('click',()=>{
+        if(check.dataset.done) return;
+        card.querySelectorAll('.t-t').forEach(x=>x.classList.remove('sel')); b.classList.add('sel'); typ[ti]=b.dataset.k; refresh(); }));
+    });
+    check.addEventListener('click',()=>{
+      check.dataset.done='1'; check.style.display='none';
+      let allOk = true; const lines=[];
+      box.querySelectorAll('.teil').forEach(card=>{
+        const ti=+card.dataset.t, tl=sat[ti];
+        const vOk = pick[ti]===tl[1], tOk = typ[ti]===tl[2]; if(!(vOk&&tOk)) allOk=false;
+        card.querySelectorAll('.t-w').forEach((b,wi)=>{ b.disabled=true; b.classList.remove('sel');
+          if(wi===pick[ti]) b.classList.add(vOk?'good':'bad'); if(!vOk && wi===tl[1]) b.classList.add('show'); });
+        card.querySelectorAll('.t-t').forEach(b=>{ b.disabled=true; b.classList.remove('sel');
+          if(b.dataset.k===tl[2]) b.classList.add('good'); else if(b.dataset.k===typ[ti]) b.classList.add('bad'); });
+        if(!vOk) lines.push('Teil '+(ti+1)+': Das Verb ist „'+tl[0][tl[1]].replace(/[.,]/g,'')+'“.');
+        if(!tOk) lines.push('Teil '+(ti+1)+' ist ein '+(tl[2]==='H'?'Hauptsatz':'Nebensatz')+(tl[2]==='H'?': Das Verb steht an zweiter Stelle.':': Das Verb steht am Ende.'));
+      });
+      if(allOk) score++;
+      const last = idx===order.length-1;
+      const tip = sat[0][2]==='H'&&sat[1][2]==='H' ? 'Zwei Hauptsätze: In beiden steht das Verb an zweiter Stelle.' : 'Der Nebensatz hat das Verb am Ende und kann nicht allein stehen.';
+      box.querySelector('.t-slot').innerHTML = '<div class="q-fb '+(allOk?'ok':'no')+'"><b>'+(allOk?'Richtig!':'Nicht ganz.')+'</b>'+(lines.length? lines.map(esc).join('<br>')+'<br>' : '')+esc(tip)+'</div><button class="ka-btn q-next">'+(last?'Ergebnis ansehen':'Weiter')+'</button>';
+      box.querySelector('.q-next').addEventListener('click',()=>{ idx++; show(); window.scrollTo(0,0); });
+    });
+  }
+  function end(){
+    const n=order.length; const msg = score===n?'Perfekt! Alles richtig.':score>=n*0.7?'Stark! Das sitzt schon gut.':'Schau dir die Erklärung noch einmal an und versuche es nochmal.';
+    box.innerHTML='<div class="q-end"><h3>'+score+' von '+n+' Sätzen ganz richtig</h3><p>'+msg+'</p><button class="ka-btn small q-again">Nochmal üben</button></div>';
+    box.querySelector('.q-again').addEventListener('click',start);
+  }
+  start();
+})();
 </script>
 </body>
 </html>
