@@ -824,6 +824,10 @@ h2.panel-title{font-size:1.45rem; font-weight:600; line-height:1.2;}
 .t-t.bad{background:#fbe4e0;border-color:#c0584c;color:#7a2d26;}
 .t-hint{font-size:.85rem;color:var(--ink-soft);margin:0 0 10px;}
 .t-check:disabled{opacity:.5;}
+
+.ka-info{margin:0;padding-left:20px;line-height:1.7;color:var(--ink);}
+.art-slot img.ka-page{margin-bottom:14px;}
+[data-file]{cursor:pointer;}
 </style>
 </head>
 <body>
@@ -873,6 +877,7 @@ h2.panel-title{font-size:1.45rem; font-weight:600; line-height:1.2;}
   <p class="panel-sub">Choose a topic.</p>
   <div class="tile-grid one">
     <div class="tile wide" role="button" tabindex="0" data-goto="ablauf-en"><div class="tile-art"><svg class="fb" viewBox="0 0 100 100" aria-hidden="true"><use href="#blossom"/></svg><img src="img/kachel-ablauf-englisch.png" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.remove()"></div><div class="tile-text"><h3>The next school weeks</h3><p>29.10. to 19.11.2026</p></div></div>
+    <div class="tile wide" role="button" tabindex="0" data-goto="ka-en"><div class="tile-art"><svg class="fb" viewBox="0 0 100 100" aria-hidden="true"><use href="#blossom"/></svg><img src="img/kachel-klassenarbeit-englisch.png" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.remove()"></div><div class="tile-text"><h3>Class test “I Love London”</h3><p>Information, practice listening and practice test</p></div></div>
   </div>
 </section>
 <section class="panel" id="ablauf-en">
@@ -1011,6 +1016,47 @@ h2.panel-title{font-size:1.45rem; font-weight:600; line-height:1.2;}
   <div class="panel-head"><h2 class="panel-title">Haupt- oder Nebensatz?</h2></div>
   <p class="panel-sub">Tippe in jedem Teil das Verb an und entscheide: Hauptsatz oder Nebensatz?</p>
   <div class="teile" id="teile-box"></div>
+</section>
+<section class="panel" id="ka-en">
+  <button class="back-link" data-goto="englisch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Englisch</button>
+  <div class="panel-head"><h2 class="panel-title">Class test “I Love London”</h2></div>
+  <p class="panel-sub">Everything you need to prepare.</p>
+  <div class="card" style="padding:16px 18px;margin-bottom:14px">
+    <p class="body-text" style="margin:0 0 8px"><b>Thursday, 12.11.2026</b></p>
+    <ul class="ka-info">
+      <li>Listening · 6 points</li><li>Words · 6 points</li><li>Reading · 10 points</li><li>Grammar · 10 points</li><li>Writing · 10 points</li>
+    </ul>
+    <p class="body-text" style="margin:8px 0 0"><b>Total: 42 points</b></p>
+  </div>
+  <div class="tile-grid one">
+    <div class="tile wide small" role="button" tabindex="0" data-goto="ka-audio"><div class="tile-art glyph"><span>♪</span></div><div class="tile-text"><h3>Practice listening</h3><p>Listen as often as you like</p></div></div>
+    <div class="tile wide small" role="button" tabindex="0" data-goto="ka-test"><div class="tile-art glyph"><span>42</span></div><div class="tile-text"><h3>Practice test</h3><p>Same tasks as the real class test (voluntary)</p></div></div>
+    <div class="tile wide small" role="button" tabindex="0" data-file="files/practice-test-solutions.pdf"><div class="tile-art glyph"><span>✓</span></div><div class="tile-text"><h3>Solutions</h3><p>Check your practice test</p></div></div>
+  </div>
+  <div class="toast" id="toast2" role="status" aria-live="polite"></div>
+</section>
+<section class="panel" id="ka-audio">
+  <button class="back-link" data-goto="ka-en"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Class test</button>
+  <div class="panel-head"><h2 class="panel-title">Practice listening</h2></div>
+  <p class="panel-sub">Listen to the message and do the tasks of the practice test. You can listen as often as you like.</p>
+  <div class="card" style="padding:18px">
+    <audio id="ka-audio-el" controls preload="none" style="width:100%" src="audio/practice-listening.mp3"></audio>
+    <p class="body-text" id="ka-audio-note" style="display:none;margin:12px 0 0">The audio will be uploaded soon.</p>
+  </div>
+</section>
+<section class="panel" id="ka-test">
+  <button class="back-link" data-goto="ka-en"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Class test</button>
+  <div class="panel-head"><h2 class="panel-title">Practice test</h2></div>
+  <p class="panel-sub">Voluntary. Do it at home and check your answers with the solutions.</p>
+  <div class="art-slot" id="ka-test-slot">
+    <img class="ka-page" src="img/practice-test-1.png" alt="Practice test, page 1" onload="this.parentNode.classList.add('ok')" onerror="this.remove()">
+    <img class="ka-page" src="img/practice-test-2.png" alt="Practice test, page 2" onload="this.parentNode.classList.add('ok')" onerror="this.remove()">
+    <img class="ka-page" src="img/practice-test-3.png" alt="Practice test, page 3" onload="this.parentNode.classList.add('ok')" onerror="this.remove()">
+    <img class="ka-page" src="img/practice-test-4.png" alt="Practice test, page 4" onload="this.parentNode.classList.add('ok')" onerror="this.remove()">
+    <div class="note-card fb">The practice test will be uploaded soon.</div>
+  </div>
+  <button class="ka-btn" data-file="files/practice-test.pdf" style="margin-top:14px">Download as PDF</button>
+  <div class="toast" role="status" aria-live="polite"></div>
 </section>
 <section class="panel" id="klartext">
   <button class="back-link" data-goto="deutsch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Deutsch</button>
@@ -2011,6 +2057,22 @@ const TDATA = [[[["Ich", "lerne", "viel,"], 1, "H"], [["denn", "die", "Arbeit", 
     box.querySelector('.q-again').addEventListener('click',start);
   }
   start();
+})();
+
+/* ================= Dateien/Audio (erscheinen, sobald sie hochgeladen sind) ================= */
+function flashToast(msg){
+  const t=document.querySelector('.panel.active .toast'); if(!t) return;
+  t.textContent=msg; t.classList.add('show'); clearTimeout(toastTimer); toastTimer=setTimeout(()=>t.classList.remove('show'),2600);
+}
+document.addEventListener('click', e => {
+  const f = e.target.closest('[data-file]'); if(!f) return;
+  e.preventDefault(); const url=f.dataset.file;
+  fetch(url,{method:'HEAD',cache:'no-store'}).then(r => { if(r.ok) window.open(url,'_blank'); else flashToast('This file will be uploaded soon.'); })
+    .catch(() => flashToast('This file is not available right now.'));
+});
+(function(){
+  const a=document.getElementById('ka-audio-el'), n=document.getElementById('ka-audio-note');
+  if(a&&n){ a.addEventListener('error',()=>{ a.style.display='none'; n.style.display='block'; }); }
 })();
 </script>
 </body>

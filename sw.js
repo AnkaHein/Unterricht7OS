@@ -1,7 +1,7 @@
 /* Service Worker – Unterricht 7OS
    Seiten: erst Netz, dann Zwischenspeicher (Änderungen auf GitHub erscheinen sofort, sobald man online ist).
    Bilder & Co.: aus dem Zwischenspeicher, im Hintergrund aktualisiert. Offline funktioniert alles, was schon einmal geladen wurde. */
-const CACHE = 'unterricht7os-v8';
+const CACHE = 'unterricht7os-v9';
 const CORE = [
   "./",
   "index.html",
@@ -63,7 +63,9 @@ self.addEventListener('activate', e => {
 });
 self.addEventListener('fetch', e => {
   const req = e.request;
-  if(req.method !== 'GET' || new URL(req.url).origin !== location.origin) return;
+  const u = new URL(req.url);
+  if(req.method !== 'GET' || u.origin !== location.origin) return;
+  if(req.headers.has('range') || /\.(mp3|m4a|wav|ogg|mp4)$/i.test(u.pathname)) return; // Audio/Video direkt vom Netz (Safari braucht Range-Antworten)
   if(req.mode === 'navigate'){
     e.respondWith(fetch(req, {cache: 'no-cache'}).then(r => { const cp = r.clone(); caches.open(CACHE).then(c => c.put('index.html', cp)); return r; })
       .catch(() => caches.match('index.html')));
