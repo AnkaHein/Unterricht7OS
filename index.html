@@ -786,6 +786,7 @@ h2.panel-title{font-size:1.45rem; font-weight:600; line-height:1.2;}
 
 
 /* ---- Übungs-Quiz ---- */
+.tile-art.glyph .fb{width:auto;height:auto;color:var(--accent-dark)}
 .tile-art.glyph{display:grid;place-items:center;background:linear-gradient(160deg,#fff,var(--accent-light));border-radius:14px;color:var(--accent-dark);font-family:var(--serif);font-weight:600;font-size:1.45rem;letter-spacing:.04em;}
 .quiz{margin-top:6px;}
 .q-prog{display:flex;align-items:center;gap:10px;font-size:.85rem;color:var(--ink-soft);margin-bottom:12px;}
@@ -1022,16 +1023,13 @@ h2.panel-title{font-size:1.45rem; font-weight:600; line-height:1.2;}
   <div class="panel-head"><h2 class="panel-title">Class test “I Love London”</h2></div>
   <p class="panel-sub">Everything you need to prepare.</p>
   <div class="card" style="padding:16px 18px;margin-bottom:14px">
-    <p class="body-text" style="margin:0 0 8px"><b>Thursday, 12.11.2026</b></p>
-    <ul class="ka-info">
-      <li>Listening · 6 points</li><li>Words · 6 points</li><li>Reading · 10 points</li><li>Grammar · 10 points</li><li>Writing · 10 points</li>
-    </ul>
-    <p class="body-text" style="margin:8px 0 0"><b>Total: 42 points</b></p>
+    <p class="body-text" style="margin:0 0 8px">The class test takes place on <b>Thursday, 12.11.2026</b>, during our English lessons.</p>
+    <p class="body-text" style="margin:0">It has the same types of tasks as the practice test, but with different content.</p>
   </div>
   <div class="tile-grid one">
-    <div class="tile wide small" role="button" tabindex="0" data-goto="ka-audio"><div class="tile-art glyph"><span>♪</span></div><div class="tile-text"><h3>Practice listening</h3><p>Listen as often as you like</p></div></div>
-    <div class="tile wide small" role="button" tabindex="0" data-goto="ka-test"><div class="tile-art glyph"><span>42</span></div><div class="tile-text"><h3>Practice test</h3><p>Same tasks as the real class test (voluntary)</p></div></div>
-    <div class="tile wide small" role="button" tabindex="0" data-file="files/practice-test-solutions.pdf"><div class="tile-art glyph"><span>✓</span></div><div class="tile-text"><h3>Solutions</h3><p>Check your practice test</p></div></div>
+    <div class="tile wide small" role="button" tabindex="0" data-goto="ka-audio"><div class="tile-art glyph"><span class="fb">♪</span><img src="img/kachel-practice-listening.png" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.remove()"></div><div class="tile-text"><h3>Practice listening</h3><p>Listen as often as you like</p></div></div>
+    <div class="tile wide small" role="button" tabindex="0" data-goto="ka-test"><div class="tile-art glyph"><span class="fb">42</span><img src="img/kachel-practice-test.png" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.remove()"></div><div class="tile-text"><h3>Practice test</h3><p>Same tasks as the real class test (voluntary)</p></div></div>
+    <div class="tile wide small" role="button" tabindex="0" data-file="files/practice-test-solutions.pdf"><div class="tile-art glyph"><span class="fb">✓</span><img src="img/kachel-practice-solutions.png" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.remove()"></div><div class="tile-text"><h3>Solutions</h3><p>Check your practice test</p></div></div>
   </div>
   <div class="toast" id="toast2" role="status" aria-live="polite"></div>
 </section>
