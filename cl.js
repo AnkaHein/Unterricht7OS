@@ -130,14 +130,14 @@ const BUBBLES = [
 ];
 /* Hotspots im Einstiegsbild: x/y in Prozent. Wird nach dem fertigen Bild feinjustiert. */
 const HOTS = [
- {en:'hills', de:'Hügel', x:25, y:22},
- {en:'farm house', de:'Bauernhaus', x:50, y:24},
- {en:'sheep', de:'Schaf(e)', x:34, y:40},
- {en:'field', de:'Feld, Acker, Weide', x:60, y:38},
- {en:'tractor', de:'Traktor', x:72, y:28},
- {en:'straw', de:'Stroh', x:80, y:36},
- {en:'gate', de:'Tor, Gatter', x:44, y:44},
- {en:'track', de:'Pfad, (Feld-)Weg', x:54, y:50}
+ {en:'hills', de:'Hügel', x:57.0, y:27.0},
+ {en:'farm house', de:'Bauernhaus', x:30.0, y:36.5},
+ {en:'field', de:'Feld, Acker, Weide', x:17.2, y:69.9},
+ {en:'sheep', de:'Schaf(e)', x:40.9, y:62.5},
+ {en:'track', de:'Pfad, (Feld-)Weg', x:59.0, y:68.9},
+ {en:'straw', de:'Stroh', x:66.9, y:50.7},
+ {en:'tractor', de:'Traktor', x:80.5, y:50.0},
+ {en:'gate', de:'Tor, Gatter', x:59.0, y:84.1}
 ];
 function orderBubbles(){
   let arr = shuffle(BUBBLES), tries = 0;
@@ -152,6 +152,7 @@ function warmup(box){
     box.innerHTML = '<p class="panel-sub" style="margin-top:6px">Who am I? Read the speech bubble and choose the right child.</p>' +
       '<div class="cl-prog"><i style="width:'+(i/list.length*100)+'%"></i></div>' +
       '<div class="cl-bubble">“'+esc(b[1])+'”</div>' +
+      '<div class="cl-who">Who is speaking?</div>' +
       '<div class="cl-kids">' + KIDS.map(k => '<button class="cl-kid'+(done[k.id]===2?' done':'')+'" data-k="'+k.id+'"><div class="ph">'+k.name[0]+'<img src="img/cl-'+k.id+'.png" alt="" onerror="this.remove()"></div><b>'+k.name+'</b></button>').join('') + '</div>';
     box.querySelectorAll('.cl-kid').forEach(el => el.addEventListener('click', () => {
       if(el.dataset.k === b[0]){ done[b[0]] = (done[b[0]]||0) + 1; feedback(true, () => { i++; game(); }); }
@@ -160,9 +161,11 @@ function warmup(box){
   }
   function sign(){
     box.innerHTML = '<div class="cl-sign">Welcome to Country Life!<small>Chapter 2 · Let’s leave the city for a weekend.</small></div>' +
-      '<div class="cl-scene" id="cl-scene"><img src="img/cl-einstieg.png" alt="Four friends dream of the countryside" onerror="this.remove()">' +
+      '<img class="cl-full" src="img/cl-einstieg.png" alt="Four friends dream of the countryside" onerror="this.remove()">' +
+      '<p class="panel-sub" style="margin:18px 0 8px">Tap the green dots to learn the words.</p>' +
+      '<div class="cl-scene" id="cl-scene"><img src="img/cl-einstieg-blase.png" alt="The dream of the countryside" onerror="this.remove()">' +
       HOTS.map((h,n) => '<button class="cl-hot" data-n="'+n+'" style="left:'+h.x+'%;top:'+h.y+'%" aria-label="'+esc(h.en)+'">?</button>').join('') + '</div>' +
-      '<div class="cl-word" id="cl-word"><span>Tap a button in the picture or a word below.</span></div>' +
+      '<div class="cl-word" id="cl-word"><span>Tap a dot in the picture or a word below.</span></div>' +
       '<div class="cl-chips">' + HOTS.map((h,n) => '<button class="cl-chip" data-n="'+n+'">'+esc(h.en)+'</button>').join('') + '</div>' +
       '<button class="ka-btn small" id="cl-replay" style="margin-top:16px">Play “Who am I?” again</button>';
     const scene = $('#cl-scene'), img = scene.querySelector('img');
