@@ -46,7 +46,7 @@
 .cl-sign small{display:block;font-family:inherit;font-size:1rem;opacity:.9;margin-top:6px}
 .cl-scene{position:relative;border-radius:16px;overflow:hidden;background:linear-gradient(160deg,#fff,var(--accent-light));min-height:200px}
 .cl-scene img{display:block;width:100%;height:auto}
-.cl-hot{position:absolute;width:34px;height:34px;margin:-17px 0 0 -17px;border-radius:50%;border:3px solid #fff;background:rgba(0,150,124,.85);color:#fff;font-weight:700;cursor:pointer;animation:clpulse 1.8s infinite;font-family:inherit;padding:0}
+.cl-hot{position:absolute;width:22px;height:22px;margin:-11px 0 0 -11px;border-radius:50%;border:2px solid #fff;background:rgba(0,150,124,.9);color:#fff;font-weight:700;font-size:12px;line-height:1;cursor:pointer;animation:clpulse 1.8s infinite;font-family:inherit;padding:0}
 @keyframes clpulse{0%{box-shadow:0 0 0 0 rgba(0,150,124,.6)}70%{box-shadow:0 0 0 14px rgba(0,150,124,0)}100%{box-shadow:0 0 0 0 rgba(0,150,124,0)}}
 .cl-word{margin:12px 0;padding:14px 16px;border-radius:var(--radius);background:#fff;border:2px solid var(--accent-mid);text-align:center;min-height:68px}
 .cl-word b{font-family:var(--serif);font-size:1.6rem;color:var(--accent-deep);display:block}

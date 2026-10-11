@@ -130,14 +130,14 @@ const BUBBLES = [
 ];
 /* Hotspots im Einstiegsbild: x/y in Prozent. Wird nach dem fertigen Bild feinjustiert. */
 const HOTS = [
- {en:'hills', de:'Hügel', x:25, y:22},
- {en:'farm house', de:'Bauernhaus', x:50, y:24},
- {en:'sheep', de:'Schaf(e)', x:34, y:40},
- {en:'field', de:'Feld, Acker, Weide', x:60, y:38},
- {en:'tractor', de:'Traktor', x:72, y:28},
- {en:'straw', de:'Stroh', x:80, y:36},
- {en:'gate', de:'Tor, Gatter', x:44, y:44},
- {en:'track', de:'Pfad, (Feld-)Weg', x:54, y:50}
+ {en:'hills', de:'Hügel', x:60, y:9},
+ {en:'farm house', de:'Bauernhaus', x:47, y:16},
+ {en:'field', de:'Feld, Acker, Weide', x:36, y:24},
+ {en:'sheep', de:'Schaf(e)', x:47, y:27},
+ {en:'track', de:'Pfad, (Feld-)Weg', x:60, y:28},
+ {en:'straw', de:'Stroh', x:66, y:22},
+ {en:'tractor', de:'Traktor', x:74, y:25},
+ {en:'gate', de:'Tor, Gatter', x:62, y:37}
 ];
 function orderBubbles(){
   let arr = shuffle(BUBBLES), tries = 0;
