@@ -830,6 +830,7 @@ h2.panel-title{font-size:1.45rem; font-weight:600; line-height:1.2;}
 .art-slot img.ka-page{margin-bottom:14px;}
 [data-file]{cursor:pointer;}
 </style>
+<link rel="stylesheet" href="cl.css">
 </head>
 <body>
 
@@ -877,6 +878,8 @@ h2.panel-title{font-size:1.45rem; font-weight:600; line-height:1.2;}
   <div class="panel-head"><h2 class="panel-title">Englisch</h2></div>
   <p class="panel-sub">Choose a topic.</p>
   <div class="tile-grid one">
+    <div class="tile wide" role="button" tabindex="0" data-goto="cl-home"><div class="tile-art glyph"><span class="fb">CL</span><img src="img/kachel-country-life.png" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.remove()"></div><div class="tile-text"><h3>Country Life</h3><p>Chapter 2 · starts on 19.11.2026</p></div></div>
+    <div class="tile wide" role="button" tabindex="0" data-goto="vt-home"><div class="tile-art glyph"><span class="fb">Abc</span><img src="img/kachel-vocab-trainer.png" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.remove()"></div><div class="tile-text"><h3>Vocabulary Trainer</h3><p>Practise the words of every lesson</p></div></div>
     <div class="tile wide" role="button" tabindex="0" data-goto="ablauf-en"><div class="tile-art"><svg class="fb" viewBox="0 0 100 100" aria-hidden="true"><use href="#blossom"/></svg><img src="img/kachel-ablauf-englisch.png" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.remove()"></div><div class="tile-text"><h3>The next school weeks</h3><p>29.10. to 19.11.2026</p></div></div>
     <div class="tile wide" role="button" tabindex="0" data-goto="ka-en"><div class="tile-art"><svg class="fb" viewBox="0 0 100 100" aria-hidden="true"><use href="#blossom"/></svg><img src="img/kachel-klassenarbeit-englisch.png" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.remove()"></div><div class="tile-text"><h3>Class test “I Love London”</h3><p>Information, practice listening and practice test</p></div></div>
   </div>
@@ -1347,6 +1350,109 @@ h2.panel-title{font-size:1.45rem; font-weight:600; line-height:1.2;}
     </div>
   </div>
 </section>
+
+<!-- ===== COUNTRY LIFE ===== -->
+<section class="panel" id="cl-home">
+  <button class="back-link" data-goto="englisch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Englisch</button>
+  <div class="panel-head"><h2 class="panel-title">Country Life</h2></div>
+  <p class="panel-sub">Chapter 2</p>
+  <div class="tile-grid one">
+    <div class="tile wide" role="button" tabindex="0" data-goto="cl-chapter"><div class="tile-art glyph"><span class="fb">CL</span><img src="img/kachel-cl-chapter.png" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.remove()"></div><div class="tile-text"><h3>Our new Chapter</h3><p>Lessons, vocabulary and tips</p></div></div>
+  </div>
+</section>
+<section class="panel" id="cl-chapter">
+  <button class="back-link" data-goto="cl-home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Country Life</button>
+  <div class="panel-head"><h2 class="panel-title">Our new Chapter</h2></div>
+  <p class="panel-sub">Choose a lesson.</p>
+  <div class="tile-grid one">
+    <div class="tile wide" role="button" tabindex="0" data-goto="cl-l1"><div class="tile-art glyph"><span class="fb">1</span><img src="img/kachel-cl-lesson1.png" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.remove()"></div><div class="tile-text"><h3>1st Lesson</h3><p>Listening</p></div></div>
+  </div>
+</section>
+<section class="panel" id="cl-l1">
+  <button class="back-link" data-goto="cl-chapter"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Our new Chapter</button>
+  <div class="panel-head"><h2 class="panel-title">1st Lesson: Listening</h2></div>
+  <p class="panel-sub">Today we train our ears.</p>
+  <div class="tile-grid one">
+    <div class="tile wide small" role="button" tabindex="0" data-goto="cl-start"><div class="tile-art glyph"><span class="fb">?</span><img src="img/kachel-cl-warmup.png" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.remove()"></div><div class="tile-text"><h3>Warm-up</h3><p>Who am I? And where are we going?</p></div></div>
+    <div class="tile wide small" role="button" tabindex="0" data-goto="cl-vocab"><div class="tile-art glyph"><span class="fb">Abc</span><img src="img/kachel-cl-vocab.png" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.remove()"></div><div class="tile-text"><h3>Vocabulary</h3><p>Word list and quiz</p></div></div>
+    <div class="tile wide small" role="button" tabindex="0" data-goto="cl-tips"><div class="tile-art glyph"><span class="fb">♪</span><img src="img/kachel-cl-tips.png" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.remove()"></div><div class="tile-text"><h3>Listening Tips</h3><p>How to get more out of every audio</p></div></div>
+    <div class="tile wide small" role="button" tabindex="0" data-goto="cl-outlook"><div class="tile-art glyph"><span class="fb">→</span><img src="img/kachel-cl-outlook.png" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.remove()"></div><div class="tile-text"><h3>Outlook</h3><p>What comes next?</p></div></div>
+  </div>
+</section>
+
+<section class="panel" id="cl-start">
+  <button class="back-link" data-goto="cl-l1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>1st Lesson</button>
+  <div class="panel-head"><h2 class="panel-title">Warm-up</h2></div>
+  <div id="cl-start-box"></div>
+</section>
+
+<section class="panel" id="cl-vocab">
+  <button class="back-link" data-goto="cl-l1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>1st Lesson</button>
+  <div class="panel-head"><h2 class="panel-title">Vocabulary</h2></div>
+  <p class="panel-sub">Copy these words into your exercise book (English and German).</p>
+  <div class="card" style="padding:6px 12px 10px"><table class="cl-table" id="cl-vocab-table"></table></div>
+  <h3 class="cl-h3">Movement break quiz</h3>
+  <p class="panel-sub" style="margin-top:0">Read the description and choose the right word.</p>
+  <div class="cl-quiz" id="cl-move-quiz"></div>
+</section>
+
+<section class="panel" id="cl-tips">
+  <button class="back-link" data-goto="cl-l1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>1st Lesson</button>
+  <div class="panel-head"><h2 class="panel-title">Listening Tips</h2></div>
+  <p class="panel-sub">Ten tips for every listening task.</p>
+  <ol class="cl-tips" id="cl-tips-list"></ol>
+</section>
+
+<section class="panel" id="cl-outlook">
+  <button class="back-link" data-goto="cl-l1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>1st Lesson</button>
+  <div class="panel-head"><h2 class="panel-title">Outlook</h2></div>
+  <div class="art-slot" id="cl-outlook-slot">
+    <img src="img/cl-ausblick.png" alt="" onload="this.parentNode.classList.add('ok')" onerror="this.remove()">
+  </div>
+  <div class="cl-bigq">What is it like to move to the countryside?</div>
+  <div class="card" style="padding:14px 18px;margin-top:14px">
+    <p class="body-text" style="margin:0"><b>Homework:</b> Learn the vocabulary of lesson 1. Use the Vocabulary Trainer.</p>
+  </div>
+  <div class="tile-grid one" style="margin-top:12px">
+    <div class="tile wide small" role="button" tabindex="0" data-goto="vt-l1"><div class="tile-art glyph"><span class="fb">Abc</span></div><div class="tile-text"><h3>Vocabulary Lesson 1</h3><p>Open the trainer</p></div></div>
+  </div>
+</section>
+
+<!-- ===== VOCABULARY TRAINER ===== -->
+<section class="panel" id="vt-home">
+  <button class="back-link" data-goto="englisch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Englisch</button>
+  <div class="panel-head"><h2 class="panel-title">Vocabulary Trainer</h2></div>
+  <p class="panel-sub">Choose a lesson.</p>
+  <div class="tile-grid one">
+    <div class="tile wide small" role="button" tabindex="0" data-goto="vt-l1"><div class="tile-art glyph"><span class="fb">1</span><img src="img/kachel-vt-l1.png" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.remove()"></div><div class="tile-text"><h3>Vocabulary Lesson 1</h3><p>Listening · 15 words</p></div></div>
+  </div>
+</section>
+<section class="panel" id="vt-l1">
+  <button class="back-link" data-goto="vt-home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Vocabulary Trainer</button>
+  <div class="panel-head"><h2 class="panel-title">Vocabulary Lesson 1</h2></div>
+  <p class="panel-sub">How do you want to practise?</p>
+  <div class="tile-grid one">
+    <div class="tile wide small" role="button" tabindex="0" data-goto="vt-de-en"><div class="tile-art glyph"><span class="fb">DE→EN</span></div><div class="tile-text"><h3>German → English</h3><p>You see the German word. Choose the English one.</p></div></div>
+    <div class="tile wide small" role="button" tabindex="0" data-goto="vt-spell"><div class="tile-art glyph"><span class="fb">a-b-c</span></div><div class="tile-text"><h3>Spelling</h3><p>Which spelling is right?</p></div></div>
+    <div class="tile wide small" role="button" tabindex="0" data-goto="vt-expl"><div class="tile-art glyph"><span class="fb">“…”</span></div><div class="tile-text"><h3>Explanations</h3><p>Read the description. Find the word.</p></div></div>
+  </div>
+</section>
+<section class="panel" id="vt-de-en">
+  <button class="back-link" data-goto="vt-l1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Vocabulary Lesson 1</button>
+  <div class="panel-head"><h2 class="panel-title">German → English</h2></div>
+  <div class="cl-quiz" id="vt-quiz-de-en"></div>
+</section>
+<section class="panel" id="vt-spell">
+  <button class="back-link" data-goto="vt-l1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Vocabulary Lesson 1</button>
+  <div class="panel-head"><h2 class="panel-title">Spelling</h2></div>
+  <div class="cl-quiz" id="vt-quiz-spell"></div>
+</section>
+<section class="panel" id="vt-expl">
+  <button class="back-link" data-goto="vt-l1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Vocabulary Lesson 1</button>
+  <div class="panel-head"><h2 class="panel-title">Explanations</h2></div>
+  <div class="cl-quiz" id="vt-quiz-expl"></div>
+</section>
+<div class="cl-overlay" id="cl-overlay" hidden></div>
 
 </main>
 
@@ -2073,5 +2179,6 @@ document.addEventListener('click', e => {
   if(a&&n){ a.addEventListener('error',()=>{ a.style.display='none'; n.style.display='block'; }); }
 })();
 </script>
+<script src="cl.js"></script>
 </body>
 </html>
