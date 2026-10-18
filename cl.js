@@ -24,6 +24,38 @@ const V1 = [
  {en:'fence', de:'Zaun', ex:'It is made of wood or wire and goes around a field. It keeps animals in.', conf:['wall','fancy','finch'], sp:['fense','fance','fenze']},
  {en:'chase sb./sth.', de:'jn./etwas jagen, hinterherrennen', ex:'To run after someone or something to catch it. Dogs do this with cats.', conf:['chair','cheese','case'], sp:['chace','chas','chayse']}
 ];
+
+/* ---------- Vokabeln Lesson 2 ---------- */
+const V2 = [
+ {en:'business', de:'Geschäft, Firma', ex:'A company or a shop. People work there to earn money.', conf:['busy','bush','bus stop'], sp:['bisness','busness','buisness']},
+ {en:'van', de:'Transporter, Lieferwagen', ex:'A big car that carries things, for example food or boxes.', conf:['fan','vase','tram'], sp:['vann','vaan','wan']},
+ {en:'install', de:'installieren, einrichten', ex:'To put a new machine or camera in the right place so that it works.', conf:['instead','insult','inspect'], sp:['instol','inestall','instaall']},
+ {en:'CCTV camera', de:'Überwachungskamera', ex:'A camera that films a place all day. You can see who comes in.', conf:['TV camera','photo camera','video game'], sp:['CCTV camara','CTTV camera','CCTV kamera']},
+ {en:'It sucks!', de:'Es nervt! / Es ist Mist! (umgangssprachlich)', ex:'You say this when something is really bad. “No wifi? ___!”', conf:['It rocks!','It sounds!','It sticks!'], sp:['It socks!','It suks!','It sucs!']},
+ {en:'lead', de:'(Hunde-)Leine', ex:'A long strap that you put on a dog so that it cannot run away.', conf:['leaf','lend','lean'], sp:['leed','leaad','lede']},
+ {en:'hero', de:'Held/in (Mehrzahl: heroes)', ex:'A person who does something very brave and helps other people.', conf:['hair','here','hello'], sp:['hiro','heero','herro']},
+ {en:'save', de:'retten (auch: sparen)', ex:'To help somebody who is in danger, so that he or she is safe again.', conf:['safe','sail','serve'], sp:['saive','sayve','seive']},
+ {en:'brave', de:'mutig', ex:'Not afraid of danger. A firefighter has to be this.', conf:['brown','bread','brief'], sp:['braive','brayve','breve']},
+ {en:'drown', de:'ertrinken', ex:'To go under the water and not be able to breathe. This is very dangerous.', conf:['drive','down','drop'], sp:['drowen','droun','draun']},
+ {en:'get out (of sth.)', de:'(aus etwas) herauskommen', ex:'To leave a place, for example a car or the water.', conf:['get on','get up','get over'], sp:['get aut','git out','get owt']},
+ {en:'react', de:'reagieren', ex:'To do something because something has happened, for example when you hear a loud noise.', conf:['reach','read','rest'], sp:['riact','reakt','reackt']},
+ {en:'recently', de:'in letzter Zeit; vor Kurzem', ex:'A short time ago. Not long before now.', conf:['recipe','really','regularly'], sp:['resently','recentely','recentlly']},
+ {en:'clear', de:'klar, deutlich, eindeutig', ex:'You can see through it, or it is easy to understand. Clean water is this.', conf:['clean','clever','cloudy'], sp:['cleer','klear','cleare']},
+ {en:'among', de:'zwischen, unter (mehreren)', ex:'In the middle of many people or things: a sheep ___ the other sheep.', conf:['along','around','amount'], sp:['amung','ammong','amoung']}
+];
+const TIPS2 = [
+ ['Read the headline and look at the picture first.','Sie verraten dir schon, worum es geht.'],
+ ['Read the tasks before you read the text.','So weißt du, wonach du suchen musst.'],
+ ['Read the text once quickly.','Du musst nicht jedes Wort verstehen. Verschaffe dir erst einen Überblick.'],
+ ['Underline the key words in the question.','Suche sie dann im Text. Oft stehen die Antworten direkt daneben.'],
+ ['The tasks are in the same order as the text.','Aufgabe 2 steht im Text nach Aufgabe 1.'],
+ ['“Not in the text” means: the text says nothing about it.','Auch wenn es stimmen könnte, zählt nur, was im Text steht.'],
+ ['False? Find the sentence that shows it is wrong.','Unterstreiche diese Stelle im Text.'],
+ ['The text often uses other words than the question.','Suche nach Wörtern mit der gleichen Bedeutung.'],
+ ['Do not know a word? Read the sentence before and after it.','Oft kannst du die Bedeutung erraten. Wenn nicht, lass das Wort aus.'],
+ ['Check at the end: is there an answer for every task?','Lies noch einmal kurz über deine Antworten.']
+];
+
 /* Bei der Wahl der Antwort zählt nur der erste Teil bei chase: Anzeige "chase" */
 const label = w => w.en;
 
@@ -31,6 +63,11 @@ const label = w => w.en;
 (function(){
   const t = $('#cl-vocab-table'); if(!t) return;
   t.innerHTML = '<tr><th>English</th><th>Deutsch</th></tr>' + V1.map(w => '<tr><td>'+esc(w.en)+'</td><td>'+esc(w.de)+'</td></tr>').join('');
+})();
+
+(function(){
+  const t = $('#cl-vocab-table2'); if(!t) return;
+  t.innerHTML = '<tr><th>English</th><th>Deutsch</th></tr>' + V2.map(w => '<tr><td>'+esc(w.en)+'</td><td>'+esc(w.de)+'</td></tr>').join('');
 })();
 
 /* ---------- Listening Tips ---------- */
@@ -49,6 +86,11 @@ const TIPS = [
 (function(){
   const l = $('#cl-tips-list'); if(!l) return;
   l.innerHTML = TIPS.map(t => '<li><b>'+esc(t[0])+'</b><span>'+esc(t[1])+'</span></li>').join('');
+})();
+
+(function(){
+  const l = $('#cl-tips-list2'); if(!l) return;
+  l.innerHTML = TIPS2.map(t => '<li><b>'+esc(t[0])+'</b><span>'+esc(t[1])+'</span></li>').join('');
 })();
 
 /* ---------- Feedback-Overlay ---------- */
@@ -90,19 +132,19 @@ function runQuiz(box, makeQuestions, opts){
 }
 
 /* Bewegungsquiz: Beschreibung + 5 Kacheln */
-function qExplanations(){
-  return shuffle(V1).map(w => {
-    const others = shuffle(V1.filter(x => x !== w)).slice(0,4);
+function qExplanations(V){ V = V || V1;
+  return shuffle(V).map(w => {
+    const others = shuffle(V.filter(x => x !== w)).slice(0,4);
     return {prompt:w.ex, options:shuffle([w].concat(others)).map(label), answer:label(w)};
   });
 }
 /* Deutsch → Englisch: 4 Kacheln, 3 ähnliche falsche */
-function qDeEn(){
-  return shuffle(V1).map(w => ({prompt:w.de, big:true, options:shuffle([label(w)].concat(w.conf)), answer:label(w)}));
+function qDeEn(V){ V = V || V1;
+  return shuffle(V).map(w => ({prompt:w.de, big:true, options:shuffle([label(w)].concat(w.conf)), answer:label(w)}));
 }
 /* Schreibweise: Deutsch + 3 Schreibvarianten (1 richtig, 2 falsch) */
-function qSpell(){
-  return shuffle(V1).map(w => ({prompt:w.de, big:true, options:shuffle([w.en].concat(shuffle(w.sp).slice(0,2))), answer:w.en}));
+function qSpell(V){ V = V || V1;
+  return shuffle(V).map(w => ({prompt:w.de, big:true, options:shuffle([w.en].concat(shuffle(w.sp).slice(0,2))), answer:w.en}));
 }
 
 function hook(id, fn){ const el = $(id); if(!el) return; let started = false;
@@ -113,6 +155,10 @@ hook('#cl-move-quiz', el => runQuiz(el, qExplanations));
 hook('#vt-quiz-de-en', el => runQuiz(el, qDeEn));
 hook('#vt-quiz-spell', el => runQuiz(el, qSpell));
 hook('#vt-quiz-expl', el => runQuiz(el, qExplanations));
+hook('#cl-move-quiz2', el => runQuiz(el, () => qExplanations(V2)));
+hook('#vt-quiz-de-en2', el => runQuiz(el, () => qDeEn(V2)));
+hook('#vt-quiz-spell2', el => runQuiz(el, () => qSpell(V2)));
+hook('#vt-quiz-expl2', el => runQuiz(el, () => qExplanations(V2)));
 
 /* ---------- Warm-up: Who am I? + Schild + Einstiegsbild ---------- */
 const KIDS = [

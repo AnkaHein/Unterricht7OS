@@ -38,8 +38,8 @@
 .cl-kid.done{border-color:var(--accent);background:var(--accent-light)}
 .cl-kid.shake{animation:clshake .4s}
 @keyframes clshake{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
-.cl-bubble{position:relative;background:#fff;border:2px solid var(--accent-mid);border-radius:20px;padding:16px 18px;font-size:1.15rem;line-height:1.45;margin:6px 0 18px;box-shadow:0 8px 20px -12px rgba(0,100,90,.5)}
-.cl-bubble::after{content:"";position:absolute;left:34px;bottom:-14px;width:22px;height:22px;background:#fff;border-right:2px solid var(--accent-mid);border-bottom:2px solid var(--accent-mid);transform:rotate(45deg)}
+.cl-bubble{position:relative;background:#fff;border:2px solid var(--accent-mid);border-radius:20px;padding:16px 18px;font-size:1.15rem;line-height:1.45;margin:6px 0 10px;box-shadow:0 8px 20px -12px rgba(0,100,90,.5)}
+
 .cl-prog{height:8px;background:var(--neutral-light);border-radius:8px;overflow:hidden;margin:4px 0 12px}
 .cl-prog i{display:block;height:100%;background:var(--accent);width:0;transition:width .3s}
 .cl-sign{text-align:center;font-family:var(--serif);font-size:2.1rem;line-height:1.1;color:#fff;background:linear-gradient(160deg,var(--accent),var(--accent-deep));border:5px solid #8b5e3c;border-radius:16px;padding:20px 14px;margin:6px 0 14px;box-shadow:0 10px 24px -10px rgba(0,60,50,.6)}
@@ -53,3 +53,9 @@
 .cl-word span{color:var(--ink-soft)}
 .cl-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
 .cl-chip{border:1px solid var(--border);background:var(--card2);border-radius:999px;padding:6px 12px;font-size:.9rem;cursor:pointer;font-family:inherit}
+
+.cl-who{text-align:center;margin:26px 0 12px;font-weight:700;color:var(--accent-deep);font-size:1rem}
+.cl-who::before,.cl-who::after{content:"";display:inline-block;width:18%;height:2px;background:var(--border);vertical-align:middle;margin:0 10px}
+.cl-full{display:block;width:100%;height:auto;border-radius:16px;margin:4px 0}
+.cl-hot{width:28px;height:28px;margin:-14px 0 0 -14px}
+.cl-aud{width:100%;margin:6px 0 18px}.cl-aud-h{margin:14px 0 4px;font-size:1.05rem}
