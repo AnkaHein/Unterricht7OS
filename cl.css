@@ -66,3 +66,6 @@
 .cl-board small{color:var(--ink-soft)}
 .cl-board .ex{color:var(--accent-deep);font-weight:600}
 .cl-quiz .q-prompt{white-space:pre-line}
+
+.cl-table.four td:first-child{width:auto}
+.cl-board .cl-table{margin-top:4px}

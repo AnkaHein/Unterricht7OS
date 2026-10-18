@@ -424,4 +424,130 @@ hook('#gp-f2-quiz', el => runQuiz(el, qOften));
 hook('#gp-f3-quiz', el => runQuiz(el, qHow));
 hook('#gp-f4-quiz', el => runQuiz(el, () => qRight(F4)));
 
+
+/* =====================  Lesson 4: Grammar 2 (Present perfect)  ===================== */
+const V4 = [
+ {en:'once', de:'einmal', ex:'One time. “I have been to London ___.”', conf:['only','ones','often'], sp:['wonce','onse','ounce']},
+ {en:'twice', de:'zweimal', ex:'Two times. “I have been to London ___.”', conf:['twelve','twins','twist'], sp:['twise','twics','tweice']},
+ {en:'prepare', de:'vorbereiten; sich vorbereiten', ex:'To get everything ready before something starts. “I ___ for the test.”', conf:['repair','prefer','prepay'], sp:['prepair','preper','prepaer']},
+ {en:'result', de:'Ergebnis, Resultat', ex:'What you find out at the end. The ___ of the test.', conf:['rescue','reset','respect'], sp:['resalt','resullt','rezult']},
+ {en:'cycle tour', de:'Radtour', ex:'A long trip on a bike.', conf:['bus tour','cycle test','circle'], sp:['sicle tour','cycle tuor','cycel tour']},
+ {en:'crossroads', de:'(Straßen-)Kreuzung', ex:'A place where two roads meet.', conf:['crossword','crowd','crossbow'], sp:['crosroads','crossroades','crossrodes']},
+ {en:'wood', de:'Wald; Holz', ex:'A small forest with many trees. Also: the material a table is made of.', conf:['wool','word','wolf'], sp:['woud','wodd','wuud']},
+ {en:'jump', de:'springen; (vor Schreck) zusammenzucken', ex:'To push yourself up into the air with your legs.', conf:['jam','jug','lump'], sp:['jomp','gump','jumb']},
+ {en:'offer', de:'anbieten', ex:'To say: “Do you want this?” and to give it to someone.', conf:['often','offend','officer'], sp:['ofer','offar','offeer']},
+ {en:'suggest', de:'vorschlagen', ex:'To say what you think someone could do. “Let’s go for a walk.”', conf:['success','surprise','support'], sp:['sugest','suggast','sudgest']},
+ {en:'believe', de:'glauben', ex:'You think something is true.', conf:['belong','below','behave'], sp:['beleive','belive','beliv']},
+ {en:'full (of)', de:'voll (von)', ex:'There is no more space. The opposite of empty.', conf:['fun','fall','fur'], sp:['ful (of)','fool (of)','fulle (of)']}
+];
+(function(){
+  const t = $('#cl-vocab-table4'); if(!t) return;
+  t.innerHTML = '<tr><th>English</th><th>Deutsch</th></tr>' + V4.map(w => '<tr><td>'+esc(w.en)+'</td><td>'+esc(w.de)+'</td></tr>').join('');
+})();
+hook('#vt-quiz-de-en4', el => runQuiz(el, () => qDeEn(V4)));
+hook('#vt-quiz-spell4', el => runQuiz(el, () => qSpell(V4)));
+hook('#vt-quiz-expl4', el => runQuiz(el, () => qExplanations(V4)));
+
+/* Irregular verbs: inf, past, pp, de, falsche pp, falsche past */
+const IV = [
+ ['be','was / were','been','sein',['was','beed','beened'],['beed','bean','been']],
+ ['catch','caught','caught','fangen, erwischen',['catched','catch','cought'],['catched','cought','catch']],
+ ['do','did','done','tun, machen',['did','doed','do'],['doed','dud','done']],
+ ['drive','drove','driven','fahren',['drove','drived','drive'],['drived','droved','driven']],
+ ['eat','ate','eaten','essen',['ate','eated','eat'],['eated','et','eaten']],
+ ['fall','fell','fallen','fallen',['fell','falled','fall'],['falled','felt','fallen']],
+ ['feed','fed','fed','füttern',['feeded','feed','fead'],['feeded','feed','fead']],
+ ['go','went','gone','gehen',['went','goed','go'],['goed','wend','gone']],
+ ['have','had','had','haben',['haved','have','hat'],['haved','have','hat']],
+ ['make','made','made','machen',['maked','make','maid'],['maked','make','maid']],
+ ['ride','rode','ridden','reiten, fahren',['rode','rided','ride'],['rided','roded','ridden']],
+ ['run','ran','run','rennen',['ran','runned','runed'],['run','runned','runed']],
+ ['see','saw','seen','sehen',['saw','seed','see'],['seed','sawed','seen']],
+ ['swim','swam','swum','schwimmen',['swam','swimmed','swim'],['swimmed','swamed','swum']],
+ ['take','took','taken','nehmen',['took','taked','take'],['taked','tooked','taken']]
+];
+(function(){
+  const t = $('#cl-iv-table'); if(!t) return;
+  t.innerHTML = '<tr><th>infinitive</th><th>simple past</th><th>past participle</th><th>Deutsch</th></tr>' + IV.map(v => '<tr><td>'+esc(v[0])+'</td><td>'+esc(v[1])+'</td><td><b>'+esc(v[2])+'</b></td><td>'+esc(v[3])+'</td></tr>').join('');
+})();
+function qIVpp(){ return shuffle(IV).slice(0,10).map(v => ({prompt:v[0]+'  →  ?', big:true, options:shuffle([v[2]].concat(v[4])), answer:v[2]})); }
+function qIVpast(){ return shuffle(IV).slice(0,10).map(v => ({prompt:v[0]+'  →  ?', big:true, options:shuffle([v[1]].concat(v[5].filter(x => x !== v[1]).slice(0,3))), answer:v[1]})); }
+function qIV3(){ return shuffle(IV).slice(0,10).map(v => {
+  const inf = v[0], past = v[1], pp = v[2];
+  const right = inf+' – '+past+' – '+pp;
+  const cand = [inf+' – '+pp+' – '+past, inf+' – '+past+' – '+past, inf+' – '+inf+'ed – '+inf+'ed', inf+' – '+pp+' – '+pp, inf+' – '+inf+' – '+pp, inf+' – '+past+' – '+inf+'ed'];
+  const wrong = shuffle(Array.from(new Set(cand)).filter(x => x !== right)).slice(0,3);
+  return {prompt:v[3], big:true, options:shuffle([right].concat(wrong)), answer:right}; }); }
+
+/* Present perfect: have or has? */
+const P1 = [
+ ['Jayden ___ never driven a tractor.','has'],['Amir and Chloe ___ never fed a sheep.','have'],['Freya ___ been to the farm twice.','has'],
+ ['We ___ taken lots of photos.','have'],['I ___ never ridden a horse.','have'],['Ben ___ driven a tractor lots of times.','has'],
+ ['Bella ___ run across the field.','has'],['You ___ eaten all the apple pie!','have'],['Grandma ___ made lots of apple pies.','has'],
+ ['The sheep ___ eaten the grass.','have'],['Grandad and Grandma ___ lived here for years.','have'],['It ___ never snowed here.','has']
+];
+function qHaveHas(){
+  const items = P1.map(q => ({s:q[0], a:q[1]}));
+  return mixKinds(items,'a').slice(0,10).map(q => ({prompt:q.s, options:['have','has'], answer:q.a}));
+}
+/* Complete the sentence with the verb (Index in IV) */
+const P2 = [
+ ['Jayden has never ___ a tractor. (drive)','drive'],['Amir and Chloe have never ___ a sheep. (feed)','feed'],['Freya has ___ to the farm twice. (be)','be'],
+ ['Grandma has ___ lots of apple pies. (make)','make'],['Ben has ___ a horse many times. (ride)','ride'],['We have ___ lots of photos. (take)','take'],
+ ['Have you ever ___ snails? (eat)','eat'],['We haven’t ___ Bella today. (see)','see'],['Bella has ___ a rabbit! (catch)','catch'],
+ ['Jayden has ___ into the brook. (fall)','fall'],['Bella has ___ across the brook. (swim)','swim'],['Ben has ___ to the field. (run)','run'],
+ ['The sheep have ___ to the hill. (go)','go'],['Jayden hasn’t ___ his homework. (do)','do'],['Grandad has ___ Bella for three years. (have)','have']
+];
+function qComplete(){ return shuffle(P2).slice(0,10).map(q => { const v = IV.find(x => x[0] === q[1]);
+  return {prompt:q[0], options:shuffle([v[2]].concat(v[4])), answer:v[2]}; }); }
+/* since or for? */
+const P3 = [
+ ['Grandad has lived at Willow Farm ___ 52 years.','for'],['Grandma has known Grandad ___ 1975.','since'],['Bella has been on the farm ___ she was a puppy.','since'],
+ ['We have been here ___ two days.','for'],['Ben has lived next door ___ he was born.','since'],['The wifi has worked in the kitchen ___ last year.','since'],
+ ['Jayden has been on the farm ___ Friday.','since'],['I have had my phone ___ three years.','for'],['The friends have been friends ___ a long time.','for'],
+ ['It has rained ___ 6 o’clock.','since'],['We have waited ___ ten minutes.','for'],['Freya has played the violin ___ she was six.','since'],['Amir has lived in London ___ ten years.','for']
+];
+function qSinceFor(){ return mixKinds(P3.map(q => ({s:q[0], a:q[1]})),'a').slice(0,10).map(q => ({prompt:q.s, options:['since','for'], answer:q.a})); }
+const P4 = [
+ ['Jayden has never driven a tractor.','Jayden have never driven a tractor.','Jayden has never drove a tractor.'],
+ ['Have you ever eaten snails?','Have you ever ate snails?','Has you ever eaten snails?'],
+ ['I saw a film last night.','I have seen a film last night.','I seen a film last night.'],
+ ['Grandad has lived here since 1975.','Grandad lives here since 1975.','Grandad has lived here for 1975.'],
+ ['We haven’t seen Bella today.','We hasn’t seen Bella today.','We haven’t saw Bella today.'],
+ ['Ben has driven a tractor lots of times.','Ben have driven a tractor lots of times.','Ben has drived a tractor lots of times.'],
+ ['Bella has been on the farm for three years.','Bella has been on the farm since three years.','Bella is on the farm for three years.'],
+ ['We went to the farm yesterday.','We have been to the farm yesterday.','We have gone to the farm yesterday.'],
+ ['Freya has been to London twice.','Freya has be to London twice.','Freya have been to London twice.'],
+ ['Has Amir ever ridden a horse?','Have Amir ever ridden a horse?','Has Amir ever rode a horse?']
+];
+hook('#gp-p1-quiz', el => runQuiz(el, qHaveHas));
+hook('#gp-p2-quiz', el => runQuiz(el, qComplete));
+hook('#gp-p3-quiz', el => runQuiz(el, qSinceFor));
+hook('#gp-p4-quiz', el => runQuiz(el, () => qRight(P4)));
+hook('#gp-i1-quiz', el => runQuiz(el, qIVpp));
+hook('#gp-i2-quiz', el => runQuiz(el, qIVpast));
+hook('#gp-i3-quiz', el => runQuiz(el, qIV3));
+
+/* Einstieg Lesson 4: Gespräche nacheinander */
+const PAIRS4 = [
+ ['Freya: Have you ever driven a tractor, Jayden?','Jayden: No, I haven’t. I’ve never driven a tractor.'],
+ ['Jayden: Have you ever driven one, Ben?','Ben: Yes, I have. I’ve driven a tractor lots of times.'],
+ ['Chloe: Has Amir ever ridden a horse?','Amir: Yes, I have. I’ve ridden a horse twice.'],
+ ['Ben: Have you ever been to London, Freya?','Freya: Yes, I have. I’ve lived there since I was a baby.']
+];
+(function(){
+  const box = $('#cl-pairs4'), btn = $('#cl-pairs4-btn'); if(!box || !btn) return;
+  let n = 0;
+  function add(){
+    if(n >= PAIRS4.length) return;
+    const p = PAIRS4[n++];
+    const row = document.createElement('div');
+    row.style.cssText = 'display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:8px 0;border-top:1px solid var(--border)';
+    row.innerHTML = '<span>'+esc(p[0])+'</span><span style="color:var(--accent-deep);font-weight:600">'+esc(p[1])+'</span>';
+    box.appendChild(row);
+    if(n >= PAIRS4.length) btn.style.display = 'none';
+  }
+  btn.addEventListener('click', add); add();
+})();
+
 })();
