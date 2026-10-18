@@ -59,3 +59,10 @@
 .cl-full{display:block;width:100%;height:auto;border-radius:16px;margin:4px 0}
 .cl-hot{width:28px;height:28px;margin:-14px 0 0 -14px}
 .cl-aud{width:100%;margin:6px 0 18px}.cl-aud-h{margin:14px 0 4px;font-size:1.05rem}
+
+.cl-board{background:#fff;border:2px solid var(--accent);border-radius:var(--radius);padding:12px 16px;margin:0 0 14px}
+.cl-board h4{margin:0 0 6px;font-family:var(--serif);font-size:1.25rem;color:var(--accent-deep)}
+.cl-board p{margin:6px 0;line-height:1.45}
+.cl-board small{color:var(--ink-soft)}
+.cl-board .ex{color:var(--accent-deep);font-weight:600}
+.cl-quiz .q-prompt{white-space:pre-line}

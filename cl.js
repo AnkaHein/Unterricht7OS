@@ -225,4 +225,203 @@ function warmup(box){
   game();
 }
 hook('#cl-start-box', warmup);
+
+/* =====================  Lesson 3: Grammar 1 (Adverbs)  ===================== */
+const V3 = [
+ {en:'daughter', de:'Tochter', ex:'A girl or a woman who is the child of a mother and a father.', conf:['doctor','dirty','dancer'], sp:['dauter','doughter','daugther']},
+ {en:'son', de:'Sohn', ex:'A boy or a man who is the child of a mother and a father.', conf:['sun','soon','sign'], sp:['sonn','sone','soan']},
+ {en:'anything', de:'(irgend)etwas; nichts (verneint)', ex:'You use this word in questions and with “not”. “I haven’t got ___.”', conf:['anywhere','another','everything'], sp:['anithing','enything','anyting']},
+ {en:'… or something', de:'… oder so was', ex:'You say this when you are not sure. “He is a teacher ___.”', conf:['… or somewhere','… and something','… or someone'], sp:['… or somthing','… or sumthing','… or somethink']},
+ {en:'right now', de:'jetzt gerade, im Augenblick', ex:'At this moment. Not later and not yesterday.', conf:['right side','last night','at night'], sp:['rite now','right nou','rigth now']},
+ {en:'the other day', de:'neulich', ex:'A few days ago. You do not say which day.', conf:['the other way','every day','the next day'], sp:['the other dai','the uther day','the otter day']},
+ {en:'ring, rang, rung', de:'anrufen (auch: klingeln)', ex:'To call someone on the phone. A bell does this, too.', conf:['sing, sang, sung','run, ran, run','ride, rode, ridden'], sp:['ring, rang, rong','ring, ran, rung','rink, rang, rung']},
+ {en:'rude', de:'unhöflich, frech', ex:'Not polite. For example, you do not say please or thank you.', conf:['ride','road','red'], sp:['rood','rewd','ruud']},
+ {en:'calm', de:'ruhig, still', ex:'Quiet and relaxed. Not angry and not nervous.', conf:['clam','claim','camp'], sp:['carm','kalm','calme']},
+ {en:'impatient', de:'ungeduldig', ex:'You cannot wait. You want things to happen now.', conf:['important','impossible','independent'], sp:['impatiant','impashent','inpatient']},
+ {en:'smile', de:'lächeln', ex:'The corners of your mouth go up. You do this when you are happy.', conf:['small','smell','smoke'], sp:['smyle','smiel','smille']},
+ {en:'cottage', de:'Ferienhaus; kleines Landhaus', ex:'A small old house in the countryside.', conf:['cabbage','message','garage'], sp:['cotage','cottege','cotttage']}
+];
+(function(){
+  const t = $('#cl-vocab-table3'); if(!t) return;
+  t.innerHTML = '<tr><th>English</th><th>Deutsch</th></tr>' + V3.map(w => '<tr><td>'+esc(w.en)+'</td><td>'+esc(w.de)+'</td></tr>').join('');
+})();
+hook('#vt-quiz-de-en3', el => runQuiz(el, () => qDeEn(V3)));
+hook('#vt-quiz-spell3', el => runQuiz(el, () => qSpell(V3)));
+hook('#vt-quiz-expl3', el => runQuiz(el, () => qExplanations(V3)));
+
+/* Einstieg: Satzpaare nacheinander */
+const PAIRS = [
+ ['Grandad is slow.','Grandad walks slowly.'],
+ ['Bella is brave.','Bella jumped bravely into the water.'],
+ ['Grandma is careful.','Grandma carries the eggs carefully.'],
+ ['Jayden is loud.','Jayden sings loudly.'],
+ ['The fence is easy to climb.','Amir climbs the fence easily.'],
+ ['Freya is happy.','Freya waves happily.']
+];
+(function(){
+  const box = $('#cl-pairs'), btn = $('#cl-pairs-btn'); if(!box || !btn) return;
+  let n = 0;
+  function add(){
+    if(n >= PAIRS.length) return;
+    const p = PAIRS[n++];
+    const row = document.createElement('div');
+    row.style.cssText = 'display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:8px 0;border-top:1px solid var(--border)';
+    row.innerHTML = '<span>'+esc(p[0])+'</span><span style="color:var(--accent-deep);font-weight:600">'+esc(p[1])+'</span>';
+    box.appendChild(row);
+    if(n >= PAIRS.length) btn.style.display = 'none';
+  }
+  btn.addEventListener('click', add); add();
+})();
+
+/* ---------- Grammar Practice ---------- */
+function pick(arr, n){ return shuffle(arr).slice(0, n); }
+/* Reihenfolge ohne drei gleiche Arten hintereinander und ohne ABAB */
+function mixKinds(items, key){
+  let arr = shuffle(items), tries = 0;
+  while(tries++ < 80){
+    let bad = false;
+    for(let i=2;i<arr.length;i++) if(arr[i][key] === arr[i-1][key] && arr[i][key] === arr[i-2][key]) bad = true;
+    for(let i=3;i<arr.length;i++) if(arr[i][key] === arr[i-2][key] && arr[i-1][key] === arr[i-3][key] && arr[i][key] !== arr[i-1][key]) bad = true;
+    if(!bad) break; arr = shuffle(items);
+  }
+  return arr;
+}
+/* 1 Adjective or adverb? */
+const M1 = [
+ {s:'Grandad walks ___ to the gate.', adj:'slow', adv:'slowly', k:'adv'},
+ {s:'Bella is a ___ dog.', adj:'brave', adv:'bravely', k:'adj'},
+ {s:'Ben ran ___ to the field.', adj:'quick', adv:'quickly', k:'adv'},
+ {s:'Grandma is very ___ with the eggs.', adj:'careful', adv:'carefully', k:'adj'},
+ {s:'Jayden sings ___ with his headphones.', adj:'loud', adv:'loudly', k:'adv'},
+ {s:'The farm gate is ___.', adj:'heavy', adv:'heavily', k:'adj'},
+ {s:'Freya waved ___.', adj:'happy', adv:'happily', k:'adv'},
+ {s:'Amir climbed the fence ___.', adj:'easy', adv:'easily', k:'adv'},
+ {s:'The water in the brook is ___.', adj:'clear', adv:'clearly', k:'adj'},
+ {s:'Chloe talks ___.', adj:'quiet', adv:'quietly', k:'adv'},
+ {s:'The tractor is old and ___.', adj:'slow', adv:'slowly', k:'adj'},
+ {s:'Jayden spoke ___ to Grandma.', adj:'rude', adv:'rudely', k:'adv'},
+ {s:'Bella is very ___.', adj:'calm', adv:'calmly', k:'adj'},
+ {s:'Bella waited ___ at the gate.', adj:'calm', adv:'calmly', k:'adv'},
+ {s:'Jayden is ___ because dinner is late.', adj:'impatient', adv:'impatiently', k:'adj'},
+ {s:'Grandma smiled ___ at everybody.', adj:'happy', adv:'happily', k:'adv'}
+];
+function qAdjAdv(){
+  return mixKinds(M1,'k').slice(0,10).map(q => ({prompt:q.s, options:shuffle([q.adj,q.adv]), answer:q[q.k]}));
+}
+/* 2 Make the adverb */
+const M2 = [
+ ['quick','quickly',['quickley','quikly']],['slow','slowly',['slowley','slowy']],['brave','bravely',['bravly','bravley']],
+ ['careful','carefully',['carefuly','carefulley']],['loud','loudly',['loudley','loudy']],['happy','happily',['happyly','happiely']],
+ ['easy','easily',['easyly','easiely']],['terrible','terribly',['terriblely','terribley']],['gentle','gently',['gentlely','gentley']],
+ ['good','well',['goodly','gooder']],['fast','fast',['fastly','faster']],['hard','hard',['hardly','harder']],
+ ['quiet','quietly',['quietley','quitely']],['angry','angrily',['angryly','angriely']],['noisy','noisily',['noisyly','noisiely']],
+ ['impatient','impatiently',['impatientely','impatiantly']],['calm','calmly',['calmley','calmy']],['rude','rudely',['rudly','rudey']]
+];
+function qMake(){ return pick(M2,10).map(q => ({prompt:q[0]+'  →  ?', big:true, options:shuffle([q[1]].concat(q[2])), answer:q[1]})); }
+/* 3 Fill the gap */
+const M3 = [
+ ['Grandma smiled ___ at Jayden. (happy)','happily','happy','happyly'],
+ ['“Where is my tea?” Jayden asked ___. (impatient)','impatiently','impatient','impatiantly'],
+ ['Grandad answered ___. (calm)','calmly','calm','calmley'],
+ ['Ben works ___ on the farm. (hard)','hard','hardly','harder'],
+ ['Bella listens ___ to Grandad. (good)','well','good','goodly'],
+ ['Amir opened the gate ___. (careful)','carefully','careful','carefuly'],
+ ['The bridge broke ___. (sudden)','suddenly','sudden','suddenley'],
+ ['Chloe plays the guitar ___. (beautiful)','beautifully','beautiful','beautifuly'],
+ ['The sheep ran ___ across the field. (fast)','fast','fastly','faster'],
+ ['Freya laughed ___. (loud)','loudly','loud','loudley'],
+ ['Jayden spoke ___ to Grandma. (rude)','rudely','rude','rudly'],
+ ['The friends walked ___ along the brook. (quiet)','quietly','quiet','quietley']
+];
+function qGap(){ return pick(M3,10).map(q => ({prompt:q[0], options:shuffle([q[1],q[2],q[3]]), answer:q[1]})); }
+/* 4 Which sentence is right? (Manner) */
+const M4 = [
+ ['Bella runs quickly.','Bella runs quick.','Bella runs quickley.'],
+ ['Grandma cooks very well.','Grandma cooks very good.','Grandma cooks very goodly.'],
+ ['Ben works hard on the farm.','Ben works hardly on the farm.','Ben work hard on the farm.'],
+ ['Chloe talks quietly.','Chloe talks quiet.','Chloe talk quietly.'],
+ ['The sheep are running fast.','The sheep are running fastly.','The sheep are running fasty.'],
+ ['Amir climbed the fence easily.','Amir climbed the fence easy.','Amir climbed the fence easyly.'],
+ ['Grandad closed the gate carefully.','Grandad closed the gate careful.','Grandad closed the gate carefuly.'],
+ ['Jayden sings terribly.','Jayden sings terrible.','Jayden sings terribley.'],
+ ['Grandma smiled happily.','Grandma smiled happy.','Grandma smiled happyly.'],
+ ['Bella jumped bravely into the water.','Bella jumped brave into the water.','Bella jumped bravly into the water.']
+];
+function qRight(list){ return pick(list,Math.min(10,list.length)).map(q => ({prompt:'Which sentence is right?', options:shuffle(q.slice()), answer:q[0]})); }
+/* Frequency 1: Where does it go? */
+const F1 = [
+ {w:['Freya','is','friendly'], a:'always', k:1, t:'be'},
+ {w:['The','wifi','is','slow'], a:'sometimes', k:2, t:'be'},
+ {w:['Grandad','is','tired','in','the','evening'], a:'often', k:1, t:'be'},
+ {w:['Jayden','is','late','for','dinner'], a:'never', k:1, t:'be'},
+ {w:['Bella','chases','rabbits'], a:'often', k:1, t:'full'},
+ {w:['Grandma','makes','apple','pie','on','Saturdays'], a:'usually', k:1, t:'full'},
+ {w:['Grandad','feeds','the','sheep','before','breakfast'], a:'always', k:1, t:'full'},
+ {w:['Jayden','gets','up','early'], a:'never', k:1, t:'full'},
+ {w:['Chloe','plays','the','guitar','after','school'], a:'sometimes', k:1, t:'full'},
+ {w:['Jayden','doesn’t','help','in','the','kitchen'], a:'usually', k:2, t:'aux'},
+ {w:['Ben','can','find','the','sheep'], a:'always', k:2, t:'aux'},
+ {w:['We','don’t','go','to','the','cinema'], a:'often', k:2, t:'aux'},
+ {w:['Grandad','can','find','his','glasses'], a:'never', k:2, t:'aux'},
+ {w:['They','don’t','watch','TV','on','the','farm'], a:'usually', k:2, t:'aux'}
+];
+function insertAt(q, p){ const w = q.w.slice(); w.splice(p,0,q.a); let s = w.join(' ') + '.'; return s; }
+function qWhere(){
+  return mixKinds(F1,'t').slice(0,10).map(q => {
+    const gaps = []; for(let p=1;p<q.w.length;p++) if(p !== q.k) gaps.push(p);
+    const wrong = pick(gaps, 3).map(p => insertAt(q,p)), right = insertAt(q,q.k);
+    return {prompt:'Where does “'+q.a+'” go?', options:shuffle([right].concat(wrong)), answer:right};
+  });
+}
+/* Frequency 2: How often? */
+const DAYS = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+const ACTS = ['Grandad feeds the sheep','Bella chases rabbits','Grandma makes apple pie','Jayden helps in the kitchen','Ben visits the farm','Chloe plays the guitar','Amir does his homework','Freya walks in the hills'];
+const RANGE = {always:[7,7], usually:[5,6], often:[3,4], sometimes:[1,2], never:[0,0]};
+function qOften(){
+  const advs = Object.keys(RANGE); const out = [];
+  const order = shuffle(advs.concat(pick(advs,5)));
+  const acts = shuffle(ACTS);
+  order.forEach((a,i) => {
+    const r = RANGE[a], cnt = r[0] + Math.floor(Math.random()*(r[1]-r[0]+1));
+    const days = shuffle([0,1,2,3,4,5,6]).slice(0,cnt);
+    const line = DAYS.map((d,n) => d+' '+(days.indexOf(n)>-1?'✓':'✗')).join('  ·  ');
+    out.push({prompt:acts[i%acts.length]+' …\n'+line, options:shuffle(advs.slice()), answer:a});
+  });
+  return out;
+}
+/* Frequency 3: How or how often? */
+const F3 = [
+ ['Grandad usually walks slowly.','usually','often'],['Grandad usually walks slowly.','slowly','how'],
+ ['Bella never leaves Grandad’s side.','never','often'],['Jayden sings loudly.','loudly','how'],
+ ['Ben works hard.','hard','how'],['We don’t often go to the cinema.','often','often'],
+ ['Grandma always cooks carefully.','carefully','how'],['Grandma always cooks carefully.','always','often'],
+ ['Chloe plays the guitar well.','well','how'],['Freya is sometimes late.','sometimes','often'],
+ ['Amir climbed the fence easily.','easily','how'],['Jayden is always hungry.','always','often']
+];
+function qHow(){ return pick(F3,10).map(q => {
+  const ans = q[2]==='how' ? 'How? (manner)' : 'How often? (frequency)';
+  return {prompt:q[0]+'\nWhat does “'+q[1]+'” tell you?', options:shuffle(['How? (manner)','How often? (frequency)']), answer:ans}; }); }
+/* Frequency 4: Which sentence is right? */
+const F4 = [
+ ['Freya is always friendly.','Freya always is friendly.','Freya is friendly always.'],
+ ['Bella usually runs quickly.','Bella runs usually quickly.','Bella usually runs quick.'],
+ ['Ben can always find the sheep.','Ben always can find the sheep.','Ben can find always the sheep.'],
+ ['Grandad often walks slowly.','Grandad walks often slowly.','Grandad often walks slow.'],
+ ['Jayden never sings well.','Jayden sings never well.','Jayden never sings good.'],
+ ['We don’t often go to the cinema.','We don’t go often to the cinema.'],
+ ['Grandma always cooks carefully.','Grandma cooks always carefully.','Grandma always cooks careful.'],
+ ['Chloe is sometimes impatient.','Chloe sometimes is impatient.'],
+ ['Bella always listens well.','Bella listens always well.','Bella always listens good.'],
+ ['Jayden never gets up early.','Jayden gets never up early.','Jayden gets up never early.']
+];
+hook('#cl-move-quiz3', el => runQuiz(el, qAdjAdv));
+hook('#gp-m1-quiz', el => runQuiz(el, qAdjAdv));
+hook('#gp-m2-quiz', el => runQuiz(el, qMake));
+hook('#gp-m3-quiz', el => runQuiz(el, qGap));
+hook('#gp-m4-quiz', el => runQuiz(el, () => qRight(M4)));
+hook('#gp-f1-quiz', el => runQuiz(el, qWhere));
+hook('#gp-f2-quiz', el => runQuiz(el, qOften));
+hook('#gp-f3-quiz', el => runQuiz(el, qHow));
+hook('#gp-f4-quiz', el => runQuiz(el, () => qRight(F4)));
+
 })();
