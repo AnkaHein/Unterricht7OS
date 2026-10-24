@@ -1040,6 +1040,7 @@ h2.panel-title{font-size:1.45rem; font-weight:600; line-height:1.2;}
   <div class="tile-grid one">
     <div class="tile wide small" role="button" tabindex="0" data-goto="ka-audio"><div class="tile-art glyph"><span class="fb">♪</span><img src="img/kachel-practice-listening.png" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.remove()"></div><div class="tile-text"><h3>Practice listening</h3><p>Listen as often as you like</p></div></div>
     <div class="tile wide small" role="button" tabindex="0" data-goto="ka-test"><div class="tile-art glyph"><span class="fb">42</span><img src="img/kachel-practice-test.png" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.remove()"></div><div class="tile-text"><h3>Practice test</h3><p>Same tasks as the real class test (voluntary)</p></div></div>
+    <div class="tile wide small" role="button" tabindex="0" data-goto="ka-words"><div class="tile-art glyph"><span class="fb">Abc</span><img src="img/kachel-practice-words.png" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.remove()"></div><div class="tile-text"><h3>Practice words</h3><p>Drag the words into the gaps</p></div></div>
     <div class="tile wide small" role="button" tabindex="0" data-file="files/practice-test-solutions.pdf"><div class="tile-art glyph"><span class="fb">✓</span><img src="img/kachel-practice-solutions.png" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.remove()"></div><div class="tile-text"><h3>Solutions</h3><p>Check your practice test</p></div></div>
   </div>
   <div class="toast" id="toast2" role="status" aria-live="polite"></div>
@@ -1052,6 +1053,12 @@ h2.panel-title{font-size:1.45rem; font-weight:600; line-height:1.2;}
     <audio id="ka-audio-el" controls preload="none" style="width:100%" src="audio/practice-listening.mp3"></audio>
     <p class="body-text" id="ka-audio-note" style="display:none;margin:12px 0 0">The audio will be uploaded soon.</p>
   </div>
+</section>
+<section class="panel" id="ka-words">
+  <button class="back-link" data-goto="ka-en"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Class test</button>
+  <div class="panel-head"><h2 class="panel-title">Practice words</h2></div>
+  <p class="panel-sub">20 words in four parts, like the Words task in the class test.</p>
+  <div id="wd-box" class="cl-quiz"></div>
 </section>
 <section class="panel" id="ka-test">
   <button class="back-link" data-goto="ka-en"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Class test</button>

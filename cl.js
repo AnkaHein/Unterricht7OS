@@ -97,6 +97,7 @@ const TIPS = [
 const BULB = '<svg viewBox="0 0 120 150" aria-hidden="true"><defs><radialGradient id="glow" cx="50%" cy="40%" r="60%"><stop offset="0" stop-color="#fff7b0"/><stop offset="1" stop-color="#ffc400"/></radialGradient></defs><g stroke="#f2b100" stroke-width="5" stroke-linecap="round"><path d="M60 6v12M15 28l9 8M105 28l-9 8M4 70h12M104 70h12"/></g><path d="M60 24c-22 0-38 16-38 37 0 13 6 21 13 29 5 6 8 11 8 19h34c0-8 3-13 8-19 7-8 13-16 13-29 0-21-16-37-38-37z" fill="url(#glow)" stroke="#e6a800" stroke-width="4"/><rect x="42" y="112" width="36" height="9" rx="4" fill="#9aa3a0"/><rect x="46" y="124" width="28" height="9" rx="4" fill="#7f8985"/><path d="M50 62c4 6 8 6 10 0 2 6 6 6 10 0" fill="none" stroke="#e6a800" stroke-width="4" stroke-linecap="round"/></svg>';
 const CROSS = '<svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="54" fill="#fdecea" stroke="#d64533" stroke-width="5"/><path d="M38 38l44 44M82 38L38 82" stroke="#d64533" stroke-width="14" stroke-linecap="round"/></svg>';
 let ovTimer;
+window.clFeedback = function(ok, cb){ return feedback(ok, cb); };
 function feedback(ok, cb){
   const o = $('#cl-overlay'); o.className = 'cl-overlay ' + (ok ? 'ok' : 'no');
   o.innerHTML = '<div>' + (ok ? BULB + '<b>great</b>' : CROSS + '<b>try again</b>') + '</div>';
@@ -601,4 +602,105 @@ const PAIRS4 = [
     box.querySelector('.il-next').addEventListener('click', () => { if(cur<steps.length-1){ cur++; render(); window.scrollTo({top:0}); } });
   }
   render();
+})();
+
+/* =====================================================================
+   Class test "I Love London": Words (ziehen in die Lücken, wie in der Klassenarbeit)
+   ===================================================================== */
+(function(){
+  const box = document.getElementById('wd-box'); if(!box) return;
+  const esc = x => String(x).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const shuf = a => { a = a.slice(); for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; };
+  /* 4 Runden mit je 5 Lücken, 2 Wörter bleiben übrig (wie in der Klassenarbeit) */
+  const ROUNDS = [
+    {items:[
+      ['On Saturday the market was so ___ that we could hardly move.','crowded'],
+      ['We waited on the ___ for ten minutes, but the train did not come.','platform'],
+      ['Jayden put his ___ with his bus pass and some money into his jacket.','wallet'],
+      ['Running across a busy road is a great ___.','danger'],
+      ['The view from the top of the London Eye is ___!','amazing']], extra:['sighed','message']},
+    {items:[
+      ['That old house looks very ___. Nobody lives there, but there is a light in the window.','strange'],
+      ['Freya ran to the station, but she ___ the train by two minutes.','missed'],
+      ['You need a ___ to travel on the Tube.','ticket'],
+      ['Please turn the music down. It is too ___!','loud'],
+      ['We should ___ other people and listen when they speak.','respect']], extra:['sighed','safely']},
+    {items:[
+      ['Grandma crossed the road ___ when the light turned green.','safely'],
+      ['In the museum there was a ___ old map that nobody could read.','mysterious'],
+      ['The film was so long that Amir was ___ after an hour.','bored'],
+      ['Please stand on the right side of the ___ if you do not want to walk.','escalator'],
+      ['If you drop litter in the park, you have to pay a ___.','fine']], extra:['loud','wallet']},
+    {items:[
+      ['Students are not ___ to use their phones in class.','allowed'],
+      ['"I am so tired," Chloe ___ and sat down on the bench.','sighed'],
+      ['Be careful in busy places. There are many ___ around.','pickpockets'],
+      ['Amir sent his mum a short ___ to say that he was late.','message'],
+      ['The shopping mall is ___. It has over two hundred shops.','huge']], extra:['ticket','missed']}
+  ];
+  let r = 0, mistakes = 0, total = 0, sel = null, placed = 0;
+  function showRound(){
+    const R = ROUNDS[r]; placed = 0; sel = null;
+    const words = shuf(R.items.map(x => x[1]).concat(R.extra));
+    box.innerHTML =
+      '<div class="cl-prog"><i style="width:'+(r/ROUNDS.length*100)+'%"></i></div>' +
+      '<div class="q-count">Part '+(r+1)+' / '+ROUNDS.length+'</div>' +
+      '<p class="wd-task">Complete the sentences. Drag the words into the gaps (or tap a word and then tap a gap). <b>Two words are not needed.</b></p>' +
+      '<div class="wd-bank" id="wd-bank">'+words.map(w => '<button class="wd-chip" data-w="'+esc(w)+'">'+esc(w)+'</button>').join('')+'</div>' +
+      '<ol class="wd-list">'+R.items.map((it,i) => '<li>'+esc(it[0]).replace('___','<span class="wd-gap" data-a="'+esc(it[1])+'"></span>')+'</li>').join('')+'</ol>';
+    box.querySelectorAll('.wd-chip').forEach(setupChip);
+    box.querySelectorAll('.wd-gap').forEach(g => g.addEventListener('click', () => { if(sel) tryPlace(sel, g); }));
+  }
+  function tryPlace(chip, gap){
+    if(gap.classList.contains('ok')) return;
+    total++;
+    if(chip.dataset.w === gap.dataset.a){
+      gap.textContent = chip.dataset.w; gap.classList.add('ok'); chip.classList.add('used'); chip.disabled = true; sel = null;
+      box.querySelectorAll('.wd-chip.sel').forEach(c => c.classList.remove('sel'));
+      placed++;
+      if(placed === ROUNDS[r].items.length) setTimeout(endRound, 350);
+    } else {
+      mistakes++; chip.classList.remove('sel'); sel = null; chip.classList.add('shake'); setTimeout(() => chip.classList.remove('shake'), 400);
+      window.clFeedback(false);
+    }
+  }
+  function setupChip(chip){
+    let sx, sy, ghost = null, drag = false, id = null;
+    chip.addEventListener('pointerdown', e => {
+      if(chip.disabled) return; id = e.pointerId; sx = e.clientX; sy = e.clientY; drag = false;
+      try{ chip.setPointerCapture(id); }catch(_){}
+    });
+    chip.addEventListener('pointermove', e => {
+      if(id !== e.pointerId) return;
+      if(!drag && Math.hypot(e.clientX-sx, e.clientY-sy) > 8){
+        drag = true; ghost = chip.cloneNode(true); ghost.classList.add('wd-ghost'); document.body.appendChild(ghost); chip.classList.add('lift');
+      }
+      if(drag){ ghost.style.left = e.clientX+'px'; ghost.style.top = e.clientY+'px'; e.preventDefault(); }
+    });
+    const end = e => {
+      if(id !== e.pointerId) return; id = null;
+      if(drag){
+        const x = e.clientX, y = e.clientY; ghost.remove(); ghost = null; chip.classList.remove('lift');
+        const t = document.elementFromPoint(x, y); const g = t && t.closest ? t.closest('.wd-gap') : null;
+        if(g) tryPlace(chip, g);
+      } else if(e.type === 'pointerup'){
+        const was = chip.classList.contains('sel');
+        box.querySelectorAll('.wd-chip.sel').forEach(c => c.classList.remove('sel'));
+        if(!was){ chip.classList.add('sel'); sel = chip; } else sel = null;
+      }
+      drag = false;
+    };
+    chip.addEventListener('pointerup', end); chip.addEventListener('pointercancel', end);
+  }
+  function endRound(){
+    window.clFeedback(true, () => {
+      r++;
+      if(r < ROUNDS.length){ showRound(); window.scrollTo({top:0}); return; }
+      const good = total - mistakes, pct = Math.round(good/total*100);
+      const msg = mistakes === 0 ? 'Perfect! All 20 words were right at the first try.' : mistakes <= 4 ? 'Great job! That is already good.' : 'Keep practising. You will get there!';
+      box.innerHTML = '<div class="q-card q-end"><h3>'+mistakes+' wrong '+(mistakes===1?'try':'tries')+'</h3><p>'+msg+'</p><button class="ka-btn small q-again">Play again</button></div>';
+      box.querySelector('.q-again').addEventListener('click', () => { r = 0; mistakes = 0; total = 0; showRound(); });
+    });
+  }
+  showRound();
 })();
