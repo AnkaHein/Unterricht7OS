@@ -884,6 +884,7 @@ h2.panel-title{font-size:1.45rem; font-weight:600; line-height:1.2;}
   </div>
   <p class="panel-sub" style="margin-top:18px">Chapters</p>
   <div class="tile-grid one">
+    <div class="tile wide" role="button" tabindex="0" data-goto="il-home"><div class="tile-art glyph"><span class="fb">LDN</span><img src="img/kachel-il-london.png" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.remove()"></div><div class="tile-text"><h3>I Love London</h3><p>Chapter 1 · our London guide</p></div></div>
     <div class="tile wide" role="button" tabindex="0" data-goto="cl-home"><div class="tile-art glyph"><span class="fb">CL</span><img src="img/kachel-country-life.png" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.remove()"></div><div class="tile-text"><h3>Country Life</h3><p>Chapter 2 · starts on 19.11.2026</p></div></div>
   </div>
   <p class="panel-sub" style="margin-top:18px">Tests und Klassenarbeiten</p>
@@ -1359,6 +1360,21 @@ h2.panel-title{font-size:1.45rem; font-weight:600; line-height:1.2;}
 </section>
 
 <!-- ===== COUNTRY LIFE ===== -->
+<section class="panel" id="il-home">
+  <button class="back-link" data-goto="englisch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Englisch</button>
+  <div class="panel-head"><h2 class="panel-title">I Love London</h2></div>
+  <p class="panel-sub">Chapter 1</p>
+  <div class="tile-grid one">
+    <div class="tile wide" role="button" tabindex="0" data-goto="il-tube"><div class="tile-art glyph"><span class="fb">🚇</span><img src="img/kachel-il-tube.png" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.remove()"></div><div class="tile-text"><h3>Trouble on the Tube</h3><p>Freya’s story · read the texts and do the tasks step by step</p></div></div>
+  </div>
+</section>
+<section class="panel" id="il-tube">
+  <button class="back-link" data-goto="il-home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>I Love London</button>
+  <div class="panel-head"><h2 class="panel-title">Trouble on the Tube</h2></div>
+  <p class="panel-sub">Follow the steps one by one.</p>
+  <div id="il-tube-box" class="cl-quiz"></div>
+</section>
+
 <section class="panel" id="cl-home">
   <button class="back-link" data-goto="englisch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Englisch</button>
   <div class="panel-head"><h2 class="panel-title">Country Life</h2></div>

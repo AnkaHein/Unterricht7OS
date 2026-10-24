@@ -551,3 +551,54 @@ const PAIRS4 = [
 })();
 
 })();
+
+/* =====================================================================
+   I Love London (Chapter 1) · Trouble on the Tube (Schritt-für-Schritt)
+   ===================================================================== */
+(function(){
+  const box = document.getElementById('il-tube-box'); if(!box) return;
+  const esc = x => String(x).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const OK = '<b class="il-ok">✓</b>';
+  const texts1 = [
+    ['1 About me', "Hi, I'm Freya. Everybody says I'm a bit different from my friends. I love museums, old buildings and detective stories. My favourite place in London is the Natural History Museum – I've been there twenty times! I also love asking questions and solving little mysteries. My friends Amir, Chloe and Jayden don't really understand this. They like normal things – football, markets, music. They think I'm too serious. But I don't care. Somebody has to be the clever one in the group!"],
+    ['2 Saturday plans', "Last Saturday, I wanted to go to the Natural History Museum with my friends. I love the dinosaurs there. But of course my friends laughed. \"Boring!\" said Amir. He wanted to play football in the park instead. Chloe wanted to go to Camden Market – she never has enough hoodies, apparently. And Jayden just wanted to listen to music near the canal. In the end, we made a plan: first the market, then the museum. \"OK, but we can't be late,\" I said. \"The museum closes at five!\""],
+    ['3 Trouble on the Tube', "Amir, Chloe, Jayden and I went to the Tube station at Camden Town. It was Saturday, so it was really crowded. We ran down the stairs and we had to get on the train quickly. But I was last, and I was too slow. The doors closed – right in front of me! My friends were on the train, and I was still on the platform. I tried to shout, but the doors were already closed. The train left the station without me. \"Oh no,\" I thought. \"Now what?\" But then I had an idea…"]
+  ];
+  const texts2 = [
+    ['Part 4 – The Long Wait', "Freya missed the train. She sat down on a bench and waited for the next one. She looked at the big clock again and sighed. Next to her, an old man in a grey coat stood up quickly. He didn't see that something fell out of his pocket. Freya watched it fall onto the platform."],
+    ['Part 5 – A Closer Look', "Freya jumped up and picked up the object. It was a small black wallet. She looked around, but the old man was already gone. Freya opened the wallet carefully. Inside, she found some money, a photo – and a strange, old ticket with a number on it. She had never seen a ticket like this before."],
+    ['Part 6 – Not Just an Accident?', "Freya put the wallet safely in her bag. She didn't know what to do. Should she give it to the station staff? Or was there more to this story? She took out her phone and wrote a message to Amir, Chloe and Jayden."]
+  ];
+  const words = [['crowded','full of people'],['to run down (the stairs)','to move fast, going down'],['quickly','fast, not slowly'],['a wallet','a small case for money and cards'],['to sigh','to breathe out slowly when tired or sad'],['strange','unusual, not normal']];
+  const story = t => t.map(x => '<h4 class="il-h">'+esc(x[0])+'</h4><p>'+esc(x[1])+'</p>').join('');
+  const steps = [
+    {t:'Write down the words', pg:'', html:'<p>Write down the following words in your vocabulary book.</p><table class="cl-table"><tr><th>Word</th><th>Meaning</th></tr>'+words.map(w=>'<tr><td>'+esc(w[0])+'</td><td>'+esc(w[1])+'</td></tr>').join('')+'</table>'},
+    {t:'Read the text', pg:'17 & 18', html:'<p>Read the text <b>“Trouble on the Tube”</b> on <b>pages 17 and 18</b> in your guide. You can also read it here.</p><details class="il-text"><summary>Show the text</summary>'+story(texts1)+'</details>'},
+    {t:'Do the tasks', pg:'18', html:'<p>Do the tasks about the text on <b>page 18</b>: <b>Task 1, Task 2 and Task 3</b>.</p>'},
+    {t:'Correct your tasks', pg:'18', sol:true, html:'<p>Here are the solutions for <b>page 18</b>. Correct your tasks.</p>',
+     solHtml:'<p><b>Task 1 – Who said or thought this?</b></p><ol><li>“Boring!” – <b>Amir</b></li><li>“We can’t be late.” – <b>Freya</b></li><li>“Now what?” – <b>Freya</b></li><li>“I don’t care.” – <b>Freya</b></li></ol><p><b>Task 2 – True or False?</b></p><table class="cl-table"><tr><th></th><th>True</th><th>False</th></tr><tr><td>1. The friends went to Camden Town Tube station.</td><td>'+OK+'</td><td></td></tr><tr><td>2. The station was quiet because it was Saturday.</td><td></td><td>'+OK+'</td></tr><tr><td>3. Freya was the last person to get on the train.</td><td></td><td>'+OK+'</td></tr><tr><td>4. The train left without Freya.</td><td>'+OK+'</td><td></td></tr><tr><td>5. Freya had an idea at the end.</td><td>'+OK+'</td><td></td></tr></table><p class="il-note">Correct the false sentences: <b>2.</b> The station was <b>crowded</b> because it was Saturday. <b>3.</b> Freya <b>didn’t get on the train</b>.</p><p><b>Task 3 – What happens next?</b></p><p class="il-note">Individual solutions. Ask Miss Hein if you want your sentences checked.</p>'},
+    {t:'Read the next text', pg:'19', html:'<p>Read the text <b>“Chasing the Clock”</b> on <b>page 19</b> in your guide. You can also read it here.</p><details class="il-text"><summary>Show the text</summary>'+story(texts2)+'</details>'},
+    {t:'Do the exercises', pg:'20', html:'<p>Do the exercises on <b>page 20</b>: <b>Task 1, Task 2 and Task 3</b>.</p>'},
+    {t:'Correct your tasks', pg:'20', sol:true, html:'<p>Here are the solutions for <b>page 20</b>. Correct your tasks.</p>',
+     solHtml:'<p><b>Task 1 – Put the events in order (1–6)</b></p><table class="cl-table"><tr><th>Event</th><th>Number</th></tr><tr><td>Freya opened the wallet.</td><td><b>4</b></td></tr><tr><td>Freya missed the train.</td><td><b>1</b></td></tr><tr><td>Freya wrote a message to her friends.</td><td><b>6</b></td></tr><tr><td>An old man dropped something.</td><td><b>3</b></td></tr><tr><td>Freya waited for the next train.</td><td><b>2</b></td></tr><tr><td>Freya found a strange ticket inside the wallet.</td><td><b>5</b></td></tr></table><p><b>Task 2 – Fill in the correct Simple Past form</b></p><ol><li>Freya <b>sat</b> down on a bench.</li><li>She <b>looked</b> at the clock again.</li><li>The old man <b>didn’t see</b> that something fell out.</li><li>Freya <b>jumped</b> up and <b>picked up</b> the wallet.</li><li>She <b>found</b> a strange ticket inside.</li><li>Freya <b>wrote</b> a message to her friends.</li></ol><p><b>Task 3 – What happens next?</b></p><p class="il-note">Individual solutions. Ask Miss Hein if you want your sentences checked.</p>'},
+    {t:'Do the exercises', pg:'21', html:'<p>Do the exercises on <b>page 21</b>: <b>Exercise A, B and C</b>.</p>'},
+    {t:'Correct your tasks', pg:'21', sol:true, html:'<p>Here are the solutions for <b>page 21</b>. Correct your tasks.</p>',
+     solHtml:'<p><b>Exercise A – Sort the verbs</b></p><table class="cl-table"><tr><th>Regular (-ed)</th><th>Irregular</th></tr><tr><td>missed</td><td>sat, stood</td></tr><tr><td>waited</td><td>fell, was / were</td></tr><tr><td>looked</td><td>found, put</td></tr><tr><td>sighed</td><td>took</td></tr><tr><td>watched</td><td>wrote</td></tr><tr><td>jumped</td><td>didn’t see</td></tr><tr><td>opened</td><td>didn’t know</td></tr><tr><td>picked up</td><td></td></tr></table><p><b>Exercise B – Your own sentences</b> <span class="il-note">(example answers)</span></p><ol><li>What did Freya do when the man dropped his wallet? – She <b>picked it up and looked inside</b>.</li><li>What did Freya find inside? – She <b>found some money, a photo and a strange old ticket</b>.</li><li>What did Freya do at the end? – She <b>put the wallet safely in her bag and wrote a message to her friends</b>.</li></ol><p class="il-note">Did you write a different sentence? Then ask Miss Hein if it’s correct.</p><p><b>Exercise C (creative)</b></p><p class="il-note">Individual solutions. Ask Miss Hein if you want your sentences checked.</p>'}
+  ];
+  let cur = 0;
+  function render(){
+    const s = steps[cur];
+    box.innerHTML =
+      '<div class="cl-prog"><i style="width:'+((cur+1)/steps.length*100)+'%"></i></div>' +
+      '<div class="il-dots">'+steps.map((x,i)=>'<button class="il-dot'+(i===cur?' on':i<cur?' done':'')+'" data-i="'+i+'" aria-label="Step '+(i+1)+'">'+(i+1)+'</button>').join('')+'</div>' +
+      '<div class="q-card il-card"><div class="q-count">Step '+(cur+1)+' / '+steps.length+(s.pg?' · guide page '+s.pg:'')+'</div><h3 class="il-title">'+esc(s.t)+'</h3>'+s.html+
+      (s.sol?'<button class="ka-btn small il-show">Show the solutions</button><div class="il-sol" hidden>'+s.solHtml+'</div>':'')+'</div>' +
+      '<div class="il-nav"><button class="ka-btn small il-prev"'+(cur===0?' disabled':'')+'>← Back</button><button class="ka-btn small il-next"'+(cur===steps.length-1?' disabled':'')+'>Next →</button></div>';
+    box.querySelectorAll('.il-dot').forEach(b => b.addEventListener('click', () => { cur = +b.dataset.i; render(); }));
+    const sh = box.querySelector('.il-show');
+    if(sh) sh.addEventListener('click', () => { box.querySelector('.il-sol').hidden = false; sh.style.display = 'none'; });
+    box.querySelector('.il-prev').addEventListener('click', () => { if(cur>0){ cur--; render(); window.scrollTo({top:0}); } });
+    box.querySelector('.il-next').addEventListener('click', () => { if(cur<steps.length-1){ cur++; render(); window.scrollTo({top:0}); } });
+  }
+  render();
+})();

@@ -69,3 +69,23 @@
 
 .cl-table.four td:first-child{width:auto}
 .cl-board .cl-table{margin-top:4px}
+
+/* I Love London · Trouble on the Tube */
+.il-dots{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 12px}
+.il-dot{width:36px;height:36px;border-radius:50%;border:2px solid var(--border);background:#fff;font-weight:700;color:var(--ink-soft);cursor:pointer;font-family:inherit}
+.il-dot.done{border-color:var(--accent);color:var(--accent-deep)}
+.il-dot.on{background:var(--accent);border-color:var(--accent);color:#fff}
+.il-card{padding:16px}
+.il-title{font-family:var(--serif);color:var(--accent-deep);margin:0 0 8px;font-size:1.3rem}
+.il-card p{margin:8px 0;line-height:1.5}
+.il-card ol{margin:6px 0 10px;padding-left:22px;line-height:1.55}
+.il-sol{margin-top:12px;padding:12px 14px;border-radius:12px;background:var(--accent-light);border:1px solid var(--border)}
+.il-ok{color:var(--accent-deep);font-size:1.1rem}
+.il-note{color:var(--ink-soft);font-size:.9rem}
+.il-text{margin-top:10px;border:1px dashed var(--border);border-radius:12px;padding:0 14px}
+.il-text summary{cursor:pointer;padding:10px 0;font-weight:700;color:var(--accent-deep)}
+.il-h{font-family:var(--serif);color:var(--accent-deep);margin:12px 0 2px;font-size:1.05rem}
+.il-nav{display:flex;justify-content:space-between;gap:10px;margin-top:12px}
+.il-nav .ka-btn{margin-top:0}
+.il-nav .ka-btn[disabled]{opacity:.4}
+.il-sol[hidden]{display:none}
