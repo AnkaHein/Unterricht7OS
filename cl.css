@@ -106,3 +106,13 @@
 /* Date change notice */
 .date-alert{margin:0 0 14px;padding:12px 14px;border-radius:14px;background:#fff4d6;border:2px solid #e0a100;color:#5a3d00;font-size:1rem;line-height:1.4}
 .date-alert b:first-child{color:#b3261e;text-transform:uppercase;margin-right:4px}
+
+/* Modal verbs: Write it down */
+.md3-list{margin:0 0 14px;padding-left:26px;display:grid;gap:14px;line-height:2.1;font-size:1.05rem}
+.md3-in{width:9.5em;max-width:100%;font:inherit;font-weight:700;color:var(--accent-deep);text-align:center;border:0;border-bottom:3px solid var(--accent-mid);background:var(--accent-light);border-radius:6px 6px 0 0;padding:2px 8px;margin:0 4px;outline:none}
+.md3-in:focus{border-bottom-color:var(--accent)}
+.md3-in.ok{background:#e2f4e6;border-bottom-color:#2e9e57;color:#1f7a3a}
+.md3-in.no{background:#fdecea;border-bottom-color:#d64533;color:#a3281b}
+.md3-in.shown{background:#fff4d6;border-bottom-color:#e0a100;color:#5a3d00}
+.md3-bar{display:flex;gap:10px;flex-wrap:wrap}
+.md3-res{margin-top:12px;font-weight:700}

@@ -551,6 +551,115 @@ const PAIRS4 = [
   btn.addEventListener('click', add); add();
 })();
 
+/* ---------- Current repetition 29.10. (Trouble on the Tube + Modals) ---------- */
+const V5 = [
+ {en:'wallet', de:'Geldbörse, Portemonnaie', ex:'A small flat case for money and cards. You keep it in your pocket or bag.', conf:['wall','wallpaper','waiter'], sp:['walet','wollet','wallit']},
+ {en:'escalator', de:'Rolltreppe', ex:'Moving stairs in a shop or a station. They take you up or down.', conf:['elevator','alligator','electric'], sp:['escelator','escalater','eskalator']},
+ {en:'crowded', de:'überfüllt, voll mit Menschen', ex:'Very full of people. The Tube at eight in the morning is often this.', conf:['crowned','cloudy','crawled'], sp:['crouded','crowdet','crowdid']},
+ {en:'be in a hurry', de:'in Eile sein, es eilig haben', ex:'You have to go fast because you have only a little time.', conf:['be in a worry','be in a hotel','be in a hurt'], sp:['be in a hury','be in a hurrie','be in a herry']},
+ {en:'to sigh', de:'seufzen', ex:'You breathe out slowly and loudly when you are sad, tired or bored.', conf:['to sign','to sing','to sight'], sp:['to sihg','to sighe','to sai']},
+ {en:'pickpocket', de:'Taschendieb/in', ex:'A thief who takes things from your pockets or bags, often in crowds.', conf:['pocket money','packet','picnic'], sp:['pickpoket','pikpocket','pickpocked']},
+ {en:'strange', de:'seltsam, merkwürdig', ex:'Not normal. You do not understand it and it feels a bit odd.', conf:['stranger','strong','storm'], sp:['strainge','stranje','strenge']},
+ {en:'to run down (the stairs)', de:'(die Treppe) hinunterlaufen', ex:'To go from the top to the bottom of the stairs very fast.', conf:['to run up (the stairs)','to fall off (the stairs)','to run out (the stairs)'], sp:['to run dawn (the stairs)','to run down (the staires)','to ran down (the stairs)']},
+ {en:'take risks', de:'Risiken eingehen', ex:'To do something that can be dangerous, for example jumping from a high wall.', conf:['take rests','take tricks','take rice'], sp:['take riscs','take rysks','take risckes']},
+ {en:'danger', de:'Gefahr', ex:'Something that can hurt you. A fast car on a small road is this.', conf:['dancer','anger','ranger'], sp:['dainger','dandger','dangor']},
+ {en:'quickly', de:'schnell', ex:'Fast. Not slowly. “Run ___, the bus is coming!”', conf:['quietly','quite','quick'], sp:['quikly','quickley','quicly']},
+ {en:'respect', de:'respektieren, achten', ex:'To think that somebody is important and to be polite to them.', conf:['reject','repeat','receive'], sp:['respeckt','ripsect','respekt']}
+];
+(function(){
+  const t = $('#cl-vocab-table5'); if(!t) return;
+  t.innerHTML = '<tr><th>English</th><th>Deutsch</th></tr>' + V5.map(w => '<tr><td>'+esc(w.en)+'</td><td>'+esc(w.de)+'</td></tr>').join('');
+})();
+hook('#vt-quiz-de-en5', el => runQuiz(el, () => qDeEn(V5)));
+hook('#vt-quiz-spell5', el => runQuiz(el, () => qSpell(V5)));
+hook('#vt-quiz-expl5', el => runQuiz(el, () => qExplanations(V5)));
+
+/* ---------- Modal verbs ---------- */
+/* [Satz, richtig, falsch, falsch, falsch] */
+const MD1 = [
+ ['Tom ___ wear a helmet when he rides his bike.','has to','have to','has','should to'],
+ ['You ___ run on the escalator. It is dangerous.','shouldn’t','don’t should','shouldn’t to','not should'],
+ ['In many British schools, pupils ___ wear a uniform.','have to','has to','have','are have to'],
+ ['Lena ___ use her phone in class. It is against the rules.','isn’t allowed to','aren’t allowed to','doesn’t allowed to','isn’t allow'],
+ ['On Sundays we ___ get up early. We can sleep in.','don’t have to','doesn’t have to','haven’t to','don’t has to'],
+ ['The sign says: Visitors ___ take photos in the gallery.','are allowed to','is allowed to','allowed to','are allowing to'],
+ ['You look tired. You ___ go to bed early.','should','should to','have should','are should'],
+ ['I ___ come to your party on Saturday. I have a football match.','can’t','can’t to','don’t can','not can'],
+ ['My brother is ten. He ___ watch films after 9 pm.','isn’t allowed to','aren’t allowed to','doesn’t allowed to','isn’t allow'],
+ ['You ___ take the Tube. It is quick and cheap.','can','cans','can to','are can'],
+ ['Do we ___ bring our own lunch to the trip?','have to','has to','having to','are have to'],
+ ['Pickpockets are everywhere! You ___ keep your wallet in your front pocket.','should','shoulds','should to','are should']
+];
+function qModal1(){
+  return shuffle(MD1).slice(0,10).map(q => ({prompt:q[0], options:shuffle(q.slice(1,5)), answer:q[1]}));
+}
+const MD2 = [
+ ['Anna has to practise the piano every day.','Anna have to practise the piano every day.','Anna has to practises the piano every day.'],
+ ['You shouldn’t eat so many sweets.','You don’t should eat so many sweets.','You shouldn’t to eat so many sweets.'],
+ ['We aren’t allowed to use our phones in the museum.','We don’t allowed to use our phones in the museum.','We aren’t allowed use our phones in the museum.'],
+ ['I don’t have to get up early on Sunday.','I haven’t to get up early on Sunday.','I don’t has to get up early on Sunday.'],
+ ['Can I sit here, please?','Can I to sit here, please?','Do I can sit here, please?'],
+ ['Ben is allowed to stay up until ten.','Ben is allow to stay up until ten.','Ben allowed to stay up until ten.'],
+ ['Do we have to wear a uniform?','Do we has to wear a uniform?','Are we have to wear a uniform?'],
+ ['She should ask her teacher for help.','She shoulds ask her teacher for help.','She should asks her teacher for help.'],
+ ['You can’t park here. It is a bus stop.','You not can park here. It is a bus stop.','You can’t to park here. It is a bus stop.'],
+ ['Does Mia have to go to the dentist today?','Does Mia has to go to the dentist today?','Do Mia have to go to the dentist today?'],
+ ['Visitors are not allowed to touch the paintings.','Visitors is not allowed to touch the paintings.','Visitors are not allowed touch the paintings.'],
+ ['They don’t have to pay. It is free.','They doesn’t have to pay. It is free.','They don’t have pay. It is free.']
+];
+hook('#gp-md1-quiz', el => runQuiz(el, qModal1));
+hook('#gp-md2-quiz', el => runQuiz(el, () => qRight(MD2)));
+
+/* Write it down: Lücken zum Eintippen, Antworten als Liste möglicher Schreibweisen */
+const MD3 = [
+ ['In our school, we ___ wear a uniform. (have to)',['have to']],
+ ['Mia ___ do her homework before she plays. (have to)',['has to']],
+ ['It is raining. You ___ take an umbrella. (should)',['should']],
+ ['Sam is ill. He ___ go to school today. (should not)',['shouldn’t','should not']],
+ ['In the library, we ___ talk loudly. (not be allowed to)',['aren’t allowed to','are not allowed to']],
+ ['My mum says it is OK. I ___ eat sweets on Sundays. (be allowed to)',['am allowed to']],
+ ['Tomorrow is a holiday. We ___ get up early. (not have to)',['don’t have to','do not have to']],
+ ['My sister is only nine. She ___ go to the cinema alone. (not be allowed to)',['isn’t allowed to','is not allowed to']],
+ ['Visitors ___ touch the paintings. (not be allowed to)',['aren’t allowed to','are not allowed to']],
+ ['Amir’s teacher says so. He ___ practise the guitar every day. (have to)',['has to']],
+ ['Do we ___ pay to get in? (have to)',['have to']],
+ ['You ___ ask Mr Taylor if you need help. (can)',['can']]
+];
+function normAns(x){ return String(x).toLowerCase().replace(/[’‘`´]/g,"'").replace(/\s+/g,' ').trim(); }
+(function(){
+  const box = $('#gp-md3-box'); if(!box) return;
+  const panel = box.closest('section.panel'); let started = false;
+  function build(){
+    const items = shuffle(MD3).slice(0,10);
+    box.innerHTML = '<ol class="md3-list">' + items.map((q,i) => {
+      const parts = q[0].split('___');
+      return '<li data-i="'+i+'"><span>'+esc(parts[0])+'<input class="md3-in" type="text" autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false" aria-label="gap '+(i+1)+'">'+esc(parts[1])+'</span><em class="md3-fix"></em></li>';
+    }).join('') + '</ol><div class="md3-bar"><button class="ka-btn md3-check">Check</button><button class="ka-btn md3-sol" style="display:none">Show the answers</button></div><p class="md3-res body-text"></p>';
+    const inputs = [...box.querySelectorAll('.md3-in')];
+    const res = box.querySelector('.md3-res'), solBtn = box.querySelector('.md3-sol');
+    let tries = 0;
+    function check(){
+      tries++; let right = 0;
+      inputs.forEach((inp,i) => {
+        const ok = items[i][1].map(normAns).indexOf(normAns(inp.value)) > -1;
+        inp.classList.toggle('ok', ok); inp.classList.toggle('no', !ok && inp.value.trim() !== '');
+        if(ok){ right++; inp.readOnly = true; }
+      });
+      const n = items.length;
+      if(right === n){ res.textContent = 'Perfect! All '+n+' are right.'; solBtn.style.display='none'; box.querySelector('.md3-check').textContent='New exercise'; box.querySelector('.md3-check').onclick = build; window.clFeedback && window.clFeedback(true); }
+      else { res.textContent = right+' / '+n+' right. Correct the red or empty gaps and check again.'; window.clFeedback && window.clFeedback(false); solBtn.style.display = tries >= 2 ? '' : 'none'; }
+    }
+    box.querySelector('.md3-check').onclick = check;
+    solBtn.onclick = () => {
+      inputs.forEach((inp,i) => { if(!inp.classList.contains('ok')){ inp.value = items[i][1][0]; inp.classList.remove('no'); inp.classList.add('shown'); inp.readOnly = true; } });
+      solBtn.style.display = 'none'; const b = box.querySelector('.md3-check'); b.textContent = 'New exercise'; b.onclick = build;
+    };
+  }
+  const go = () => { if(panel.classList.contains('active') && !started){ started = true; build(); } };
+  new MutationObserver(go).observe(panel, {attributes:true, attributeFilter:['class']}); go();
+})();
+
+
 })();
 
 /* =====================================================================

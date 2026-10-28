@@ -897,10 +897,12 @@ h2.panel-title{font-size:1.45rem; font-weight:600; line-height:1.2;}
   <div class="panel-head"><h2 class="panel-title">The next school weeks</h2></div>
   <p class="panel-sub">29.10.2026 to 19.11.2026</p>
   <div class="date-alert" role="alert"><b>Important!</b> The class test date has changed: the class test &quot;I Love London&quot; will now take place on <b>19.11.2026</b>!</div>
-  <div class="art-slot" id="ablauf-en-slot">
-    <img src="img/ablauf-englisch.png" alt="Plan for the next weeks: 29.10. Writing course, steps 1 to 5; 05.11. Writing course, steps 6 to 8, class test information and practice test; 12.11. Class test I Love London; 19.11. Chapter 2 Country Life starts" onload="this.parentNode.classList.add('ok')" onerror="this.remove()">
-    <ol class="timeline fb"><li class=""><span class="tl-date"><b>29.10.</b><i>Thu</i></span><span class="tl-what">Writing course, steps 1–5</span></li><li class=""><span class="tl-date"><b>05.11.</b><i>Thu</i></span><span class="tl-what">Writing course, steps 6–8<small>Class test: how it works, points and help cards · practice test</small></span></li><li class="ka"><span class="tl-date"><b>12.11.</b><i>Thu</i></span><span class="tl-what">Class test “I Love London”</span></li><li class=""><span class="tl-date"><b>19.11.</b><i>Thu</i></span><span class="tl-what">Chapter 2 “Country Life” starts</span></li></ol>
-  </div>
+  <ol class="timeline">
+    <li class=""><span class="tl-date"><b>29.10.</b><i>Thu</i></span><span class="tl-what">Writing course, steps 1–5</span></li>
+    <li class=""><span class="tl-date"><b>05.11.</b><i>Thu</i></span><span class="tl-what">Writing course, steps 6–8<small>Class test: how it works, points and help cards · practice test</small></span></li>
+    <li class=""><span class="tl-date"><b>12.11.</b><i>Thu</i></span><span class="tl-what">Short repetition for your class test + new chapter</span></li>
+    <li class="ka"><span class="tl-date"><b>19.11.</b><i>Thu</i></span><span class="tl-what">(Short lessons) Class test “I Love London”</span></li>
+  </ol>
 </section>
 <section class="panel" id="deutsch">
   <button class="back-link" data-goto="start"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Startseite</button>
@@ -1035,7 +1037,7 @@ h2.panel-title{font-size:1.45rem; font-weight:600; line-height:1.2;}
   <div class="panel-head"><h2 class="panel-title">Class test “I Love London”</h2></div>
   <p class="panel-sub">Everything you need to prepare.</p>
   <div class="card" style="padding:16px 18px;margin-bottom:14px">
-    <p class="body-text" style="margin:0 0 8px">The class test takes place on <b>Thursday, 12.11.2026</b>, during our English lessons.</p>
+    <p class="body-text" style="margin:0 0 8px">The class test takes place on <b>Thursday, 19.11.2026</b>, during our English lessons.</p>
     <p class="body-text" style="margin:0">It has the same types of tasks as the practice test, but with different content.</p>
   </div>
   <div class="tile-grid one">
@@ -1469,6 +1471,7 @@ h2.panel-title{font-size:1.45rem; font-weight:600; line-height:1.2;}
   <div class="panel-head"><h2 class="panel-title">Vocabulary Trainer</h2></div>
   <p class="panel-sub">Choose a lesson.</p>
   <div class="tile-grid one">
+    <div class="tile wide" role="button" tabindex="0" data-goto="vt-rep"><div class="tile-art glyph"><span class="fb">↻</span><img src="img/kachel-vt-rep.png" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.remove()"></div><div class="tile-text"><h3>Current repetition</h3><p>Words for the repetition on 29.10. · overview and practice</p></div></div>
     <div class="tile wide small" role="button" tabindex="0" data-goto="vt-l1"><div class="tile-art glyph"><span class="fb">1</span><img src="img/kachel-vt-l1.png" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.remove()"></div><div class="tile-text"><h3>Vocabulary Lesson 1</h3><p>Listening · 15 words</p></div></div>
       <div class="tile wide small" role="button" tabindex="0" data-goto="vt-l2"><div class="tile-art glyph"><span class="fb">2</span><img src="img/kachel-vt-l2.png" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.remove()"></div><div class="tile-text"><h3>Vocabulary Lesson 2</h3><p>Lesson 2 · 15 words</p></div></div>
       <div class="tile wide small" role="button" tabindex="0" data-goto="vt-l3"><div class="tile-art glyph"><span class="fb">3</span><img src="img/kachel-vt-l3.png" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.remove()"></div><div class="tile-text"><h3>Vocabulary Lesson 3</h3><p>Lesson 3 · 12 words</p></div></div>
@@ -1663,11 +1666,76 @@ h2.panel-title{font-size:1.45rem; font-weight:600; line-height:1.2;}
   <div class="panel-head"><h2 class="panel-title">Explanations</h2></div>
   <div class="cl-quiz" id="vt-quiz-expl3"></div>
 </section>
+<section class="panel" id="vt-rep">
+  <button class="back-link" data-goto="vt-home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Vocabulary Trainer</button>
+  <div class="panel-head"><h2 class="panel-title">Current repetition</h2></div>
+  <p class="panel-sub">12 words from “Trouble on the Tube” and the lesson with the modal verbs.</p>
+  <div class="card" style="padding:6px 12px 10px"><table class="cl-table" id="cl-vocab-table5"></table></div>
+  <h3 class="section-label">Practise the words</h3>
+  <div class="tile-grid one">
+    <div class="tile wide small" role="button" tabindex="0" data-goto="vt-de-en5"><div class="tile-art glyph"><span class="fb">DE→EN</span><img src="img/kachel-vt-de-en.png" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.remove()"></div><div class="tile-text"><h3>German → English</h3><p>You see the German word. Choose the English one.</p></div></div>
+    <div class="tile wide small" role="button" tabindex="0" data-goto="vt-spell5"><div class="tile-art glyph"><span class="fb">a-b-c</span><img src="img/kachel-vt-spell.png" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.remove()"></div><div class="tile-text"><h3>Spelling</h3><p>Which spelling is right?</p></div></div>
+    <div class="tile wide small" role="button" tabindex="0" data-goto="vt-expl5"><div class="tile-art glyph"><span class="fb">“…”</span><img src="img/kachel-vt-expl.png" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.remove()"></div><div class="tile-text"><h3>Explanations</h3><p>Read the description. Find the word.</p></div></div>
+  </div>
+</section>
+<section class="panel" id="vt-de-en5">
+  <button class="back-link" data-goto="vt-rep"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Current repetition</button>
+  <div class="panel-head"><h2 class="panel-title">German → English</h2></div>
+  <div class="cl-quiz" id="vt-quiz-de-en5"></div>
+</section>
+<section class="panel" id="vt-spell5">
+  <button class="back-link" data-goto="vt-rep"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Current repetition</button>
+  <div class="panel-head"><h2 class="panel-title">Spelling</h2></div>
+  <div class="cl-quiz" id="vt-quiz-spell5"></div>
+</section>
+<section class="panel" id="vt-expl5">
+  <button class="back-link" data-goto="vt-rep"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Current repetition</button>
+  <div class="panel-head"><h2 class="panel-title">Explanations</h2></div>
+  <div class="cl-quiz" id="vt-quiz-expl5"></div>
+</section>
+<section class="panel" id="gp-modal">
+  <button class="back-link" data-goto="gp-home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Grammar Practice</button>
+  <div class="panel-head"><h2 class="panel-title">Modal verbs</h2></div>
+  <p class="panel-sub">have to, should, can and be allowed to. Three exercises. Start with number 1.</p>
+  <div class="card" style="padding:6px 12px 10px"><table class="cl-table">
+    <tr><th>Situation</th><th>Say it with …</th></tr>
+    <tr><td>It is necessary.</td><td><b>have to / has to</b></td></tr>
+    <tr><td>It is not necessary.</td><td><b>don’t have to / doesn’t have to</b></td></tr>
+    <tr><td>Good advice</td><td><b>should</b></td></tr>
+    <tr><td>Bad idea</td><td><b>shouldn’t</b></td></tr>
+    <tr><td>Rules: yes</td><td><b>am / is / are allowed to</b></td></tr>
+    <tr><td>Rules: no</td><td><b>am not / isn’t / aren’t allowed to</b></td></tr>
+    <tr><td>Possible / not possible</td><td><b>can / can’t</b></td></tr>
+  </table></div>
+  <div class="tile-grid one" style="margin-top:14px">
+    <div class="tile wide small" role="button" tabindex="0" data-goto="gp-md1"><div class="tile-art glyph"><span class="fb">1</span></div><div class="tile-text"><h3>Choose the right form</h3><p>Which words are right?</p></div></div>
+    <div class="tile wide small" role="button" tabindex="0" data-goto="gp-md2"><div class="tile-art glyph"><span class="fb">2</span></div><div class="tile-text"><h3>Which sentence is right?</h3><p>Choose the correct sentence.</p></div></div>
+    <div class="tile wide small" role="button" tabindex="0" data-goto="gp-md3"><div class="tile-art glyph"><span class="fb">3</span></div><div class="tile-text"><h3>Write it down</h3><p>Fill the gaps with your own words.</p></div></div>
+  </div>
+</section>
+<section class="panel" id="gp-md1">
+  <button class="back-link" data-goto="gp-modal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Modal verbs</button>
+  <div class="panel-head"><h2 class="panel-title">Choose the right form</h2></div>
+  <p class="panel-sub">Which words are right?</p>
+  <div class="cl-quiz" id="gp-md1-quiz"></div>
+</section>
+<section class="panel" id="gp-md2">
+  <button class="back-link" data-goto="gp-modal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Modal verbs</button>
+  <div class="panel-head"><h2 class="panel-title">Which sentence is right?</h2></div>
+  <div class="cl-quiz" id="gp-md2-quiz"></div>
+</section>
+<section class="panel" id="gp-md3">
+  <button class="back-link" data-goto="gp-modal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Modal verbs</button>
+  <div class="panel-head"><h2 class="panel-title">Write it down</h2></div>
+  <p class="panel-sub">Fill the gaps. The words in brackets show you what to use.</p>
+  <div id="gp-md3-box"></div>
+</section>
 <section class="panel" id="gp-home">
   <button class="back-link" data-goto="englisch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Englisch</button>
   <div class="panel-head"><h2 class="panel-title">Grammar Practice</h2></div>
   <p class="panel-sub">Choose a topic. The exercises are always new.</p>
   <div class="tile-grid one">
+    <div class="tile wide" role="button" tabindex="0" data-goto="gp-modal"><div class="tile-art glyph"><span class="fb">can</span><img src="img/kachel-gp-modal.png" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.remove()"></div><div class="tile-text"><h3>Modal verbs</h3><p>have to, should, can, be allowed to</p></div></div>
     <div class="tile wide" role="button" tabindex="0" data-goto="gp-manner"><div class="tile-art glyph"><span class="fb">how?</span><img src="img/kachel-gp-manner.png" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.remove()"></div><div class="tile-text"><h3>Adverbs of manner</h3><p>slowly, quickly, well …</p></div></div>
     <div class="tile wide" role="button" tabindex="0" data-goto="gp-freq"><div class="tile-art glyph"><span class="fb">how often?</span><img src="img/kachel-gp-frequency.png" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.remove()"></div><div class="tile-text"><h3>Adverbs of frequency</h3><p>always, often, never …</p></div></div>
     <div class="tile wide" role="button" tabindex="0" data-goto="gp-pp"><div class="tile-art glyph"><span class="fb">has</span><img src="img/kachel-gp-present-perfect.png" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.remove()"></div><div class="tile-text"><h3>Present perfect</h3><p>have, has, since, for …</p></div></div>
