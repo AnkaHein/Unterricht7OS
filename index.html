@@ -909,7 +909,7 @@ h2.panel-title{font-size:1.45rem; font-weight:600; line-height:1.2;}
   <div class="panel-head"><h2 class="panel-title">Deutsch</h2></div>
   <p class="panel-sub">Was steht in den nächsten Wochen an?</p>
   <div class="tile-grid one">
-    <div class="tile wide" role="button" tabindex="0" data-goto="ablauf"><div class="tile-art"><svg class="fb" viewBox="0 0 100 100" aria-hidden="true"><use href="#blossom"/></svg><img src="img/kachel-ablauf.png" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.remove()"></div><div class="tile-text"><h3>Ablauf der nächsten Schulwochen</h3><p>Termine vom 28.10. bis 02.12.2026</p></div></div>
+    <div class="tile wide" role="button" tabindex="0" data-goto="ablauf"><div class="tile-art"><svg class="fb" viewBox="0 0 100 100" aria-hidden="true"><use href="#blossom"/></svg><img src="img/kachel-ablauf.png" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.remove()"></div><div class="tile-text"><h3>Ablauf der nächsten Schulwochen</h3><p>Termine vom 11.11. bis 02.12.2026</p></div></div>
     <div class="tile wide" role="button" tabindex="0" data-goto="zeichensetzung"><div class="tile-art"><svg class="fb" viewBox="0 0 100 100" aria-hidden="true"><use href="#blossom"/></svg><img src="img/kachel-zeichensetzung.png" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.remove()"></div><div class="tile-text"><h3>Zeichensetzung (ab dem 04.11.2026)</h3><p>Erklärungen und Übungen für die Klassenarbeit</p></div></div>
   </div>
   <h3 class="section-label">Weitere Inhalte</h3>
@@ -921,11 +921,13 @@ h2.panel-title{font-size:1.45rem; font-weight:600; line-height:1.2;}
 <section class="panel" id="ablauf">
   <button class="back-link" data-goto="deutsch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Deutsch</button>
   <div class="panel-head"><h2 class="panel-title">Ablauf der nächsten Schulwochen</h2></div>
-  <p class="panel-sub">28.10.2026 bis 02.12.2026</p>
-  <div class="art-slot" id="ablauf-slot">
-    <img src="img/ablauf-uebersicht.png" alt="Übersicht der Termine vom 28.10. bis 02.12.2026: 28.10. Balladenvortrag; 04.11. Wörtliche Rede, Aufzählungen, Datumsangaben in Brief und Einladung; 11.11. zweigliedrige Sätze; 18.11. Buß- und Bettag, keine Schule; 25.11. zweigliedrige Sätze; 02.12. Klassenarbeit (Inhalte aus den Unterrichtsstunden 04.11., 11.11. und 25.11.)" onload="this.parentNode.classList.add('ok')" onerror="this.remove()">
-    <ol class="timeline fb"><li class=""><span class="tl-date"><b>28.10.</b><i>Mi</i></span><span class="tl-what">Balladenvortrag</span></li><li class=""><span class="tl-date"><b>04.11.</b><i>Mi</i></span><span class="tl-what">Wörtliche Rede, Aufzählungen, Datumsangaben in Brief und Einladung</span></li><li class=""><span class="tl-date"><b>11.11.</b><i>Mi</i></span><span class="tl-what">Zweigliedrige Sätze</span></li><li class="off"><span class="tl-date"><b>18.11.</b><i>Mi</i></span><span class="tl-what">Buß- und Bettag – keine Schule</span></li><li class=""><span class="tl-date"><b>25.11.</b><i>Mi</i></span><span class="tl-what">Zweigliedrige Sätze</span></li><li class="ka"><span class="tl-date"><b>02.12.</b><i>Mi</i></span><span class="tl-what">Klassenarbeit<small>(Inhalte aus den Unterrichtsstunden 04.11., 11.11. und 25.11.)</small></span></li></ol>
-  </div>
+  <p class="panel-sub">11.11.2026 bis 02.12.2026</p>
+  <ol class="timeline">
+    <li class=""><span class="tl-date"><b>11.11.</b><i>Mi</i></span><span class="tl-what">Verbesserung der Aufgaben<small>Zweigliedrige Sätze: Erklärung + Übungen</small></span></li>
+    <li class="off"><span class="tl-date"><b>18.11.</b><i>Mi</i></span><span class="tl-what">Buß- und Bettag – keine Schule</span></li>
+    <li class=""><span class="tl-date"><b>25.11.</b><i>Mi</i></span><span class="tl-what">Verbesserung zweigliedrige Sätze<small>Weitere Übungen für die Klassenarbeit</small></span></li>
+    <li class="ka"><span class="tl-date"><b>02.12.</b><i>Mi</i></span><span class="tl-what">Klassenarbeit Zeichensetzung</span></li>
+  </ol>
 </section>
 <section class="panel" id="ballade">
   <button class="back-link" data-goto="deutsch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Deutsch</button>
@@ -941,10 +943,26 @@ h2.panel-title{font-size:1.45rem; font-weight:600; line-height:1.2;}
   <div class="panel-head"><h2 class="panel-title">Zeichensetzung</h2></div>
   <p class="panel-sub">Unterricht ab dem 04.11.2026 · Klassenarbeit am 02.12.2026<br>(Inhalte aus den Unterrichtsstunden 04.11., 11.11. und 25.11.)</p>
   <div class="tile-grid two">
+    <div class="tile wide" style="grid-column:1 / -1" role="button" tabindex="0" data-goto="zs-start"><div class="tile-art"><svg class="fb" viewBox="0 0 100 100" aria-hidden="true"><use href="#blossom"/></svg><img src="img/kachel-start.png" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.remove()"></div><div class="tile-text"><h3>Start</h3><p>Die Einstiege in die Stunden am 11.11. und 25.11.</p></div></div>
     <div class="tile " role="button" tabindex="0" data-goto="erklaerungen"><div class="tile-art"><svg class="fb" viewBox="0 0 100 100" aria-hidden="true"><use href="#blossom"/></svg><img src="img/kachel-erklaerungen.png" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.remove()"></div><div class="tile-text"><h3>Erklärungen</h3><p>zu den Inhalten der Klassenarbeit</p></div></div>
     <div class="tile " role="button" tabindex="0" data-goto="uebungen"><div class="tile-art"><svg class="fb" viewBox="0 0 100 100" aria-hidden="true"><use href="#blossom"/></svg><img src="img/kachel-uebungen.png" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.remove()"></div><div class="tile-text"><h3>Übungen</h3><p>mit neuen Sätzen üben</p></div></div>
   </div>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</section>
+<section class="panel" id="zs-start">
+  <button class="back-link" data-goto="zeichensetzung"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Zeichensetzung</button>
+  <div class="panel-head"><h2 class="panel-title">Start</h2></div>
+  <p class="panel-sub">Der Einstieg in die Stunde.</p>
+  <h3 class="panel-title" style="font-size:1.15rem;margin:6px 0 10px">Mittwoch, 11.11.2026</h3>
+  <div class="art-slot" id="start-1111-slot">
+    <img src="img/start-11-11.png" alt="Einstieg 11.11.: Sechs Sätze ohne Satzzeichen, bei denen die fehlenden Zeichen gesetzt werden" onload="this.parentNode.classList.add('ok')" onerror="this.remove()">
+    <div class="note-card fb">Der Einstieg für den 11.11. wird noch eingestellt.</div>
+  </div>
+  <h3 class="panel-title" style="font-size:1.15rem;margin:22px 0 10px">Mittwoch, 25.11.2026</h3>
+  <div class="art-slot" id="start-2511-slot">
+    <img src="img/start-25-11.png" alt="Einstieg 25.11." onload="this.parentNode.classList.add('ok')" onerror="this.remove()">
+    <div class="note-card fb">Der Einstieg für den 25.11. wird noch eingestellt.</div>
+  </div>
 </section>
 <section class="panel" id="erklaerungen">
   <button class="back-link" data-goto="zeichensetzung"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Zeichensetzung</button>
