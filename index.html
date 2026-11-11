@@ -750,6 +750,39 @@ h2.panel-title{font-size:1.45rem; font-weight:600; line-height:1.2;}
 .toast{position:fixed; left:50%; bottom:calc(24px + env(safe-area-inset-bottom,0px)); transform:translate(-50%,20px); opacity:0; pointer-events:none;
   background:var(--accent-deep); color:#fff; padding:11px 18px; border-radius:999px; font-size:.9rem; transition:.25s; max-width:90vw; text-align:center; z-index:50;}
 .toast.show{opacity:1; transform:translate(-50%,0);}
+.wc-hint{background:var(--accent-pale);border:1px solid var(--border);border-radius:var(--radius);padding:12px 14px;margin:0 0 14px;line-height:1.5;font-size:.92rem}
+.wc-teams{background:#fff7d6;border:1px solid #ecd77a;border-radius:var(--radius);padding:11px 14px;margin:12px 0 4px;line-height:1.45;font-size:.92rem;color:#5a4b00}
+.wc-steps{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px;-webkit-overflow-scrolling:touch}
+.wc-steps button{flex:0 0 auto;border:1px solid var(--border);background:var(--card);color:var(--ink);border-radius:999px;padding:8px 16px;font:inherit;font-weight:600;cursor:pointer}
+.wc-steps button.active{background:var(--accent-dark);border-color:var(--accent-dark);color:#fff}
+.wc-steptitle{font-family:Georgia,"Times New Roman",serif;color:var(--accent-deep);margin:6px 0 8px;font-size:1.25rem}
+.wc-all{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap}
+.wc-all button,.wc-nav button{border:1px solid var(--accent-mid);background:#fff;color:var(--accent-dark);border-radius:999px;padding:8px 14px;font:inherit;font-size:.9rem;font-weight:600;cursor:pointer}
+.wc-nav{display:flex;justify-content:space-between;margin:18px 0 6px}
+.wc-nav button:last-child{background:var(--accent-dark);color:#fff;border-color:var(--accent-dark)}
+.wc-nav button:disabled{opacity:.4;cursor:default}
+.wc-card{background:linear-gradient(160deg,#fff,#f3faf8);border:1px solid var(--border);border-radius:18px;padding:14px 16px;margin-bottom:12px}
+.wc-card h3{margin:0 0 4px;font-size:1.02rem;color:var(--accent-deep)}
+.wc-q{margin:0 0 10px;color:var(--ink-soft);font-size:.9rem;line-height:1.4}
+.wc-show{border:0;background:var(--accent-dark);color:#fff;border-radius:999px;padding:9px 16px;font:inherit;font-size:.9rem;font-weight:600;cursor:pointer}
+.wc-show.open{background:var(--accent-mid)}
+.wc-sol{margin-top:12px;border-top:1px dashed var(--accent-mid);padding-top:10px;line-height:1.5;font-size:.95rem}
+.wc-sol p{margin:6px 0}
+.wc-no{color:var(--ink-soft)}
+.wc-ol{margin:4px 0;padding-left:1.3em}.wc-ul{list-style:none;margin:4px 0;padding:0}.wc-ul li::before{content:"✓ ";color:var(--accent-dark);font-weight:700}
+.wc-ol li,.wc-ul li{margin:3px 0}
+.wc-t{border-collapse:collapse;width:100%;font-size:.9rem}
+.wc-t td,.wc-t th{border-bottom:1px solid var(--border);padding:6px 6px;text-align:left;vertical-align:top}
+.wc-t th{color:var(--accent-dark)}
+.wc-ex{display:grid;gap:10px}
+.wc-ex>div{background:var(--accent-pale);border-radius:12px;padding:9px 12px}
+.wc-ex>div>b{display:block;color:var(--accent-dark);margin-bottom:3px;font-size:.85rem;text-transform:uppercase;letter-spacing:.03em}
+.wc-mail{margin:4px 0;padding:8px 12px;border-left:3px solid var(--accent-mid);background:#fff;border-radius:0 10px 10px 0;font-size:.92rem}
+.wc-ex .wc-mail{background:transparent;border:0;padding:0}
+.wc-w{color:#c0392b;text-decoration:line-through}
+.wc-r{background:#fff176;padding:0 3px;border-radius:3px;color:inherit;font-weight:700}
+.wc-check{background:#fff;border:1px dashed var(--accent-mid);border-radius:12px;padding:9px 12px;margin-top:10px;font-size:.9rem}
+
 .ka-btn.small{width:auto; display:inline-block; padding:9px 18px; margin-top:8px;}
 .install-box{margin-top:26px; padding:14px 16px; border-radius:16px; background:rgba(255,255,255,.7); border:1px solid var(--border);
   text-align:center; font-size:.9rem; color:var(--ink-soft); line-height:1.5;}
@@ -885,6 +918,7 @@ h2.panel-title{font-size:1.45rem; font-weight:600; line-height:1.2;}
   <p class="panel-sub" style="margin-top:18px">Chapters</p>
   <div class="tile-grid one">
     <div class="tile wide" role="button" tabindex="0" data-goto="il-home"><div class="tile-art glyph"><span class="fb">LDN</span><img src="img/kachel-il-london.png" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.remove()"></div><div class="tile-text"><h3>I Love London</h3><p>Our London guide</p></div></div>
+    <div class="tile wide" role="button" tabindex="0" data-goto="wc-home"><div class="tile-art glyph"><span class="fb">✉</span><img src="img/kachel-writing-course.png" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.remove()"></div><div class="tile-text"><h3>Writing Course</h3><p>Write back to a friend · Steps 1–8</p></div></div>
     <div class="tile wide" role="button" tabindex="0" data-goto="cl-home"><div class="tile-art glyph"><span class="fb">CL</span><img src="img/kachel-country-life.png" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.remove()"></div><div class="tile-text"><h3>Country Life</h3><p>Chapter 2 · starts on 19.11.2026</p></div></div>
   </div>
   <p class="panel-sub" style="margin-top:18px">Tests und Klassenarbeiten</p>
@@ -1417,6 +1451,23 @@ h2.panel-title{font-size:1.45rem; font-weight:600; line-height:1.2;}
 </section>
 
 <!-- ===== COUNTRY LIFE ===== -->
+<section class="panel" id="wc-home">
+  <button class="back-link" data-goto="englisch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Englisch</button>
+  <div class="panel-head"><h2 class="panel-title">Writing Course</h2></div>
+  <p class="panel-sub">Write back to a friend – step by step.</p>
+  <div class="tile-grid one">
+    <div class="tile wide small" role="button" tabindex="0" data-file="files/writing-course.pdf"><div class="tile-art glyph"><span class="fb">📄</span></div><div class="tile-text"><h3>Worksheets (PDF)</h3><p>Steps 1–8 to download</p></div></div>
+    <div class="tile wide small" role="button" tabindex="0" data-goto="wc-solutions"><div class="tile-art glyph"><span class="fb">✓</span></div><div class="tile-text"><h3>Solutions</h3><p>Check your tasks, step by step</p></div></div>
+  </div>
+  <div class="toast" role="status" aria-live="polite"></div>
+</section>
+<section class="panel" id="wc-solutions">
+  <button class="back-link" data-goto="wc-home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Writing Course</button>
+  <div class="panel-head"><h2 class="panel-title">Writing Course – Solutions</h2></div>
+  <div class="wc-hint"><b>So arbeitest du:</b> Sieh dir zuerst die Aufgabe an und löse sie. Erst danach deckst du die Lösung auf und verbesserst mit einem <b>anderen Stift</b>. Bei offenen Aufgaben sind die Beispiele A und B nur Vorschläge – eigene richtige Antworten sind auch gut.</div>
+  <div class="wc-teams">Dein Text ist fertig? Schicke ihn gern über Teams an mich. Ich sehe ihn mir an und gebe dir eine Rückmeldung.</div>
+  <div id="wc-sol-root" style="margin-top:14px"></div>
+</section>
 <section class="panel" id="il-home">
   <button class="back-link" data-goto="englisch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Englisch</button>
   <div class="panel-head"><h2 class="panel-title">I Love London</h2></div>
@@ -2744,6 +2795,77 @@ document.addEventListener('click', e => {
   const a=document.getElementById('ka-audio-el'), n=document.getElementById('ka-audio-note');
   if(a&&n){ a.addEventListener('error',()=>{ a.style.display='none'; n.style.display='block'; }); }
 })();
+</script>
+<script>
+(function(){
+const root=document.getElementById('wc-sol-root'); if(!root) return;
+const W=(s)=>`<del class="wc-w">${s}</del>`, R=(s)=>`<mark class="wc-r">${s}</mark>`;
+const ex=(a,b,la='Example A',lb='Example B')=>`<div class="wc-ex"><div><b>${la}</b>${a}</div><div><b>${lb}</b>${b}</div></div>`;
+const tbl=(rows,head)=>`<table class="wc-t">${head?'<tr>'+head.map(h=>`<th>${h}</th>`).join('')+'</tr>':''}${rows.map(r=>'<tr>'+r.map(c=>`<td>${c}</td>`).join('')+'</tr>').join('')}</table>`;
+const ol=(a)=>`<ol class="wc-ol">${a.map(x=>`<li>${x}</li>`).join('')}</ol>`;
+const ul=(a)=>`<ul class="wc-ul">${a.map(x=>`<li>${x}</li>`).join('')}</ul>`;
+const letter=(t)=>`<blockquote class="wc-mail">${t}</blockquote>`;
+const teams='<div class="wc-teams">Dein Text ist fertig? Schicke ihn gern über Teams an mich. Ich sehe ihn mir an und gebe dir eine Rückmeldung.</div>';
+const check='<div class="wc-check"><b>Checkliste</b><br>☐ Zu-/Absage mit Grund · ☐ mindestens zwei Ratschläge · ☐ eine Frage mit ? · ☐ 60–80 Wörter</div>';
+const S=[
+{n:1,t:'Read the message',tasks:[
+ {h:'Task 1 – Read and tick',q:'Read and tick (✓) the right answer.',s:ul(['a) <b>to the London Eye</b>','b) <b>his family</b>','c) <b>the tickets</b>'])},
+ {h:'Task 2 – Which part is it?',q:'Write 1, 2, 3 or 4 in the circle.',s:tbl([['You should bring a jacket.','2 (advice)'],['See you on Saturday!','4 (goodbye)'],['Sorry, I can’t come.','1 (yes or no)'],['What time do we meet?','3 (question)'],['You don’t have to bring lunch.','2 (advice)'],['How do we get there?','3 (question)']])}]},
+{n:2,t:'Say yes or no',tasks:[
+ {h:'Task 1 – Yes or no?',q:'Tick yes or no and give a reason. (open task)',s:tbl([['a) Einladung zum London Eye','yes – because I like London.','no – because I have to help at home.'],['b) Fußballspiel, du magst keinen Fußball','no – because I don’t like football.','no – because I don’t have time.'],['c) Du musst zu Hause helfen','no – because I have to help at home.','no – because my family is busy.'],['d) Regen und Kälte','no – because the weather will be bad.','yes – because it will be great anyway.']],['','Example A','Example B'])},
+ {h:'Task 2 – Useful phrases',q:'Which phrases show a reason? Tick (✓) the correct ones.',s:'<p><b>Richtig (6):</b></p>'+ul(['because I like it','because I have to help at home','because it will be great','because I don’t have time','because the weather will be bad','because my family is busy'])+'<p class="wc-no"><b>Nicht ankreuzen</b> (kein Grund): I think we should go · I can’t come</p>'},
+ {h:'Task 3 – Put the words in the right order',q:'Write the sentences.',s:ol(['I can’t come because I have to help at home.','I would love to come because it sounds great.','I can’t come because the weather will be rainy.','I would like to go because I love London.'])},
+ {h:'Task 4 – Now write your own answer',q:'Write one sentence: say yes or no and give a reason. (open task)',s:ex('Yes, I’d love to come because I want to see the London Eye.','I’m sorry, but I can’t come because I have to help at home.')}]},
+{n:3,t:'Give advice',tasks:[
+ {h:'Task 1 – What would you do?',q:'Give advice. Use should / shouldn’t / have to / don’t have to. (open task)',s:tbl([['a) It will be cold.','You should bring a warm jacket.','You should wear a scarf.'],['b) Tickets online.','You should buy the tickets early.','You should use your phone.'],['c) Museum is free.','You don’t have to pay.','You should show your student card.'],['d) Not carry a lot.','You shouldn’t bring a big bag.','You don’t have to bring many things.']],['','Example A','Example B'])},
+ {h:'Task 2 – Useful phrases',q:'Tick (✓) the phrases you can use to give advice.',s:'<p><b>Richtig (9):</b></p>'+ul(['You should …','You shouldn’t …','You have to …','You don’t have to …','It’s a good idea to …','Don’t forget to …','I think you should …','I think you shouldn’t …','Maybe you should …'])+'<p class="wc-no"><b>Nicht ankreuzen:</b> See you soon! · What time do we meet? · I’d love to come.</p>'},
+ {h:'Task 3 – Complete the sentences',q:'Use the correct form: should / shouldn’t / have to / don’t have to.',s:ol(['1) You <b>should</b> bring a jacket because it might be cold.','2) You <b>should</b> buy the tickets early.','3) You <b>don’t have to</b> bring a lot of money because you can pay by card.','4) The guard says: “Tickets, please!” You <b>have to</b> show your ticket.','5) You <b>shouldn’t</b> run on the escalator. It’s dangerous.','6) You <b>shouldn’t</b> forget your phone.'].map(x=>x.replace(/^\d\) /,'')))},
+ {h:'Task 4 – Match the advice',q:'Match the situations (1–5) with the right advice (A–E).',s:tbl([['1 It might be rainy.','C – You should bring an umbrella.'],['2 You’re going to walk a lot.','A – You should wear comfortable shoes.'],['3 You don’t have much time.','D – You should take the bus or the Tube.'],['4 You will be out all day and it’s very hot.','E – You should take a bottle of water.'],['5 You’re not sure where to go.','B – You should take a map or a navigation app.']])},
+ {h:'Task 5 – Now write your own advice',q:'Choose one situation and write two or three sentences. (open task)',s:ex('<i>It might be rainy.</i><br>You should bring an umbrella. You shouldn’t wear your new shoes. You don’t have to bring a big bag.','<i>You’re going to walk a lot.</i><br>You should wear comfortable shoes. You should take a bottle of water. It’s a good idea to take a snack.')}]},
+{n:4,t:'Ask a question',tasks:[
+ {h:'Task 1 – Question words',q:'Complete the questions.',s:ol(['<b>Where</b> do we meet?','<b>What time</b> do we meet?','<b>How</b> do we get there?','<b>What</b> should we bring?','<b>Who</b> is coming with us?','<b>What</b> is the weather like?','<b>What</b> can we do in London?','<b>How much</b> do the tickets cost?'])},
+ {h:'Task 2 – Match the questions and answers',q:'Draw lines.',s:tbl([['What time do we meet?','At 10 o’clock.'],['Where do we meet?','At the station.'],['How do we get there?','By train.'],['What should we bring?','A jacket and some snacks.'],['Should we buy the tickets online?','Yes, we should.'],['How much do the tickets cost?','About 30 pounds.']])},
+ {h:'Task 3 – Put the words in the right order',q:'Write the questions.',s:ol(['What time do we meet?','How do we get there?','What should we bring?','Should we buy the tickets online?','How much do the tickets cost?'])},
+ {h:'Task 4 – Now write your own questions',q:'Write three questions for your friend. (open task)',s:ex(ol(['Where do we meet?','What should I wear?','How long do we stay there?']),ol(['What time do we meet?','Who is coming with us?','How much does lunch cost?']))+'<p class="wc-no">Fragezeichen nicht vergessen!</p>'}]},
+{n:5,t:'Put it together',tasks:[
+ {h:'Task 1 – Jayden’s message',q:'Tick (✓) what Jayden asks.',s:ul(['<b>Do you want to come with us?</b>','<b>What do you think we should do?</b>'])+'<p class="wc-no">Nicht ankreuzen: How old are you?</p>'},
+ {h:'Task 2 – Complete the reply',q:'Complete the text with words from the box. Use each word once.',s:letter('Hi Jayden,<br>thanks for your message! Yes, I’d love to come <b>because</b> I want to see <b>London</b> from above. We can go by <b>train</b>. You should buy the <b>tickets</b> online, and you should bring a <b>jacket</b> and an <b>umbrella</b> because the weather forecast says it will be <b>rainy</b>. It sounds <b>great</b>! What time do we meet? See you soon!<br>Sam')},
+ {h:'Task 3 – Find the mistakes',q:'There are four mistakes in the text. Circle them and write the correct words.',s:letter(`Hi Mia,<br>I’m ${W('go')} ${R('going')} to London next Saturday. We’re going by train. You should ${W('to')} come with us, because it ${W('sounded')} ${R('sounds')} great. You should bring a jacket and ${W('a')} ${R('an')} umbrella. See you soon!<br>Sam`)+ol(['I’m go → <b>I’m going</b>','You should to come → <b>You should come</b> (kein „to“ nach should)','it sounded great → <b>it sounds great</b>','a umbrella → <b>an umbrella</b>'])},
+ {h:'Task 4 – Put the sentences in the right order',q:'Write the numbers 1–5.',s:ol(['Thanks for your message!','Yes, I’d love to come','because it sounds great.','You should bring a jacket and an umbrella.','See you soon!'])},
+ {h:'Task 5 – Now write your own text',q:'Reply to Jayden’s message. 60–80 words. (open task)',s:ex(letter('Hi Jayden,<br>Thanks for your message! Yes, I’d love to come because I want to see London from above. You should buy the tickets online, and you should bring a warm jacket because it can be cold up there. You don’t have to bring lunch because there are many cafés near the London Eye. What time do we meet? And how do we get there?<br>See you soon! Sam'),letter('Hi Jayden,<br>Thanks for your message! I’m sorry, but I can’t come because I have to help at home on Saturday. You should bring an umbrella because it might rain, and you should wear comfortable shoes. You don’t have to go to the ticket office – you can buy the tickets online. I hope you have a great day. Can we go together next time?<br>Best wishes, Sam'),'Example A (yes)','Example B (no)')+check+teams}]},
+{n:6,t:'Your turn!',tasks:[
+ {h:'Task 4 – Write your reply',q:'Write a reply to Jayden. 60–80 words. Say yes or no, give two pieces of advice and ask a question. (open task)',s:ex(letter('Hi Jayden,<br>Thank you for the invitation! I’d love to come because it sounds great and I like London. I think you should take the Tube because it is quick. You should also bring a bottle of water, and you shouldn’t forget your phone for the photos. Should we buy the tickets online? It is a good idea to meet early. What time do we meet?<br>See you on Saturday! Sam'),letter('Hi Jayden,<br>I’m sorry, but I can’t come because my family is busy on Saturday. Have fun! You should bring a jacket because the weather will be cold. It’s a good idea to buy the tickets early, and you shouldn’t carry a lot of things. How much do the tickets cost? And how long do you want to stay there? Send me a photo!<br>Take care, Sam'),'Example A (yes)','Example B (no)')+check+teams},
+ {h:'Task 5 – Word count',q:'Count your words and write the number.',s:'<p>Individuell. Ziel: <b>60–80 Wörter</b>.</p>'}]},
+{n:7,t:'Check and improve',tasks:[
+ {h:'Task 1 – Find the mistakes',q:'There are six mistakes in the text. Circle them and write the correct words.',s:letter(`Hi Jayden,<br>Thanks for ${W('you')} ${R('your')} message! I’d love to come because I want ${R('to')} see the ${W('london')} ${R('London')} Eye. You should ${W('to')} bring a jacket. What time ${R('do')} we meet? See you on ${W('saturday')} ${R('Saturday')}! Sam`)+ol(['you message → <b>your</b> message','want see → want <b>to</b> see','london → <b>London</b>','should to bring → <b>should bring</b>','What time we meet? → What time <b>do</b> we meet?','saturday → <b>Saturday</b>'])},
+ {h:'Task 2 – Check your text',q:'Use the checklist for your own text from Step 6.',s:'<p>Checkliste ohne feste Lösung – jede/r prüft den eigenen Text:</p>'+ul(['☐ yes or no','☐ two pieces of advice','☐ one question','☐ because / should / shouldn’t / have to / don’t have to benutzt','☐ 60–80 Wörter','☐ Rechtschreibung und Zeichensetzung'])},
+ {h:'Task 3 – Which sentence is correct?',q:'Tick (✓) A or B.',s:ol(['<b>A</b> You don’t have to pay.','<b>B</b> You shouldn’t be late.','<b>B</b> How do we get there?','<b>A</b> There are many cafés near the London Eye.'])},
+ {h:'Task 4 – Count in your text',q:'Look at your text from Step 6. Write the numbers.',s:'<p>Individuell. Ziel: <b>1</b> Satz mit because · <b>2 oder mehr</b> Ratschläge · <b>1</b> Frage mit Fragezeichen · <b>60–80</b> Wörter.</p>'},
+ {h:'Task 5 – Partner feedback',q:'Read your partner’s text. Write two positive things and one tip. (examples)',s:ex(ul(['You gave a good reason.','You wrote more than two pieces of advice.','Your text is easy to read.']),ul(['Check your spelling.','Don’t forget the question mark.','Use “because” once more.']),'Positive','Tip')}]},
+{n:8,t:'Second go',tasks:[
+ {h:'Task 4 – Write your reply (Amir, Wembley)',q:'Write a reply to Amir. 60–80 words. Say yes or no, give two pieces of advice and ask a question. (open task)',s:ex(letter('Hi Amir,<br>Thanks for your message! That sounds great and I’d love to come because I love football. You should bring a scarf because it can be cold, and you should buy a snack before the match. You don’t have to bring a lot of money. How do we get to Wembley Stadium? What time do we meet? I really want to see the stadium.<br>See you soon! Sam'),letter('Hi Amir,<br>Thanks for your message! I’m sorry, but I can’t come because I have to learn for a test. Have fun! You should take the train early because there will be a big crowd. You should bring some water and a jacket, and you shouldn’t forget your ticket. It will be a great day. I hope your team wins. Which team do you like best?<br>Best wishes, Sam'),'Example A (yes)','Example B (no)')+check+teams},
+ {h:'Task 5 – Word count',q:'Count your words and write the number.',s:'<p>Individuell. Ziel: <b>60–80 Wörter</b>.</p>'}]}
+];
+let cur=0; try{ const v=sessionStorage.getItem('wcStep'); if(v!==null) cur=Math.min(7,Math.max(0,+v||0)); }catch(e){}
+function render(){
+  const st=S[cur];
+  const bar=S.map((s,i)=>`<button class="${i===cur?'active':''}" data-i="${i}">Step ${s.n}</button>`).join('');
+  const cards=st.tasks.map((t,i)=>`<div class="wc-card"><h3>${t.h}</h3><p class="wc-q">${t.q}</p><button class="wc-show" data-k="${i}" aria-expanded="false">Show solution</button><div class="wc-sol" hidden>${t.s}</div></div>`).join('');
+  root.innerHTML=`<div class="wc-steps">${bar}</div><h3 class="wc-steptitle">Step ${st.n}: ${st.t}</h3><div class="wc-all"><button data-a="show">Show all solutions</button><button data-a="hide">Hide all</button></div>${cards}<div class="wc-nav"><button data-nav="-1" ${cur===0?'disabled':''}>← Back</button><button data-nav="1">${cur===7?'Done ✓':'Next step →'}</button></div>`;
+  const a=root.querySelector('.wc-steps .active'); if(a&&a.scrollIntoView){ try{ root.querySelector('.wc-steps').scrollLeft=a.offsetLeft-20; }catch(e){} }
+}
+function go(i){ cur=i; try{sessionStorage.setItem('wcStep',String(cur));}catch(e){} render(); const p=document.getElementById('wc-solutions'); if(p&&p.scrollIntoView) p.scrollIntoView({block:'start'}); }
+function toggle(btn,force){ const box=btn.nextElementSibling; const open=force===undefined?box.hidden:force; box.hidden=!open; btn.textContent=open?'Hide solution':'Show solution'; btn.setAttribute('aria-expanded',open); btn.classList.toggle('open',open); }
+root.addEventListener('click',e=>{
+  const b=e.target.closest('button'); if(!b) return;
+  if(b.dataset.i!==undefined) return go(+b.dataset.i);
+  if(b.classList.contains('wc-show')) return toggle(b);
+  if(b.dataset.a) return root.querySelectorAll('.wc-show').forEach(x=>toggle(x,b.dataset.a==='show'));
+  if(b.dataset.nav){ const n=cur+ +b.dataset.nav; if(n>=0&&n<=7) go(n); else go(0); }
+});
+render();
+})();
+
 </script>
 <script src="cl.js"></script>
 <script>document.querySelectorAll(".cl-aud").forEach(a=>a.addEventListener("error",()=>{a.style.display="none";document.querySelector(".cl-aud-note").style.display="block"}));</script>
