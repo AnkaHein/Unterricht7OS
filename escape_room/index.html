@@ -205,9 +205,9 @@ function finale(p){
    `<img class="icbig" src="${IMG.ic_letter}" alt=""><div class="story"><p>On the bench lies the old man’s wallet. There is a letter behind the photo.</p><p class="say"><i>Dear Freya, this is Mr Harris, Grandad’s neighbour. Sorry – I lost my wallet on the platform! Grandad and Grandma sent me to London with a surprise: the ticket is a train ticket to the countryside. They would like you and your friends to visit the farm. Please come soon! – Mr Harris</i></p></div>${listenBtn("f2")}`,
    `<div class="pic"><img src="${IMG.einstieg}" alt=""></div><div class="story final"><p>“A holiday on the farm!” says Chloe. “Amazing!” says Amir. “Cows, tractors… and no Tube,” says Jayden.</p><div class="hl">🌿 Freya and her friends are going to the countryside – to visit Freya’s grandparents!</div><p>What is it like to live on a farm? What do they have to do? What are they allowed to do?</p></div>${listenBtn("f3")}`,
    `<div class="pic"><img src="${IMG.ausblick}" alt=""></div><div class="story final"><p class="note">Next chapter</p><div class="hl">Country Life</div></div>`];
-  show(`<div class="wrap">${pages[p]}${p<pages.length-1?`<button class="big" id="nx">Next →</button>`:`<button class="big" id="again">Play again</button>`}</div>`);
+  show(`<div class="wrap">${pages[p]}${p<pages.length-1?`<button class="big" id="nx">Next →</button>`:`<button class="big" id="again">Back to Country Life →</button>`}</div>`);
   if(p<pages.length-1)document.getElementById("nx").onclick=()=>finale(p+1);
-  else document.getElementById("again").onclick=()=>{S={step:0,done:[false,false,false,false]};step0()};
+  else document.getElementById("again").onclick=()=>{try{if(window.parent&&window.parent!==window){window.parent.location.hash="cl-home";return}}catch(e){}location.href="../index.html#cl-home"};
 }
 const NARRATION_KEYS=Object.keys(NARR);
 step0();
