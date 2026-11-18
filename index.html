@@ -750,6 +750,9 @@ h2.panel-title{font-size:1.45rem; font-weight:600; line-height:1.2;}
 .toast{position:fixed; left:50%; bottom:calc(24px + env(safe-area-inset-bottom,0px)); transform:translate(-50%,20px); opacity:0; pointer-events:none;
   background:var(--accent-deep); color:#fff; padding:11px 18px; border-radius:999px; font-size:.9rem; transition:.25s; max-width:90vw; text-align:center; z-index:50;}
 .toast.show{opacity:1; transform:translate(-50%,0);}
+.gb-frame{border:1px solid var(--border);border-radius:18px;overflow:hidden;background:#0f1b1d}
+.gb-frame iframe{display:block;width:100%;height:calc(100vh - 230px);min-height:560px;border:0}
+
 .wc-hint{background:var(--accent-pale);border:1px solid var(--border);border-radius:var(--radius);padding:12px 14px;margin:0 0 14px;line-height:1.5;font-size:.92rem}
 .wc-teams{background:#fff7d6;border:1px solid #ecd77a;border-radius:var(--radius);padding:11px 14px;margin:12px 0 4px;line-height:1.45;font-size:.92rem;color:#5a4b00}
 .wc-steps{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px;-webkit-overflow-scrolling:touch}
@@ -815,6 +818,7 @@ h2.panel-title{font-size:1.45rem; font-weight:600; line-height:1.2;}
 .start-card h3{font-weight:600;}
 @media (max-width:360px){ .tile.wide{grid-template-columns:84px 1fr;} .tile.wide .tile-art{width:84px;} }
 @media (min-width:720px){ .tile-grid.one{grid-template-columns:1fr 1fr;} }
+@media (min-width:1000px){ main{max-width:1100px;} section.panel > *:not(.tile-grid){max-width:760px;} .tile-grid.one{grid-template-columns:repeat(3,1fr);} }
 @media (prefers-reduced-motion:reduce){ *{transition:none !important; animation:none !important;} }
 
 
@@ -918,7 +922,7 @@ h2.panel-title{font-size:1.45rem; font-weight:600; line-height:1.2;}
   <p class="panel-sub" style="margin-top:18px">Chapters</p>
   <div class="tile-grid one">
     <div class="tile wide" role="button" tabindex="0" data-goto="il-home"><div class="tile-art glyph"><span class="fb">LDN</span><img src="img/kachel-il-london.png" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.remove()"></div><div class="tile-text"><h3>I Love London</h3><p>Our London guide</p></div></div>
-    <div class="tile wide" role="button" tabindex="0" data-goto="wc-home"><div class="tile-art glyph"><span class="fb">✉</span><img src="img/kachel-writing-course.png" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.remove()"></div><div class="tile-text"><h3>Writing Course</h3><p>Write back to a friend · Steps 1–8</p></div></div>
+    <div class="tile wide" role="button" tabindex="0" data-goto="wc-home"><div class="tile-art glyph"><span class="fb">✉</span><img src="img/kachel-writing-course.png" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.remove()"></div><div class="tile-text"><h3>Writing Course</h3><p>Write back to a friend</p></div></div>
     <div class="tile wide" role="button" tabindex="0" data-goto="cl-home"><div class="tile-art glyph"><span class="fb">CL</span><img src="img/kachel-country-life.png" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.remove()"></div><div class="tile-text"><h3>Country Life</h3><p>Chapter 2 · starts on 19.11.2026</p></div></div>
   </div>
   <p class="panel-sub" style="margin-top:18px">Tests und Klassenarbeiten</p>
@@ -1493,24 +1497,24 @@ h2.panel-title{font-size:1.45rem; font-weight:600; line-height:1.2;}
 <section class="panel" id="cl-home">
   <button class="back-link" data-goto="englisch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Englisch</button>
   <div class="panel-head"><h2 class="panel-title">Country Life</h2></div>
-  <p class="panel-sub">Chapter 2</p>
+  <p class="panel-sub">Chapter 2 · Choose a lesson.</p>
   <div class="tile-grid one">
-    <div class="tile wide" role="button" tabindex="0" data-goto="cl-chapter"><div class="tile-art glyph"><span class="fb">CL</span><img src="img/kachel-cl-chapter.png" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.remove()"></div><div class="tile-text"><h3>Our new Chapter</h3><p>Lessons, vocabulary and tips</p></div></div>
-  </div>
-</section>
-<section class="panel" id="cl-chapter">
-  <button class="back-link" data-goto="cl-home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Country Life</button>
-  <div class="panel-head"><h2 class="panel-title">Our new Chapter</h2></div>
-  <p class="panel-sub">Choose a lesson.</p>
-  <div class="tile-grid one">
+    <div class="tile wide" role="button" tabindex="0" data-goto="cl-goodbye"><div class="tile-art glyph"><span class="fb">🎟</span><img src="img/kachel-cl-goodbye.png" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.remove()"></div><div class="tile-text"><h3>Goodbye London</h3><p>Finish London, start Country Life</p></div></div>
     <div class="tile wide" role="button" tabindex="0" data-goto="cl-l1"><div class="tile-art glyph"><span class="fb">1</span><img src="img/kachel-cl-lesson1.png" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.remove()"></div><div class="tile-text"><h3>1st Lesson</h3><p>Listening</p></div></div>
     <div class="tile wide" role="button" tabindex="0" data-goto="cl-l2"><div class="tile-art glyph"><span class="fb">2</span><img src="img/kachel-cl-lesson2.png" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.remove()"></div><div class="tile-text"><h3>2nd Lesson</h3><p>Reading</p></div></div>
     <div class="tile wide" role="button" tabindex="0" data-goto="cl-l3"><div class="tile-art glyph"><span class="fb">3</span><img src="img/kachel-cl-lesson3.png" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.remove()"></div><div class="tile-text"><h3>3rd Lesson</h3><p>Grammar</p></div></div>
     <div class="tile wide" role="button" tabindex="0" data-goto="cl-l4"><div class="tile-art glyph"><span class="fb">4</span><img src="img/kachel-cl-lesson4.png" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.remove()"></div><div class="tile-text"><h3>4th Lesson</h3><p>Grammar</p></div></div>
   </div>
 </section>
+<section class="panel" id="cl-goodbye">
+  <button class="back-link" data-goto="cl-home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Country Life</button>
+  <div class="panel-head"><h2 class="panel-title">Goodbye London</h2></div>
+  <p class="panel-sub">The Last Ticket – solve the puzzles together and find the way to Country Life. Turn the sound on.</p>
+  <div class="gb-frame"><iframe src="escape_room/index.html" title="Goodbye London – The Last Ticket" loading="lazy" allow="autoplay"></iframe></div>
+  <p class="panel-sub" style="margin-top:10px"><a href="escape_room/index.html" target="_blank" rel="noopener" style="color:var(--accent-dark);font-weight:600">Open in full screen ↗</a></p>
+</section>
 <section class="panel" id="cl-l1">
-  <button class="back-link" data-goto="cl-chapter"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Our new Chapter</button>
+  <button class="back-link" data-goto="cl-home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Country Life</button>
   <div class="panel-head"><h2 class="panel-title">1st Lesson: Listening</h2></div>
   <p class="panel-sub">Today we train our ears.</p>
   <div class="tile-grid one">
@@ -1609,7 +1613,7 @@ h2.panel-title{font-size:1.45rem; font-weight:600; line-height:1.2;}
   <div class="cl-quiz" id="vt-quiz-expl"></div>
 </section>
 <section class="panel" id="cl-l2">
-  <button class="back-link" data-goto="cl-chapter"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Our new Chapter</button>
+  <button class="back-link" data-goto="cl-home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Country Life</button>
   <div class="panel-head"><h2 class="panel-title">2nd Lesson: Reading</h2></div>
   <p class="panel-sub">Today we read two texts.</p>
   <div class="tile-grid one">
@@ -1690,7 +1694,7 @@ h2.panel-title{font-size:1.45rem; font-weight:600; line-height:1.2;}
   <div class="cl-quiz" id="vt-quiz-expl2"></div>
 </section>
 <section class="panel" id="cl-l3">
-  <button class="back-link" data-goto="cl-chapter"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Our new Chapter</button>
+  <button class="back-link" data-goto="cl-home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Country Life</button>
   <div class="panel-head"><h2 class="panel-title">3rd Lesson: Grammar</h2></div>
   <p class="panel-sub">Today we practise adverbs.</p>
   <div class="tile-grid one">
@@ -1918,7 +1922,7 @@ h2.panel-title{font-size:1.45rem; font-weight:600; line-height:1.2;}
   <div class="cl-quiz" id="gp-f4-quiz"></div>
 </section>
 <section class="panel" id="cl-l4">
-  <button class="back-link" data-goto="cl-chapter"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Our new Chapter</button>
+  <button class="back-link" data-goto="cl-home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Country Life</button>
   <div class="panel-head"><h2 class="panel-title">4th Lesson: Grammar</h2></div>
   <p class="panel-sub">Today we practise the present perfect.</p>
   <div class="tile-grid one">
