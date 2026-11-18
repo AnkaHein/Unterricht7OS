@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Thiago kommt an</title>
+<style>
+:root{--petrol:#008E80;--dark:#00443E;--mint:#EAF6F4;--bg:#fbfdfc;--ink:#1f2a29}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Arial,sans-serif}
+body{display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden}
+.screen{position:fixed;inset:0;display:none;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;background:var(--bg);z-index:10}
+.screen.on{display:flex}
+.screen h1{font-size:clamp(30px,6vw,64px);margin:0 0 .3em;color:var(--dark);letter-spacing:.01em}
+.screen p{font-size:clamp(17px,2.4vw,24px);max-width:34em;line-height:1.5;margin:.3em 0}
+.sub{color:#4b5d5a}
+.btn{margin-top:1.2em;background:var(--petrol);color:#fff;border:0;border-radius:999px;padding:.8em 2em;font-size:clamp(18px,2.4vw,24px);font-weight:600;cursor:pointer;box-shadow:0 4px 14px rgba(0,142,128,.35)}
+.btn:hover{background:#007a6e}
+.btn.ghost{background:transparent;color:var(--petrol);border:2px solid var(--petrol);box-shadow:none}
+.cover{position:absolute;inset:0;background:center/cover url(thiago/s1.jpg);opacity:.16}
+.screen>*:not(.cover){position:relative}
+#stage{width:min(100vw,calc((100vh - 64px) * 16 / 9));aspect-ratio:16/9;position:relative;margin-top:0}
+#stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .9s ease}
+#stage img.on{opacity:1}
+#hot{position:absolute;transform:translate(-50%,-50%);aspect-ratio:1;border-radius:50%;border:0;padding:0;background:radial-gradient(circle,rgba(255,236,170,.85) 0%,rgba(255,214,120,.45) 45%,rgba(255,214,120,0) 70%);cursor:pointer;opacity:0;pointer-events:none;transition:opacity .8s}
+#hot.show{opacity:1;pointer-events:auto;animation:pulse 1.8s ease-in-out infinite}
+@keyframes pulse{0%,100%{transform:translate(-50%,-50%) scale(.9)}50%{transform:translate(-50%,-50%) scale(1.12)}}
+#hot:focus-visible{outline:4px solid var(--petrol)}
+#bar{height:64px;width:min(100vw,calc((100vh - 64px) * 16 / 9));display:flex;align-items:center;justify-content:space-between;padding:0 12px;gap:12px}
+#dots{display:flex;gap:8px}
+#dots i{width:12px;height:12px;border-radius:50%;background:#cfe3e0;display:block;transition:background .4s}
+#dots i.done{background:var(--petrol)}
+#dots i.cur{background:var(--dark);box-shadow:0 0 0 3px rgba(0,142,128,.3)}
+.ic{background:#fff;border:2px solid var(--petrol);color:var(--petrol);border-radius:999px;height:44px;min-width:44px;padding:0 16px;font-size:18px;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:8px}
+.ic:hover{background:var(--mint)}
+#hint{position:absolute;left:50%;bottom:4%;transform:translateX(-50%);background:rgba(255,255,255,.9);color:var(--dark);border-radius:999px;padding:.4em 1.2em;font-size:clamp(14px,2vw,20px);opacity:0;transition:opacity .6s;pointer-events:none;white-space:nowrap}
+#hint.show{opacity:1}
+#play{position:absolute;inset:0;display:none;align-items:center;justify-content:center;background:rgba(255,255,255,.55)}
+#play.on{display:flex}
+</style>
+</head>
+<body>
+
+<div class="screen on" id="start">
+  <div class="cover"></div>
+  <h1>Thiago kommt an</h1>
+  <p>Eine Geschichte zum Zuhören.</p>
+  <p class="sub">Hör gut zu und schau dir die Bilder an. Wenn im Bild etwas leuchtet, tippe darauf. Dann geht die Geschichte weiter.</p>
+  <button class="btn" id="go">Geschichte starten</button>
+</div>
+
+<div id="stage" hidden>
+  <div id="imgs"></div>
+  <button id="hot" aria-label="Weiter"></button>
+  <div id="hint">Tippe auf das Leuchten</div>
+  <div id="play"><button class="btn" id="playbtn">▶ Abspielen</button></div>
+</div>
+<div id="bar" hidden>
+  <div id="dots"></div>
+  <div style="display:flex;gap:10px">
+    <button class="ic" id="pause" aria-label="Pause">❚❚ <span>Pause</span></button>
+    <button class="ic" id="again" aria-label="Nochmal hören">↺ <span>Nochmal hören</span></button>
+  </div>
+</div>
+
+<div class="screen" id="end">
+  <div class="cover"></div>
+  <h1>Ende von Teil 1</h1>
+  <p>Wie geht es Thiago wohl morgen?</p>
+  <p class="sub">Jetzt bekommst du die Geschichte zum Nachlesen auf einem Blatt.</p>
+  <button class="btn ghost" id="restart">Noch einmal von vorn</button>
+</div>
+
+<audio id="au" preload="auto"></audio>
+
+<script>
+// x,y = Mitte des leuchtenden Gegenstands in % des Bildes, s = Größe in % der Bildbreite
+const SC=[
+ {x:25.4,y:58.5,s:15},  // 1 Rucksack
+ {x:32.6,y:62.7,s:13},  // 2 Heft
+ {x:56.8,y:22.3,s:17},  // 3 Wortwolke
+ {x:46.0,y:62.0,s:14},  // 4 Stuhl
+ {x:31.7,y:49.0,s:10},  // 5 Dose
+ {x:54.2,y:82.4,s:11},  // 6 Ball
+ {x:71.5,y:83.0,s:10},  // 7 Laubblatt
+ {x:82.8,y:64.3,s:13}   // 8 Backform
+];
+const $=id=>document.getElementById(id);
+const au=$('au'),hot=$('hot'),hint=$('hint');
+let cur=-1;
+const imgs=$('imgs'),dots=$('dots');
+SC.forEach((c,i)=>{const im=new Image();im.src='thiago/s'+(i+1)+'.jpg';im.alt='';im.style.cssText='position:absolute;inset:0;width:100%;height:100%;object-fit:cover';im.className='sc';imgs.appendChild(im);const d=document.createElement('i');dots.appendChild(d)});
+const sImgs=[...imgs.children];
+sImgs.forEach(im=>{im.style.opacity=0;im.style.transition='opacity .9s ease'});
+function show(i){
+  cur=i;
+  sImgs.forEach((im,k)=>im.style.opacity=(k===i)?1:0);
+  [...dots.children].forEach((d,k)=>{d.className=k<i?'done':(k===i?'cur':'')});
+  hot.classList.remove('show');hint.classList.remove('show');
+  const c=SC[i];hot.style.left=c.x+'%';hot.style.top=c.y+'%';hot.style.width=c.s+'%';
+  au.src='thiago/a'+(i+1)+'.mp3';
+  $('play').classList.remove('on');
+  au.play().catch(()=>$('play').classList.add('on'));
+  const n=i+1<SC.length?i+1:null;
+  if(n!==null){const p=new Audio();p.preload='auto';p.src='thiago/a'+(n+1)+'.mp3'}
+  $('pause').firstChild.textContent='❚❚ ';$('pause').lastElementChild.textContent='Pause';
+}
+au.addEventListener('ended',()=>{hot.classList.add('show');setTimeout(()=>hint.classList.add('show'),1200)});
+function next(){
+  if(cur+1<SC.length) show(cur+1); else finish();
+}
+function finish(){
+  au.pause();$('stage').hidden=true;$('bar').hidden=true;$('end').classList.add('on');
+}
+hot.addEventListener('click',next);
+$('go').onclick=()=>{$('start').classList.remove('on');$('stage').hidden=false;$('bar').hidden=false;show(0)};
+$('restart').onclick=()=>{$('end').classList.remove('on');$('stage').hidden=false;$('bar').hidden=false;show(0)};
+$('again').onclick=()=>{hot.classList.remove('show');hint.classList.remove('show');au.currentTime=0;au.play().catch(()=>{})};
+$('pause').onclick=()=>{
+  if(au.paused){au.play();$('pause').firstChild.textContent='❚❚ ';$('pause').lastElementChild.textContent='Pause'}
+  else{au.pause();$('pause').firstChild.textContent='▶ ';$('pause').lastElementChild.textContent='Weiter hören'}
+};
+$('playbtn').onclick=()=>{au.play();$('play').classList.remove('on')};
+// Lehrkraft: Pfeiltasten springen vor und zurück
+document.addEventListener('keydown',e=>{
+  if($('stage').hidden)return;
+  if(e.key==='ArrowRight')next();
+  if(e.key==='ArrowLeft'&&cur>0)show(cur-1);
+});
+</script>
+</body>
+</html>
