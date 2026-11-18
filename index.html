@@ -750,6 +750,17 @@ h2.panel-title{font-size:1.45rem; font-weight:600; line-height:1.2;}
 .toast{position:fixed; left:50%; bottom:calc(24px + env(safe-area-inset-bottom,0px)); transform:translate(-50%,20px); opacity:0; pointer-events:none;
   background:var(--accent-deep); color:#fff; padding:11px 18px; border-radius:999px; font-size:.9rem; transition:.25s; max-width:90vw; text-align:center; z-index:50;}
 .toast.show{opacity:1; transform:translate(-50%,0);}
+.gn-gap{height:14px}
+.gn .gn-s{margin:8px 0;font-size:1.02rem}
+.gn-list{margin:0 0 14px}
+.gn-pair{display:grid;grid-template-columns:7.5em 1.6em 1fr;align-items:baseline;padding:2px 0;font-size:1.05rem}
+.gn-pair span{color:var(--ink)} .gn-pair i{font-style:normal;color:var(--accent-mid)} .gn-pair b,.gn-pair b u{color:var(--accent-deep)} .gn-pair u{text-decoration:none;font-weight:800}
+.gn h5{margin:0 0 8px;font-family:var(--serif);font-size:1.08rem;color:var(--accent-deep)}
+.gn-pos{display:flex;align-items:center;gap:12px;margin:8px 0;padding:10px 12px;background:var(--accent-pale);border-radius:12px}
+.gn-pos p{margin:0}
+.gn-tag{flex:0 0 auto;background:var(--accent-dark);color:#fff;border-radius:999px;padding:4px 12px;font-size:.82rem;font-weight:700}
+.gn-tag.t2{background:#b8741a}
+
 .gb-frame{border:1px solid var(--border);border-radius:18px;overflow:hidden;background:#0f1b1d}
 .gb-frame iframe{display:block;width:100%;height:calc(100vh - 230px);min-height:560px;border:0}
 
@@ -1518,7 +1529,6 @@ h2.panel-title{font-size:1.45rem; font-weight:600; line-height:1.2;}
   <div class="panel-head"><h2 class="panel-title">1st Lesson: Listening</h2></div>
   <p class="panel-sub">Today we train our ears.</p>
   <div class="tile-grid one">
-    <div class="tile wide small" role="button" tabindex="0" data-goto="cl-start"><div class="tile-art glyph"><span class="fb">?</span><img src="img/kachel-cl-warmup.png" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.remove()"></div><div class="tile-text"><h3>Warm-up</h3><p>Who am I? And where are we going?</p></div></div>
     <div class="tile wide small" role="button" tabindex="0" data-goto="cl-audio"><div class="tile-art glyph"><span class="fb">♪</span><img src="img/kachel-cl-audio.png" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.remove()"></div><div class="tile-text"><h3>Listening Audios</h3><p>Listening 1 and Listening 2</p></div></div>
     <div class="tile wide small" role="button" tabindex="0" data-goto="cl-vocab"><div class="tile-art glyph"><span class="fb">Abc</span><img src="img/kachel-cl-vocab.png" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.remove()"></div><div class="tile-text"><h3>Vocabulary</h3><p>Word list and quiz</p></div></div>
     <div class="tile wide small" role="button" tabindex="0" data-goto="cl-tips"><div class="tile-art glyph"><span class="fb">♪</span><img src="img/kachel-cl-tips.png" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.remove()"></div><div class="tile-text"><h3>Listening Tips</h3><p>How to get more out of every audio</p></div></div>
@@ -1726,8 +1736,28 @@ h2.panel-title{font-size:1.45rem; font-weight:600; line-height:1.2;}
   <button class="back-link" data-goto="cl-l3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>3rd Lesson</button>
   <div class="panel-head"><h2 class="panel-title">Grammar Notes</h2></div>
   <p class="panel-sub">Copy the notes into your exercise book.</p>
-  <div class="cl-board"><h4>Adverbs of manner (How?)</h4><p>Bella is a <b>brave</b> dog. <small>(Which dog?)</small></p><p>Bella jumped <b>bravely</b> into the water. <small>(How did she jump?)</small></p><p class="ex">slow → slowly · brave → bravely · careful → carefully · loud → loudly</p><p class="ex">happy → happ<b>ily</b> · easy → eas<b>ily</b></p><p class="ex">terrible → terrib<b>ly</b> · gentle → gent<b>ly</b></p><p class="ex">good → <b>well</b> · fast → <b>fast</b> · hard → <b>hard</b></p><p>Position: after the verb (or after the object).<br>Grandad walks slowly. · Grandad closed the gate carefully.</p></div>
-  <div class="cl-board"><h4>Adverbs of frequency (How often?)</h4><p class="ex">always · usually · often · sometimes · never</p><p class="ex">immer · normalerweise · oft · manchmal · niemals</p><p><b>1</b> after <i>be</i>: Freya is <b>always</b> friendly.</p><p><b>2</b> before a full verb: Grandad <b>usually</b> feeds the sheep.</p><p><b>3</b> after don’t, can, will … and before the full verb: We don’t <b>often</b> go to the cinema. · Ben can <b>always</b> find the sheep.</p></div>
+  <div class="art-slot">
+    <img src="img/grammar-notes-3a.png" alt="" onload="this.parentNode.classList.add('ok')" onerror="this.remove()">
+    <div class="fb"><div class="cl-board gn"><h4>Adverbs of manner (How?)</h4>
+<div class="gn-gap"></div>
+<p class="gn-s">Bella is a <b>brave</b> dog. <small>(What kind of dog is she?)</small></p>
+<p class="gn-s">Bella jumped <b>bravely</b> into the water. <small>(How did she jump?)</small></p>
+<div class="gn-gap"></div>
+<div class="gn-list"><div class="gn-pair"><span>slow</span><i>→</i><b>slowly</b></div><div class="gn-pair"><span>brave</span><i>→</i><b>bravely</b></div><div class="gn-pair"><span>careful</span><i>→</i><b>carefully</b></div><div class="gn-pair"><span>loud</span><i>→</i><b>loudly</b></div></div><div class="gn-list"><div class="gn-pair"><span>happy</span><i>→</i><b>happ<u>ily</u></b></div><div class="gn-pair"><span>easy</span><i>→</i><b>eas<u>ily</u></b></div><div class="gn-pair"><span>terrible</span><i>→</i><b>terrib<u>ly</u></b></div><div class="gn-pair"><span>gentle</span><i>→</i><b>gent<u>ly</u></b></div></div><div class="gn-list"><div class="gn-pair"><span>good</span><i>→</i><b>well</b></div><div class="gn-pair"><span>fast</span><i>→</i><b>fast</b></div><div class="gn-pair"><span>hard</span><i>→</i><b>hard</b></div></div>
+<div class="gn-gap"></div>
+<h5>Position</h5>
+<div class="gn-pos"><span class="gn-tag">after the verb</span><p>Grandad walks <b>slowly</b>.</p></div>
+<div class="gn-pos"><span class="gn-tag t2">after the object</span><p>Grandad closed the gate <b>carefully</b>.</p></div>
+</div></div>
+  </div>
+  <div class="art-slot">
+    <img src="img/grammar-notes-3b.png" alt="" onload="this.parentNode.classList.add('ok')" onerror="this.remove()">
+    <div class="fb"><div class="cl-board gn"><h4>Adverbs of frequency (How often?)</h4>
+<div class="gn-gap"></div>
+<p class="ex">always · usually · often · sometimes · never</p><p class="ex">immer · normalerweise · oft · manchmal · niemals</p>
+<div class="gn-gap"></div>
+<p><b>1</b> after <i>be</i>: Freya is <b>always</b> friendly.</p><p><b>2</b> before a full verb: Grandad <b>usually</b> feeds the sheep.</p><p><b>3</b> after don’t, can, will … and before the full verb: We don’t <b>often</b> go to the cinema. · Ben can <b>always</b> find the sheep.</p></div></div>
+  </div>
 </section>
 <section class="panel" id="cl-move3">
   <button class="back-link" data-goto="cl-l3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>3rd Lesson</button>
